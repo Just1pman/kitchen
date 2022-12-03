@@ -3,6 +3,7 @@ version: '3'
 services:
   nginx:
     image: nginx:latest
+    container_name: ${APP_NAME}-nginx
     ports:
       - ${IP}:80:80
     volumes:
@@ -14,6 +15,7 @@ services:
 
   wp:
     image: wordpress:6.1.1-fpm
+    container_name: ${APP_NAME}-wp
     ports:
       - '9000:9000'
     volumes:
