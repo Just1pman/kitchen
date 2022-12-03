@@ -1,12 +1,22 @@
 version: '3'
 
 services:
-  wp:
-    image: wordpress:6.1.1-php8.0-apache
+  nginx:
+    image: nginx:latest
     ports:
       - ${IP}:80:80
     volumes:
-      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./wp-app:/var/www/html
+    links:
+      - wp
+    restart: always
+
+  wp:
+    image: wordpress:6.1.1-fpm
+    ports:
+      - '9000:9000'
+    volumes:
       - ./wp-app:/var/www/html
     environment:
       WORDPRESS_DB_HOST: ${APP_NAME}-mysql
@@ -16,6 +26,9 @@ services:
       WORDPRESS_DEBUG: ${WP_DEBUG}
       WP_DEBUG_DISPLAY: ${WP_DEBUG_DISPLAY}
       WP_DEBUG_LOG: ${WP_DEBUG_LOG}
+    links:
+      - mysql
+    restart: always
 
   mysql:
     build: ./config/mysql

@@ -1,4 +1,4 @@
-ahoyapi: v1
+ahoyapi: v2
 commands:
   up:
     cmd: "docker-compose up --build -d"
