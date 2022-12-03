@@ -33,7 +33,7 @@ services:
     restart: always
 
   mysql:
-    build: ./config/mysql
+    image: mysql:5.7
     ports:
       - "3306:3306"
     container_name: ${APP_NAME}-mysql
