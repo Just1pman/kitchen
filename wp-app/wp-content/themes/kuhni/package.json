@@ -1,0 +1,26 @@
+{
+  "name": "iproserwis",
+  "version": "1.0.0",
+  "description": "iproserwis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.52.2"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-include": "^2.4.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-watch": "^5.0.1"
+  }
+}

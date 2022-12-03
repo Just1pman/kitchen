@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  wp:
+    image: wordpress:6.1.1-php8.0-apache
+    ports:
+      - ${IP}:80:80
+    volumes:
+      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./wp-app:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: ${APP_NAME}-mysql
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DEBUG: ${WP_DEBUG}
+      WP_DEBUG_DISPLAY: ${WP_DEBUG_DISPLAY}
+      WP_DEBUG_LOG: ${WP_DEBUG_LOG}
+
+  mysql:
+    build: ./config/mysql
+    ports:
+      - "3306:3306"
+    container_name: ${APP_NAME}-mysql
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - "./db:/var/lib/mysql"

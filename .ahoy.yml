@@ -1,0 +1,27 @@
+ahoyapi: v1
+commands:
+  up:
+    cmd: "docker-compose up --build -d"
+    usage: Create and run docker services.
+
+  down:
+    cmd: "docker-compose down $@"
+    usage: Stop the docker-compose containers.
+
+  start:
+    cmd: docker-compose start "$@"
+    usage: Start the docker-compose containers.
+
+  stop:
+    cmd: docker-compose stop "$@"
+    usage: Stop the docker-compose containers.
+
+  restart:
+    cmd: docker-compose restart "$@"
+    usage: Restart the docker-compose containers.
+
+  db:backup:
+    cmd: |
+      d=$(date +%d-%m-%Y)
+      source .env
+      docker-compose exec -T mysql mysqldump --defaults-extra-file=/etc/mysql/conf.d/my.cnf --no-tablespaces $DB_NAME >  ./backup/"$d".sql 
