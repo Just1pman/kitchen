@@ -56,6 +56,7 @@ $logo = get_field('logo', 'option');
                 <div class="aboutus__right-block">
                     <img
                             class="aboutus__photo"
+                            loading="lazy"
                             src="<?= $photo['url'] ?>"
                             alt="Рабочий"
                     >
