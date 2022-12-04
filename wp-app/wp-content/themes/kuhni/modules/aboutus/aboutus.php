@@ -9,9 +9,8 @@ $description = get_field('description');
 $photo = get_field('photo');
 $link = get_field('link');
 $facts = get_field('records');
+$logo = get_field('logo', 'option');
 
-//var_dump($link);
-//die();
 ?>
 
 
@@ -20,6 +19,13 @@ $facts = get_field('records');
         <div class="container">
             <div class="aboutus__wrapper">
                 <div class="aboutus__left-block">
+                    <div class="aboutus__logo-wrapper">
+                        <img
+                            class="aboutus__logo"
+                            src="<?= $logo['url'] ?? '' ?>"
+                            alt="<?= $logo['alt'] ?? '' ?>"
+                        >
+                    </div>
                     <div class="aboutus__description">
                         <?= $description ?? '' ?>
                     </div>

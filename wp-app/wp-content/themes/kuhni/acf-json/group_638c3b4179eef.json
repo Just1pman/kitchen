@@ -77,7 +77,7 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Добавить",
             "sub_fields": [
                 {
                     "key": "field_638c3c3d821b7",
@@ -96,7 +96,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_638c3c0c821b6"
                 },
                 {
                     "key": "field_638c3c4e821b8",
@@ -115,9 +116,11 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_638c3c0c821b6"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -137,5 +140,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1670143535
+    "show_in_rest": 0,
+    "modified": 1670144052
 }

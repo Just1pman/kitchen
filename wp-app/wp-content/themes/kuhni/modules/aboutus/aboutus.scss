@@ -5,12 +5,19 @@
     column-gap: 100px;
   }
 
-  &__left-block {
+  &__logo {
+    width: 275px;
+    margin-bottom: 17px;
+  }
 
+  &__left-block {
+    padding-left: 82px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   &__photo {
-    width: 704px;
+    width: 612px;
     height: auto;
   }
 
@@ -19,6 +26,10 @@
     margin-bottom: 25px;
 
     font-family: $font;
+
+    p:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 
   &__button {
@@ -36,22 +47,44 @@
   display: flex;
 
   &__item {
-    display: block;
-    box-sizing: border-box;
     position: relative;
 
-    &::after {
+    &::before {
       content: '';
-      width: 10px;
-      height: 10px;
+      width: 19px;
+      height: 19px;
       background-color: red;
+      border-radius: 100%;
 
       position: absolute;
+      top: 8px;
+      left: -4px;
+    }
+
+    &:not(:last-child):after {
+      content: '';
+      width: 1px;
+      height: 100%;
+      display: block;
+      background-color: $c-dark-gray;
+      position: absolute;
+
+      top: 0;
+      right: 0;
     }
   }
 
+  &__item:not(:last-child) {
+    margin-right: 30px;
+    padding-right: 30px;
+  }
+
+
   &__title {
     display: block;
+    position: relative;
+    z-index: 2;
+
     font-family: $font;
     font-size: 47px;
     font-weight: 700;
@@ -61,7 +94,6 @@
 
   &__subtitle {
     display: block;
-    padding-right: 38px;
 
     font-family: $font;
     font-size: 13px;
