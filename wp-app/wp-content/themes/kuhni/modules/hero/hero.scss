@@ -1,0 +1,40 @@
+.hero {
+  .swiper-hero {
+    overflow: hidden;
+    position: relative;
+    border-radius: 9px;
+
+    .hero-arrow {
+      position: absolute;
+      bottom: 41px;
+      right: 232px;
+      z-index: 1;
+    }
+  }
+
+  .swiper-slide {
+    height: 720px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .swiper-pagination {
+    bottom: 30px;
+
+    &-bullet {
+      background: $c-white;
+      width: 7px;
+      height: 7px;
+    }
+
+    &-bullet-active {
+      background: $c-red;
+      width: 11px;
+      height: 11px;
+    }
+  }
+}

@@ -1,3 +1,6 @@
+/* libs */
+@import "libs/swiper";
+
 /* GLOBAL */
 @import "global/fonts";
 @import "global/variables";
@@ -11,5 +14,5 @@
 @import "partials/404";
 
 /* MODULES */
-@import "modules/banner/banner";
 @import "modules/aboutus/aboutus";
+@import "modules/hero/hero";
