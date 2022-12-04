@@ -12,7 +12,7 @@ $test = get_field('test');
 <?php if (!is_admin()) : ?>
     <section class="banner">
         <div class="container">
-            test
+<!--            test-->
         </div>
     </section>
 <?php else: ?>

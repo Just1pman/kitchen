@@ -1,48 +1,9 @@
-//@import "assets/style/variables";
-
-html {
-    &.js-active-menu {
-        overflow: hidden;
-    }
-}
-
-.btn {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    background-color: $c-blue;
-    padding: 16px 45px;
-    color: $c-white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    border-radius: 13px;
-    margin: 0 auto;
-    transition: $transition;
-    z-index: 1;
-
-    &:hover {
-        background-color: $c-blue-hover;
-    }
-}
-
-.container-xl {
-    max-width: 1800px;
+.container {
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
     width: 100%;
-
-    @include _992 {
-        padding: 0 20px;
-    }
-}
-
-.container-s {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    width: 100%;
+    box-sizing: content-box;
 
     @include _992 {
         padding: 0 20px;
@@ -51,4 +12,19 @@ html {
 
 .main {
     min-height: 100vh;
+    font-weight: 400;
+    font-size: 16px;
+
+    background-color: $c-light-gray;
+}
+
+.button {
+    display: inline-block;
+    background-color: $c-red;
+
+    font-weight: 700;
+    line-height: 17px;
+    text-align: center;
+    color: $c-white;
+    text-transform: uppercase;
 }
