@@ -20,7 +20,7 @@ $gallery = get_field('gallery');
                             ?>
                             <div class="swiper-slide">
                                 <picture>
-                                    <img src="<?= $image['url'] ?>" alt="<?= $image['title'] ?>">
+                                    <img loading="lazy" src="<?= $image['url'] ?>" alt="<?= $image['title'] ?>">
                                 </picture>
                             </div>
                         <?php endforeach; ?>

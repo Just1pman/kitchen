@@ -23,6 +23,14 @@
     font-size: 16px;
 
     background-color: $c-light-gray;
+
+    section {
+        padding: 50px 0;
+
+        &:last-child {
+            padding: 50px 0 100px 0;
+        }
+    }
 }
 
 .button {
@@ -34,4 +42,6 @@
     text-align: center;
     color: $c-white;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
+    height: max-content;
 }

@@ -120,6 +120,8 @@ function my_acf_block_render_callback($block)
     }
 }
 
-
 include 'hooks_filters/postTypes_taxonomies.php';
 include 'hooks_filters/webp_upload.php';
+require_once 'ajax/Ajax.php';
+$ajax = new Ajax();
+$ajax->register();

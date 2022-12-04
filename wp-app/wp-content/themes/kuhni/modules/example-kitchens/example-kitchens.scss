@@ -1,0 +1,147 @@
+.example-kitchens {
+  .example-wrapper-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    .top-left {
+      margin-top: 38px;
+    }
+
+    .top-right {
+      display: flex;
+
+      button {
+        margin-left: 17px;
+        font-size: 14px;
+        border-radius: 110px;
+        padding: 19.5px 73.5px;
+      }
+
+      .button {
+        color: $c-gray;
+        background: $c-white;
+        border: 1px solid #EFEFEF;
+      }
+
+      .button-active {
+        color: $c-white;
+        background: $c-red;
+      }
+    }
+  }
+
+  .example-wrapper-bottom {
+    position: relative;
+
+    .example-kitchens-results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(1, 547px);
+      column-gap: 28px;
+
+      .kitchen-link {
+        display: flex;
+        flex-direction: column;
+        background: $c-white;
+        border: 1px solid #EFEFEF;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .kitchen-top {
+    display: inline-block;
+    height: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .kitchen-bottom {
+    height: 50%;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+
+    hr {
+      border: 1px solid #F1F2F4;
+      margin: 15px 0;
+    }
+
+    .kitchen-bottom-category {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: $c-other-gray;
+    }
+
+    .kitchen-bottom-title {
+      color: $c-dark-black;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    .kitchen-bottom-attr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      &-name {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        color: $c-other-gray;
+      }
+
+      &-value {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        color: $c-dark-black;
+      }
+    }
+
+    .kitchen-bottom-price {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 33px;
+        color: $c-dark-black;
+      }
+
+      button {
+        padding: 13.5px 21.5px;
+        background: $c-dark-gray;
+        color: $c-dark-black;
+        border-radius: 82px;
+      }
+    }
+  }
+
+  .kitchen-card {
+    display: inherit;
+
+    :hover {
+      .kitchen-bottom-price {
+        p {
+          color: $c-red;
+        }
+
+        button {
+          background: $c-red;
+          color: $c-white;
+        }
+      }
+    }
+  }
+}
