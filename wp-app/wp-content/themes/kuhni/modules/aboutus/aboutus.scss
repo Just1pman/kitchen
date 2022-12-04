@@ -48,13 +48,10 @@
     position: relative;
 
     &::before {
-      content: '';
+      @include dot;
       width: 19px;
       height: 19px;
-      background-color: red;
-      border-radius: 100%;
 
-      position: absolute;
       top: 8px;
       left: -4px;
     }

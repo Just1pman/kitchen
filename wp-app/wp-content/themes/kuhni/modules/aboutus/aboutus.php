@@ -31,7 +31,7 @@ $logo = get_field('logo', 'option');
                     </div>
 
                     <a
-                        class="aboutus__button button"
+                        class="aboutus__button button button--red"
                         href="<?= $link['url'] ?? '' ?>"
                         <?php if ($link['target']) : ?> target="_blank" <?php endif; ?>
                     >
