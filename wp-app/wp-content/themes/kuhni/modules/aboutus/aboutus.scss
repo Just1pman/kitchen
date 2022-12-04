@@ -25,8 +25,6 @@
     width: 558px;
     margin-bottom: 25px;
 
-    font-family: $font;
-
     p:not(:last-child) {
       margin-bottom: 20px;
     }
@@ -85,7 +83,6 @@
     position: relative;
     z-index: 2;
 
-    font-family: $font;
     font-size: 47px;
     font-weight: 700;
     color: $c-black;
@@ -95,7 +92,6 @@
   &__subtitle {
     display: block;
 
-    font-family: $font;
     font-size: 13px;
     line-height: 19px;
     color: $c-gray;
