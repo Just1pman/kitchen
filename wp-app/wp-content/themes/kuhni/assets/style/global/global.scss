@@ -1,3 +1,29 @@
+@mixin dot {
+    content: '';
+    background-color: $c-red;
+    border-radius: 100%;
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+    top: 0;
+    left: 0;
+}
+
+@mixin button {
+    display: inline-block;
+
+    font-weight: 700;
+    line-height: 17px;
+    text-align: center;
+    color: $c-white;
+    text-transform: uppercase;
+}
+
+html, body {
+    position: relative;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -34,14 +60,50 @@
 }
 
 .button {
-    display: inline-block;
-    background-color: $c-red;
+    @include button;
+}
 
-    font-weight: 700;
-    line-height: 17px;
-    text-align: center;
-    color: $c-white;
-    text-transform: uppercase;
+.button--red {
+    background-color: $c-red;
+}
+
+.section-title {
+    font-size: 50px;
+    font-weight: 200;
+    line-height: 45px;
+    color: $c-black;
+    position: relative;
+
+    &::before {
+        @include dot;
+
+        left: -15px;
+        top: 12px;
+    }
+
+    &::after {
+        @include dot;
+
+        left: -15px;
+        top: 27px;
+    }
     letter-spacing: 0.02em;
     height: max-content;
+}
+
+.swiper-pagination {
+    bottom: 30px;
+
+    &-bullet {
+        background: $c-dark-gray;
+        width: 7px;
+        height: 7px;
+        opacity: unset;
+    }
+
+    &-bullet-active {
+        background: $c-red;
+        width: 11px;
+        height: 11px;
+    }
 }

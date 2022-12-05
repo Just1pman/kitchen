@@ -7,4 +7,5 @@
 
 /**** MODULES ****/
 //=include ../../modules/hero/hero.js
+//=include ../../modules/reviews/reviews.js
 //=include ../../modules/example-kitchens/example-kitchens.js

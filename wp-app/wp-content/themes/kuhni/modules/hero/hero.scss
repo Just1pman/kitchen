@@ -25,18 +25,9 @@
   }
 
   .swiper-pagination {
-    bottom: 30px;
 
     &-bullet {
       background: $c-white;
-      width: 7px;
-      height: 7px;
-    }
-
-    &-bullet-active {
-      background: $c-red;
-      width: 11px;
-      height: 11px;
     }
   }
 }
