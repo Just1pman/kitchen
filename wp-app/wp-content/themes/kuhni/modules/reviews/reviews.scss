@@ -69,6 +69,7 @@
   &__card {
     display: block;
     flex-direction: column;
+    max-width: 329px;
 
     background-color: $c-white;
     box-shadow: -36.331px 36.331px 72.662px -7.2662px rgba(145, 158, 171, 0.24);

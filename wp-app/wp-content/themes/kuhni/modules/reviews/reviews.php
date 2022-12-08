@@ -72,10 +72,10 @@ $data = [
                     <?php endif; ?>
 
                     <div class="reviews__buttons">
-                        <button class="button reviews__button">
+                        <button class="button reviews__button" data-type="video">
                             Видеоотзывы
                         </button>
-                        <button class="button button--red reviews__button active">
+                        <button class="button button--red reviews__button active" data-type="image">
                             Отзывы
                         </button>
                     </div>

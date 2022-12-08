@@ -55,6 +55,16 @@ function custom_register_post_types()
             "supports" => ['title', 'editor', 'thumbnail'],
             "has_archive" => false,
         ],
+        [
+            "post_type_name" => "reviews",
+            "name" => "Отзывы",
+            "name_plural" => "Отзывы",
+            "name_lowercase" => "Отзывы",
+            "name_lowercase_plural" => "Отзывы",
+            'menu_icon' => 'dashicons-format-aside',
+            "supports" => ['title', 'editor', 'thumbnail'],
+            "has_archive" => false,
+        ],
     ];
 
     foreach ($post_types as $post_type) {

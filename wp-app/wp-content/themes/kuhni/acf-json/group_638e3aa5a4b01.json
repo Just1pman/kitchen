@@ -1,29 +1,92 @@
 {
-    "key": "group_638c98a19d283",
-    "title": "Отзывы модуль",
+    "key": "group_638e3aa5a4b01",
+    "title": "Доп. атрибуты отзывов",
     "fields": [
         {
-            "key": "field_638c98a156e1c",
-            "label": "Заголовок",
-            "name": "title",
-            "type": "text",
+            "key": "field_638e3b8daf67c",
+            "label": "Тип отзыва",
+            "name": "is_video",
+            "type": "checkbox",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "choices": {
+                "Видео: да": "Видео: да"
+            },
+            "default_value": [
+                "true"
+            ],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0
         },
         {
-            "key": "field_638f92ac8d0c3",
-            "label": "Текст",
+            "key": "field_638e3ae74f844",
+            "label": "Фото",
+            "name": "photo",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_638e3b8daf67c",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_638e3b0e4f845",
+            "label": "Видео",
+            "name": "video",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_638e3b8daf67c",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_638e3ac54f843",
+            "label": "Текст отзыва",
             "name": "text",
             "type": "wysiwyg",
             "instructions": "",
@@ -41,10 +104,10 @@
             "media_upload": 1
         },
         {
-            "key": "field_638f92c28d0c4",
-            "label": "Тип отзыва",
-            "name": "is_video",
-            "type": "select",
+            "key": "field_638f9245011eb",
+            "label": "Автор",
+            "name": "author",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -53,81 +116,19 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Видео: Да": "Видео: Да"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_638f92ec8d0c5",
-            "label": "Фото",
-            "name": "photo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_638f92c28d0c4",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_638f930b8d0c6",
-            "label": "Видео",
-            "name": "video",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_638f92c28d0c4",
-                        "operator": "!=empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/reviews"
+                "value": "reviews"
             }
         ]
     ],
@@ -140,5 +141,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670353785
+    "modified": 1670353482
 }
