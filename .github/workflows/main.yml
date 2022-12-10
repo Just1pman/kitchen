@@ -22,7 +22,7 @@ jobs:
           cd ./wp-app/wp-content/themes/kuhni
           gulp build
 
-      - name: 📤 Save as artefacts
+      - name: 📤 Upload artefacts
         uses: actions/upload-artifact@master
         with:
           name: dist
