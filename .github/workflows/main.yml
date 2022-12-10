@@ -17,6 +17,10 @@ jobs:
           cd ./wp-app/wp-content/themes/kuhni
           npm i
 
+      - name: 🚚 Run gulp prod command
+        run: |
+          gulp build
+
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
