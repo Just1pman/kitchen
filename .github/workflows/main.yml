@@ -12,17 +12,17 @@ jobs:
         with:
           node-version: 16
 
-      - name: 🚚 Install dependencies
+      - name: ❤️Install dependencies
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           npm i
 
-      - name: 🚚 Run gulp prod command
+      - name: 🔄 Run gulp prod command
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           gulp build
 
-      - name: 🚚 Save as artefacts
+      - name: 📤 Save as artefacts
         uses: actions/upload-artifact@master
         with:
           name: dist
@@ -36,7 +36,7 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@master
+      - uses: 📩 actions/download-artifact@master
         with:
           name: dist
           path: ./wp-app/wp-content/themes/kuhni/dist
