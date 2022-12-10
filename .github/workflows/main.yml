@@ -21,6 +21,7 @@ jobs:
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           gulp build
+          ls ./dist
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
