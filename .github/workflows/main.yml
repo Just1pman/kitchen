@@ -12,6 +12,10 @@ jobs:
         with:
           node-version: 16
 
+      - name: 🚚 Install dependencies
+        run: |
+          - npm i
+
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
