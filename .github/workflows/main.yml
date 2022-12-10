@@ -24,13 +24,12 @@ jobs:
         run: |
           cd "$THEME_PATH"
           gulp build
-          ls
 
       - name: 🚚 Save as artefacts
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: "$BUILD_PATH"
+          path: ./wp-app/wp-content/themes/kuhni/dist
 
   deploy:
     name: 🎉 Deploy
