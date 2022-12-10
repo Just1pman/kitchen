@@ -1,7 +1,7 @@
+name: 🚀 Deploy website
 on:
   push:
     branches: [ "main" ]
-name: 🚀 Deploy website on push
 jobs:
   build:
     name: Build
@@ -11,6 +11,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 🚚 Run build command
+      - run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: path/to/artifact
 
   deploy:
     name: 🎉 Deploy
