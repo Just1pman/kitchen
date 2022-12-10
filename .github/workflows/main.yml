@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
 env:
-  THEMEPATH: './wp-app/wp-content/themes/kuhni'
+  THEME_PATH: './wp-app/wp-content/themes/kuhni'
   BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist/'
 jobs:
   build:
@@ -17,12 +17,12 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
-          cd "$THEMEPATH"
+          cd "$THEME_PATH"
           npm i
 
       - name: 🚚 Run gulp prod command
         run: |
-          cd "$THEMEPATH"
+          cd "$THEME_PATH"
           gulp build
           ls
 
@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: $BUILD_PATH
+          path: "$BUILD_PATH"
 
   deploy:
     name: 🎉 Deploy
