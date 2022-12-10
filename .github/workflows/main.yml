@@ -4,6 +4,7 @@ on:
     branches: [ "main" ]
 env:
   THEME_PATH: './wp-app/wp-content/themes/kuhni'
+  BUILD_PATH: '/dist'
 jobs:
   build:
     name: 👷 Build
@@ -21,7 +22,7 @@ jobs:
 
       - name: 🚚 Run gulp prod command
         run: |
-          cd ./wp-app/wp-content/themes/kuhni
+          cd $THEME_PATH
           gulp build
           ls
 
@@ -29,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni/dist/
+          path: "$THEME_PATH$BUILD_PATH"
 
   deploy:
     name: 🎉 Deploy
@@ -42,9 +43,9 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni/dist
+          path: "$THEME_PATH$BUILD_PATH"
 
-      - run: ls ./wp-app/wp-content/themes/kuhni/dist
+      - run: ls "$THEME_PATH$BUILD_PATH"
 #      - name: 📂 Sync files
 #        uses: SamKirkland/FTP-Deploy-Action@4.3.3
 #        with:
