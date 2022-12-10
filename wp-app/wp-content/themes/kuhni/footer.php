@@ -141,20 +141,20 @@ $workingMode = get_field('workingMode', 'option');
 
                 </div>
                 <ul class="footer__socials-list">
-                    <?php foreach ($socials as $social) : ?>
-
-                        <?php if (!empty($social['logo']) && !empty($social['link'])) :?>
-                            <li class="footer__socials-item">
-                                <a href="<?= $social['link'] ?>">
-                                    <img
-                                        src="<?= $social['logo']['url'] ?>"
-                                        alt="<?= $social['logo']['alt'] ?? '' ?>"
-                                    >
-                                </a>
-                            </li>
-                        <?php endif; ?>
-
-                    <?php endforeach; ?>
+                    <?php if (!empty($socials)) : ?>
+                        <?php foreach ($socials as $social) : ?>
+                            <?php if (!empty($social['logo']) && !empty($social['link'])) : ?>
+                                <li class="footer__socials-item">
+                                    <a href="<?= $social['link'] ?>">
+                                        <img
+                                                src="<?= $social['logo']['url'] ?>"
+                                                alt="<?= $social['logo']['alt'] ?? '' ?>"
+                                        >
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="footer-additional">
