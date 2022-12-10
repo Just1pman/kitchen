@@ -14,6 +14,7 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
+          cd ./wp-app/wp-content/themes/kuhni
           npm i
 
       - name: 🚚 Get latest code
