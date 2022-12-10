@@ -17,12 +17,12 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
-          cd $THEME_PATH
+          cd "$THEME_PATH"
           npm i
 
       - name: 🚚 Run gulp prod command
         run: |
-          cd $THEME_PATH
+          cd "$THEME_PATH"
           gulp build
           ls
 
