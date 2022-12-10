@@ -4,7 +4,7 @@ on:
     branches: [ "main" ]
 env:
   THEME_PATH: './wp-app/wp-content/themes/kuhni'
-  BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist'
+  BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist/'
 jobs:
   build:
     name: 👷 Build
