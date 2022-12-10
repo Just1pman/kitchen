@@ -16,12 +16,12 @@ jobs:
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           npm i
-          ls
 
       - name: 🚚 Run gulp prod command
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           gulp build
+          ls
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
