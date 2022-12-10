@@ -2,6 +2,8 @@ name: 🚀 Deploy website
 on:
   push:
     branches: [ "main" ]
+env:
+  THEME_PATH: './wp-app/wp-content/themes/kuhni'
 jobs:
   build:
     name: 👷 Build
@@ -14,7 +16,7 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
-          cd ./wp-app/wp-content/themes/kuhni
+          cd $THEME_PATH
           npm i
 
       - name: 🚚 Run gulp prod command
