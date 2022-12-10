@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
 env:
-  THEME_PATH: './wp-app/wp-content/themes/kuhni'
+  THEMEPATH: './wp-app/wp-content/themes/kuhni'
   BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist/'
 jobs:
   build:
@@ -17,12 +17,12 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
-          cd "$THEME_PATH"
+          cd "$THEMEPATH"
           npm i
 
       - name: 🚚 Run gulp prod command
         run: |
-          cd "$THEME_PATH"
+          cd "$THEMEPATH"
           gulp build
           ls
 
