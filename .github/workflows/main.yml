@@ -4,7 +4,7 @@ on:
     branches: [ "main" ]
 env:
   THEME_PATH: './wp-app/wp-content/themes/kuhni'
-  BUILD_PATH: '/dist'
+  BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist'
 jobs:
   build:
     name: 👷 Build
@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: $THEME_PATH$BUILD_PATH
+          path: $BUILD_PATH
 
   deploy:
     name: 🎉 Deploy
@@ -43,9 +43,9 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: dist
-          path: $THEME_PATH$BUILD_PATH
+          path: $BUILD_PATH
 
-      - run: ls $THEME_PATH$BUILD_PATH
+      - run: ls $BUILD_PATH
 #      - name: 📂 Sync files
 #        uses: SamKirkland/FTP-Deploy-Action@4.3.3
 #        with:
