@@ -19,6 +19,7 @@ jobs:
 
       - name: 🚚 Run gulp prod command
         run: |
+          cd ./wp-app/wp-content/themes/kuhni
           gulp build
 
       - name: 🚚 Get latest code
