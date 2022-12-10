@@ -35,7 +35,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni/test.txt
+          path: ./wp-app/wp-content/themes/kuhni
 
       - run: cat ./wp-app/wp-content/themes/kuhni/test.txt
 #      - name: 📂 Sync files
