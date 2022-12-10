@@ -39,9 +39,45 @@ function ajax()
         return resp
       })
       .then(() => {
+        initSlider()
         stopLoader()
       })
   })
 }
 
-ajax();
+function initSlider() {
+  new Swiper(".swiper-kitchen", {
+
+    breakpoints: {
+      769: {
+        watchOverflow: true,
+        slidesPerView: 2,
+        spaceBetween: 28,
+        slidesPerGroup: 2,
+        loopFillGroupWithBlank: true,
+        slidesPerColumn: 2,
+        slidesPerColumnFill: 'row',
+        autoHeight: true,
+      },
+
+      1281: {
+        watchOverflow: true,
+        slidesPerView: 4,
+        spaceBetween: 28,
+        slidesPerGroup: 4,
+        loopFillGroupWithBlank: true,
+      },
+    },
+
+
+    slidesPerView: 1,
+
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+  });
+}
+initSlider();

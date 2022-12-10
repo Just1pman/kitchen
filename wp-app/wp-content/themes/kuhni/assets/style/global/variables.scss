@@ -1,5 +1,6 @@
 $c-dark-black: #000000;
 $c-black: #231F20;
+$c-black1: #1C1A17;
 $c-gray: #90929F;
 $c-light-gray: #F9F9F9;
 $c-dark-gray: #E3E3E3;
@@ -11,6 +12,12 @@ $c-red: #ED1C24;
 $font: 'Manrope', sans-serif;
 
 $transition: all .3s ease-in-out;
+
+@mixin _1440 {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
 
 @mixin _1280 {
     @media (max-width: 1280px) {
@@ -33,6 +40,12 @@ $transition: all .3s ease-in-out;
 
 @mixin _480 {
     @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin _375 {
+    @media (max-width: 375px) {
         @content;
     }
 }

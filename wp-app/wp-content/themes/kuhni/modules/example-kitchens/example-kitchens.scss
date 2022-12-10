@@ -1,21 +1,70 @@
 .example-kitchens {
+
+  .swiper-kitchen {
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    height: 100% !important;
+  }
+
   .example-wrapper-top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
 
+    @include _768 {
+      flex-direction: column;
+    }
+
     .top-left {
       margin-top: 38px;
+
+      @include _992 {
+        margin-top: 0;
+      }
+
+      @include _768 {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 35px;
+      }
     }
 
     .top-right {
-      display: flex;
+      display: grid;
+      height: max-content;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+      margin-left: 24px;
+
+      @include _1280 {
+        grid-template-columns: repeat(1, 1fr);
+
+      }
+
+      @include _768 {
+        display: flex;
+        gap: 0;
+        justify-content: space-between;
+        margin-left: 0;
+      }
+
+      @include _375 {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(1, 1fr);
+      }
 
       button {
-        margin-left: 17px;
         font-size: 14px;
         border-radius: 110px;
         padding: 19.5px 73.5px;
+
+        @include _768 {
+          padding: 12px 24px;
+          font-size: 12px;
+        }
       }
 
       .button {
@@ -35,18 +84,97 @@
     position: relative;
 
     .example-kitchens-results {
-      display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(1, 547px);
       column-gap: 28px;
 
       .kitchen-link {
+        height: 100%;
         display: flex;
         flex-direction: column;
         background: $c-white;
         border: 1px solid #EFEFEF;
         border-radius: 6px;
         overflow: hidden;
+        width: 100%;
+
+        @include _768 {
+          margin: 0 15px;
+        }
+      }
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      background: $c-red;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      z-index: 5;
+
+      &::after {
+        content: '';
+      }
+    }
+
+    .swiper-button-prev {
+      top: 190px;
+      left: -3px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .swiper-button-next {
+      top: 190px;
+      right: -3px;
+    }
+
+    .swiper-button-disabled {
+      opacity: 1;
+      background: $c-dark-gray;
+
+      svg path {
+        fill: $c-other-gray;
+      }
+    }
+  }
+
+  .example-kitchens-link {
+    display: flex;
+    width: max-content;
+    justify-content: center;
+    margin: 57px auto 0;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $c-other-gray;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 89.52%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $c-other-gray;
+    position: relative;
+
+    @include _768 {
+      margin-top: 36px;
+    }
+
+    .circle {
+      position: absolute;
+      top: -6px;
+      right: -22px;
+
+      circle {
+        fill: $c-other-gray;
+      }
+    }
+
+    &:hover {
+      color: $c-red;
+      border-bottom: 1px solid $c-red;
+
+      .circle circle {
+        fill: $c-red;
       }
     }
   }
@@ -60,13 +188,22 @@
       height: 100%;
       object-fit: cover;
     }
+
+    @include _768 {
+      height: 186px;
+    }
   }
 
   .kitchen-bottom {
     height: 50%;
-    padding: 32px 28px;
+    padding: 32px 16px;
     display: flex;
     flex-direction: column;
+
+    @include _768 {
+      padding: 25px;
+      height: 100%;
+    }
 
     hr {
       border: 1px solid #F1F2F4;
@@ -108,9 +245,11 @@
 
     .kitchen-bottom-price {
       margin-top: auto;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       align-items: center;
+      gap: 8px;
+      padding-top: 8px;
 
       p {
         font-weight: 700;
@@ -124,12 +263,14 @@
         background: $c-dark-gray;
         color: $c-dark-black;
         border-radius: 82px;
+        font-size: 12px;
       }
     }
   }
 
   .kitchen-card {
     display: inherit;
+    height: auto;
 
     :hover {
       .kitchen-bottom-price {

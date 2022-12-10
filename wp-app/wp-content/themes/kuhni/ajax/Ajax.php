@@ -18,8 +18,16 @@ class Ajax
         add_action('wp_ajax_nopriv_reviews', [$this, 'reviews']);
     }
 
-    function example_kitchens() {
+    public function example_kitchens() {
+
         $format = $_POST['format'];
+        $kitchens = $this->get_example_kitchens($format);
+
+        include $this->ajax_blocks_path . 'example-kitchens-ajax.php';
+        wp_die();
+    }
+
+    public function get_example_kitchens($format) {
         $args = [];
         $defaultArgs = [
             'post_type' => 'kitchens',
@@ -41,13 +49,10 @@ class Ajax
             ];
         }
 
-        $kitchens = get_posts(array_merge($defaultArgs, $args));
-
-        include $this->ajax_blocks_path . 'example-kitchens-ajax.php';
-        wp_die();
+        return get_posts(array_merge($defaultArgs, $args));
     }
 
-    function reviews() {
+    public function reviews() {
         [ 'type' => $type ] = $_POST;
         $args = [];
         $defaultArgs = [

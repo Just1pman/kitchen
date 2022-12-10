@@ -6,7 +6,9 @@ Mode: preview
 */
 
 $headline = get_field('headline');
-$link = get_field('link');
+$button = get_field('link');
+$ajax = new Ajax();
+$kitchens = $ajax->get_example_kitchens('new');
 ?>
 
 <?php if (!is_admin()) : ?>
@@ -21,12 +23,24 @@ $link = get_field('link');
                 </div>
             </div>
             <div class="example-wrapper-bottom">
-                <div class="example-kitchens-results"></div>
-                <div class="loader-container">
+                <div class="example-kitchens-results">
+                    <?php include get_template_directory() . '/ajax-blocks/' . 'example-kitchens-ajax.php' ?>
+                </div>
+                <div class="loader-container" style="display: none">
                     <div class="loader"></div>
                     <div class="loader-bg"></div>
                 </div>
             </div>
+            <?php if (!empty($button['url'])) : ?>
+                <a href="<?= $button['url'] ?>" class="example-kitchens-link"
+                    <?php if ($button['target']) : ?> target="_blank" <?php endif; ?>
+                >
+                    <?= $button['title'] ?? '' ?>
+                    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <circle cx="5" cy="5" r="5" fill="#ED1C24"/>
+                    </svg>
+                </a>
+            <?php endif; ?>
         </div>
     </section>
 <?php else: ?>
