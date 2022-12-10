@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni
+          path: ./wp-app/wp-content/themes/kuhni/
 
   deploy:
     name: 🎉 Deploy
