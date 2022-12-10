@@ -16,6 +16,7 @@ jobs:
         run: |
           cd ./wp-app/wp-content/themes/kuhni
           npm i
+          ls
 
       - name: 🚚 Run gulp prod command
         run: |
@@ -25,14 +26,11 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
-      - name: 🚚 Run build command
-        run: echo hello > ./wp-app/wp-content/themes/kuhni/test.txt
-
       - name: 🚚 Save as artefacts
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni/
+          path: ./wp-app/wp-content/themes/kuhni/dist/
 
   deploy:
     name: 🎉 Deploy
