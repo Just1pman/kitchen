@@ -19,7 +19,7 @@ jobs:
       - run: echo hello > path/to/artifact/world.txt
 
       - name: 🚚 Save as artefacts
-      - uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@master
         with:
           name: dist
           path: path/to/artifact
