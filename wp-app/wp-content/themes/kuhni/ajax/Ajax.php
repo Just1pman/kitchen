@@ -35,17 +35,26 @@ class Ajax
             'post_status' => 'publish',
         ];
 
-        if ($format === 'new' || $format === 'popular') {
+        if ($format === 'new') {
             $args = [
                 'orderby' => 'publish_date',
                 'order' => 'DESC',
             ];
         }
 
+        if ($format === 'popular') {
+            $args = [
+                'meta_key'       => 'popular',
+                'meta_value'     => '1',
+                'compare'   => '=',
+            ];
+        }
+
         if ($format === 'discount') {
             $args = [
-                'meta_key' => 'discount_percentage',
-                'order' => 'DESC',
+                'meta_key'       => 'discount',
+                'meta_value'     => '1',
+                'compare'   => '=',
             ];
         }
 

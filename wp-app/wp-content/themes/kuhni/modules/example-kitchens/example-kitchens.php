@@ -7,6 +7,7 @@ Mode: preview
 
 $headline = get_field('headline');
 $button = get_field('link');
+$filter_on = get_field('filter_on');
 $ajax = new Ajax();
 $kitchens = $ajax->get_example_kitchens('new');
 ?>
@@ -16,11 +17,13 @@ $kitchens = $ajax->get_example_kitchens('new');
         <div class="container">
             <div class="example-wrapper-top">
                 <h2 class="top-left"> <?= $headline ?? '' ?> </h2>
-                <div class="top-right">
-                    <button class="button button-active" data-format="new">Новинки</button>
-                    <button class="button" data-format="popular">поплярные</button>
-                    <button class="button" data-format="discount">скидки</button>
-                </div>
+                <?php if ($filter_on) : ?>
+                    <div class="top-right">
+                        <button class="button button-active" data-format="new">Новинки</button>
+                        <button class="button" data-format="popular">поплярные</button>
+                        <button class="button" data-format="discount">скидки</button>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="example-wrapper-bottom">
                 <div class="example-kitchens-results">
@@ -36,7 +39,8 @@ $kitchens = $ajax->get_example_kitchens('new');
                     <?php if ($button['target']) : ?> target="_blank" <?php endif; ?>
                 >
                     <?= $button['title'] ?? '' ?>
-                    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                         fill="none">
                         <circle cx="5" cy="5" r="5" fill="#ED1C24"/>
                     </svg>
                 </a>
