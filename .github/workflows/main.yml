@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🚚 Run build command
-        run: echo hello > path/to/artifact/world.txt
+        run: echo hello > ./wp-app/wp-content/themes/kuhni/test.txt
 
       - name: 🚚 Save as artefacts
         uses: actions/upload-artifact@master
