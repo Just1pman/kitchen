@@ -1,23 +1,27 @@
-let slider = null;
-
-function clearAllSlides() {
-
-    slider.removeSlide(1);
-
-    slider.update()
-}
-
-function initSlider () {
-  slider = new Swiper(".swiper-reviews", {
+function initReviewSlider () {
+  new Swiper(".swiper-reviews", {
     slidesPerView: 'auto',
-    // slidesPerColumn: 1,
-    // slidesPerGroup: 1,
+
+    slidesPerColumn: 1,
+    slidesPerGroup: 1,
     spaceBetween: 28,
-    // slidesPerColumnFill: 'row',
+    slidesPerColumnFill: 'row',
     observer: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+
+    navigation: {
+      nextEl: ".reviews__button-next",
+      prevEl: ".reviews__button-prev",
+    },
+    breakpoints: {
+      480: {
+        slidesPerView: 'auto',
+      },
+      768: {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      },
     },
   });
 }
@@ -32,6 +36,8 @@ class ReviewsControl {
     this.controlBtns.forEach(button => {
       button.addEventListener('click', this.getReviews);
     })
+
+    initReviewSlider();
   }
 
   getReviews(e) {
@@ -54,23 +60,15 @@ class ReviewsControl {
       response.text()
           .then((resp) => {
             if (this.container !== null) {
-              slider.addSlide(1, [
-                '<div class="swiper-slide">Slide 10"</div>',
-                // '<div class="swiper-slide">Slide 11"</div>'
-              ])
               this.container.innerHTML = resp;
             }
-            return resp
           })
           .then(() => {
-            // clearAllSlides();
-            // initSlider()
+            initReviewSlider()
             stopLoader()
           })
     })
   }
-
 }
 
 new ReviewsControl();
-initSlider();

@@ -1,16 +1,45 @@
 .reviews {
+
   &__wrapper {
     padding-bottom: 43px;
+
+    @include _480 {
+      max-width: 329px;
+      margin: 0 auto;
+    }
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 33px;
+
+    @include _768 {
+      flex-direction: column;
+    }
+
+    @include  _480 {
+      margin-bottom: 25px;
+    }
   }
 
   &__content-wrapper {
     padding: 30px 35px;
+  }
+
+  &__main-title {
+
+    @include _992 {
+      margin-left: 30px;
+    }
+
+    @include _768 {
+      margin: 0 auto 35px;
+    }
+
+    @include _480 {
+      font-size: 35px;
+    }
   }
 
   &__title {
@@ -51,6 +80,10 @@
   &__buttons {
     display: flex;
     gap: 15px;
+
+    @include _768 {
+      justify-content: center;
+    }
   }
 
   &__button {
@@ -59,6 +92,14 @@
     border-radius: 110px;
 
     padding: 20px 78px;
+
+    @include _768 {
+      padding: 10px 30px;
+    }
+
+    @include _480 {
+      font-size: 12px;
+    }
 
     &.active {
       border: none;
@@ -71,6 +112,7 @@
     flex-direction: column;
     max-width: 329px;
 
+    margin: 0 auto;
     background-color: $c-white;
     box-shadow: -36.331px 36.331px 72.662px -7.2662px rgba(145, 158, 171, 0.24);
     border-radius: 6px;
@@ -120,6 +162,10 @@
       position: unset !important;
       bottom: unset !important;
 
+      @include _768 {
+        display: none;
+      }
+
       span {
         margin-right: 8px;
       }
@@ -135,8 +181,39 @@
     bottom: 0;
   }
 
+  .custom-swiper-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $c-red;
+    border-radius: 100%;
 
+    &.swiper-button-disabled {
+      background-color: $c-dark-gray;
+
+      path {
+        fill: $c-other-gray;
+      }
+    }
+    &.prev {
+      rotate: 180deg;
+    }
+  }
+
+  &__swiper-buttons {
+    display: none;
+    justify-content: center;
+    gap: 5px;
+
+    @include _768 {
+      display: flex;
+    }
+  }
 }
+
+
 
 
 
