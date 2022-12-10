@@ -3,18 +3,25 @@ on:
     branches: [ "main" ]
 name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
+  build:
+    - name: Build
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+  deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: teh1.35i.ru
-          username: teh1.35i.ru
-          password: ${{ secrets.ftp_password }}
-          local-dir: ./wp-app/
-          server-dir: /htdocs/
+#      - name: 📂 Sync files
+#        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+#        with:
+#          server: teh1.35i.ru
+#          username: teh1.35i.ru
+#          password: ${{ secrets.ftp_password }}
+#          local-dir: ./wp-app/
+#          server-dir: /htdocs/
