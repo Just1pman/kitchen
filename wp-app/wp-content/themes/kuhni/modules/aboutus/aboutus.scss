@@ -1,29 +1,66 @@
 .aboutus {
+  background: $c-white;
 
   &__wrapper {
     display: flex;
     column-gap: 100px;
+
+    @include _1280 {
+      flex-direction: column;
+    }
   }
 
   &__logo {
     width: 275px;
     margin-bottom: 17px;
+
+    @include _480 {
+      max-width: 275px;
+      width: 100%;
+    }
   }
 
   &__left-block {
     padding-left: 82px;
     padding-top: 70px;
     padding-bottom: 70px;
+
+    @include _1280 {
+      padding: 40px 30px;
+    }
+
+    @include _480 {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__right-block {
+    @include _1280 {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__photo {
     width: 612px;
     height: auto;
+
+    @include _768 {
+      width: 100%;
+    }
   }
 
   &__description {
-    width: 558px;
+    width: 100%;
     margin-bottom: 25px;
+
+    @include _480 {
+      p {
+        font-size: 14px;
+      }
+      margin-bottom: 28px;
+    }
+
 
     p:not(:last-child) {
       margin-bottom: 20px;
@@ -38,14 +75,41 @@
 
   &__facts-list {
     margin-top: 48px;
+
+    @include _480 {
+      margin-top: 40px;
+    }
   }
 }
 
 .facts {
   display: flex;
+  row-gap: 10px;
+
+  @include _768 {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 
   &__item {
+    width: 100%;
+
     position: relative;
+    margin-right: 25px;
+    padding-right: 25px;
+
+    &:last-child {
+      margin: 0;
+      padding: 0;
+
+      @include _768 {
+        padding-bottom: 10px;
+      }
+
+      @include _480 {
+        flex-basis: 60%;
+      }
+    }
 
     &::before {
       @include dot;
@@ -56,7 +120,8 @@
       left: -4px;
     }
 
-    &:not(:last-child):after {
+
+    &::after {
       content: '';
       width: 1px;
       height: 100%;
@@ -67,13 +132,40 @@
       top: 0;
       right: 0;
     }
-  }
 
-  &__item:not(:last-child) {
-    margin-right: 30px;
-    padding-right: 30px;
-  }
+    &:last-child::after {
+      display: none;
 
+      @include _768 {
+        display: block;
+      }
+    }
+
+
+    @include _768 {
+      margin: 0;
+      width: unset;
+      padding: 0 0 10px;
+      flex-basis: 50%;
+
+      &::after {
+        width: 90%;
+        height: 1px;
+
+        top: 100%;
+        left: 0;
+      }
+
+      @include _480 {
+        &::after {
+          width: 80%;
+        }
+        flex-basis: 50%;
+      }
+    }
+
+
+  }
 
   &__title {
     display: block;
@@ -93,6 +185,4 @@
     line-height: 19px;
     color: $c-gray;
   }
-
-
 }
