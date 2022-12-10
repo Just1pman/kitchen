@@ -96,19 +96,11 @@
     }
   }
 
-  &__catalog-list {
-    column-count: 2;
-    column-gap: 60px;
-
-    @include _480 {
-      column-gap: 40px;
-    }
-  }
-
   &__links-list {
     @include _480 {
       column-count: 2;
-      column-gap: 40px;
+      width: 100%;
+      column-gap: 60px;
     }
   }
 
