@@ -7,6 +7,7 @@ function initReviewSlider () {
     spaceBetween: 28,
     slidesPerColumnFill: 'row',
     observer: true,
+    grabCursor: true,
 
     navigation: {
       nextEl: ".reviews__button-next",

@@ -2,6 +2,7 @@
 
   &__wrapper {
     padding-bottom: 43px;
+    box-shadow: -36.331px 36.331px 72.662px -7.2662px rgba(145, 158, 171, 0.24);
 
     @include _480 {
       max-width: 329px;
@@ -114,7 +115,6 @@
 
     margin: 0 auto;
     background-color: $c-white;
-    box-shadow: -36.331px 36.331px 72.662px -7.2662px rgba(145, 158, 171, 0.24);
     border-radius: 6px;
   }
 
@@ -157,10 +157,10 @@
     &-pagination {
       display: flex;
       align-items: center;
-      margin: 0 auto;
       justify-content: center;
       position: unset !important;
       bottom: unset !important;
+      margin: 30px auto 0;
 
       @include _768 {
         display: none;
@@ -205,6 +205,8 @@
   &__swiper-buttons {
     display: none;
     justify-content: center;
+
+    margin-top: 30px;
     gap: 5px;
 
     @include _768 {
