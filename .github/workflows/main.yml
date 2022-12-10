@@ -23,9 +23,6 @@ jobs:
           gulp build
           ls
 
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
-
       - name: 🚚 Save as artefacts
         uses: actions/upload-artifact@master
         with:
