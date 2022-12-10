@@ -18,6 +18,7 @@ jobs:
       - name: 🚚 Run build command
       - run: echo hello > path/to/artifact/world.txt
 
+      - name: 🚚 Save as artefacts
       - uses: actions/upload-artifact@master
         with:
           name: dist
