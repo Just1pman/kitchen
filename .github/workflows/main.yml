@@ -16,5 +16,5 @@ jobs:
           server: teh1.35i.ru
           username: teh1.35i.ru
           password: ${{ secrets.ftp_password }}
-          local-dir: ./wp-app/wp-content/
+          local-dir: ./wp-app/
           server-dir: /htdocs/
