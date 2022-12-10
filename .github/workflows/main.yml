@@ -2,9 +2,6 @@ name: 🚀 Deploy website
 on:
   push:
     branches: [ "main" ]
-env:
-  THEME_PATH: './wp-app/wp-content/themes/kuhni'
-  BUILD_PATH: './wp-app/wp-content/themes/kuhni/dist/'
 jobs:
   build:
     name: 👷 Build
@@ -17,19 +14,19 @@ jobs:
 
       - name: 🚚 Install dependencies
         run: |
-          cd "$THEME_PATH"
+          cd ./wp-app/wp-content/themes/kuhni
           npm i
 
       - name: 🚚 Run gulp prod command
         run: |
-          cd "$THEME_PATH"
+          cd ./wp-app/wp-content/themes/kuhni
           gulp build
 
       - name: 🚚 Save as artefacts
         uses: actions/upload-artifact@master
         with:
           name: dist
-          path: ./wp-app/wp-content/themes/kuhni/dist
+          path: ./wp-app/wp-content/themes/kuhni/dist/
 
   deploy:
     name: 🎉 Deploy
@@ -42,9 +39,9 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: dist
-          path: $BUILD_PATH
+          path: ./wp-app/wp-content/themes/kuhni/dist
 
-      - run: ls $BUILD_PATH
+      - run: ls ./wp-app/wp-content/themes/kuhni/dist
 #      - name: 📂 Sync files
 #        uses: SamKirkland/FTP-Deploy-Action@4.3.3
 #        with:
