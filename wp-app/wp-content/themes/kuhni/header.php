@@ -51,7 +51,7 @@ $logo = get_field('logo', 'option');
                         </a>
                     </div>
                     <div class="header-bottom-center">
-                        <a href="#" class="header-center-catalog">
+                        <a href="<?= home_url() . '/catalog' ?>" class="header-center-catalog">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11"
                                  fill="none">
                                 <rect y="0.982712" width="22" height="2.42915" fill="black"/>
