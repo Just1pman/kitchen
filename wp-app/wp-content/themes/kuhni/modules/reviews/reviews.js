@@ -65,8 +65,8 @@ class ReviewsControl {
             }
           })
           .then(() => {
-            initReviewSlider()
-            stopLoader()
+            initReviewSlider();
+            stopLoader();
           })
     })
   }
