@@ -65,6 +65,7 @@ class ReviewsControl {
             }
           })
           .then(() => {
+            console.log('success');
             initReviewSlider();
             stopLoader();
           })
