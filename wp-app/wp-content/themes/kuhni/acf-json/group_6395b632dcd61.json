@@ -1,0 +1,42 @@
+{
+    "key": "group_6395b632dcd61",
+    "title": "Хлебные крошки",
+    "fields": [
+        {
+            "key": "field_6395b633a0d9a",
+            "label": "Текст",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Модуль не имеет настроек",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/breadcrumb"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1670755945
+}

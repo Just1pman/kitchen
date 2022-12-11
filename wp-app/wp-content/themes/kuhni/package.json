@@ -1,7 +1,7 @@
 {
-  "name": "iproserwis",
+  "name": "wordpress",
   "version": "1.0.0",
-  "description": "iproserwis",
+  "description": "wordpress",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

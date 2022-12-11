@@ -1,0 +1,146 @@
+.main section.catalog {
+  padding-top: 0;
+
+  h1 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 51px;
+    color: $c-black3;
+    margin-bottom: 38px;
+  }
+
+  .catalog-wrapper {
+    .catalog-top {
+      display: grid;
+      grid-template-columns: 55% 1fr;
+      gap: 55px;
+
+      @include _768 {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .catalog-top-left {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 762px;
+        max-height: 720px;
+
+        @include _768 {
+          max-width: unset;
+          max-height: 273px;
+        }
+
+        &-item svg {
+          position: absolute;
+          left: 40px;
+          bottom: 40px;
+        }
+      }
+
+      .catalog-top-right {
+        display: flex;
+        flex-direction: column;
+
+        .catalog-top-right-item {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          max-width: 572px;
+          max-height: 344px;
+
+          @include _768 {
+            max-width: unset;
+            max-height: 273px;
+          }
+
+          &:first-child {
+            padding-bottom: 32px;
+
+            @include _768 {
+              padding-bottom: 28px;
+            }
+          }
+
+          .item-title {
+            top: 42px;
+            left: 29px;
+            font-size: 17px;
+            line-height: 19px;
+
+            @include _768 {
+              top: 30px;
+              left: 29px;
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .item-title {
+      position: absolute;
+      top: 37px;
+      left: 43px;
+      background: rgba(30, 30, 29, 0.8);
+      padding: 18px 26px;
+      color: $c-white;
+      font-weight: 700;
+      font-size: 21.2351px;
+      line-height: 23px;
+
+      @include _768 {
+        top: 30px;
+        left: 29px;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+
+    .catalog-bottom {
+      margin-top: 53px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      row-gap: 43px;
+      column-gap: 27px;
+
+      @include _992 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include _768 {
+        margin-top: 28px;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 28px;
+      }
+
+      &-item {
+        position: relative;
+        height: 344px;
+
+        .item-title {
+          top: 42px;
+          left: 29px;
+          font-size: 17px;
+          line-height: 19px;
+
+          @include _768 {
+            top: 30px;
+            left: 29px;
+            font-size: 14px;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9px;
+    }
+  }
+}
