@@ -15,6 +15,7 @@ $workingMode = get_field('workingMode', 'option');
                 <a href="<?= home_url() ?>">
                     <picture>
                         <img
+                            loading="lazy"
                             class="footer__logo"
                             src="<?= $logo['url'] ?? '' ?>"
                             alt="<?= $logo['alt'] ?? '' ?>"
