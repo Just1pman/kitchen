@@ -21,13 +21,20 @@ $back_call = get_field('back_call', 'option');
 <footer id="footer" class="footer">
     <div class="container">
         <div class="footer__wrapper">
+
             <div class="footer__logo-wrapper">
-                <img
-                    class="footer__logo"
-                    src="<?= $logo['url'] ?? '' ?>"
-                    alt="<?= $logo['alt'] ?? '' ?>"
-                >
+                <a href="<?= home_url() ?>">
+                    <picture>
+                        <img
+                            loading="lazy"
+                            class="footer__logo"
+                            src="<?= $logo['url'] ?? '' ?>"
+                            alt="<?= $logo['alt'] ?? '' ?>"
+                        >
+                    </picture>
+                </a>
             </div>
+
             <div class="footer__content-wrapper">
 
                     <div class="footer-section">
