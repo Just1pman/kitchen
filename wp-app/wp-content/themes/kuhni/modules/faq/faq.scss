@@ -1,0 +1,68 @@
+.faq {
+  color: $c-black3;
+  &__wrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+
+    @include _1280 {
+      flex-direction: column;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  &__anchor {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-decoration: underline;
+    color: inherit;
+
+
+    &:hover {
+      color: $c-red;
+    }
+  }
+
+  hr {
+    margin: 35px 0;
+  }
+
+  &__right {
+    max-width: 950px;
+
+    div:not(:last-child) {
+      padding-bottom: 35px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid $c-dark-gray;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: inherit;
+    }
+
+    div  {
+      p:not(:last-child) {
+        margin-bottom: 23px;
+      }
+    }
+  }
+
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 33px;
+    color: inherit;
+
+    margin-bottom: 17px;
+  }
+}
