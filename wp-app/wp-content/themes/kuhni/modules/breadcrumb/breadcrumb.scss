@@ -1,0 +1,14 @@
+.main section.breadcrumb {
+  padding: 38px 0 12px 0;
+
+  @include _992 {
+    display: none;
+  }
+
+  .breadcrumb-wrapper, a {
+    color: $c-other-gray;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+  }
+}

@@ -4,6 +4,7 @@ include 'hooks_filters/postTypes_taxonomies.php';
 include 'hooks_filters/webp_upload.php';
 include 'hooks_filters/after_setup_theme.php';
 
+require_once 'helpers/Helpers.php';
 require_once 'ajax/Ajax.php';
 $ajax = new Ajax();
 $ajax->register();
