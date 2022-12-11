@@ -1,12 +1,12 @@
-function startLoader() {
-  const loader = document.querySelector('.loader-container');
+function startLoader(containerClass) {
+  const loader = document.querySelector(containerClass);
   if (loader) {
     loader.style.display = "flex";
   }
 }
 
-function stopLoader() {
-  const loader = document.querySelector('.loader-container');
+function stopLoader(containerClass) {
+  const loader = document.querySelector(containerClass);
   if (loader) {
     loader.style.display = "none";
   }

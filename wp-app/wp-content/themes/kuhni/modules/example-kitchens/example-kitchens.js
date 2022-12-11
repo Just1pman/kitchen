@@ -4,7 +4,7 @@ let format = 'new';
 
 buttons && buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    startLoader()
+    startLoader('.example-wrapper-bottom .loader-container')
     format = button.getAttribute('data-format');
 
     buttons.forEach((button) => {
@@ -12,11 +12,11 @@ buttons && buttons.forEach((button) => {
     })
     button.classList.add('button-active')
 
-    ajax()
+    ajaxKitchens()
   })
 })
 
-function ajax()
+function ajaxKitchens()
 {
   const url = '/wp-admin/admin-ajax.php';
   const promise = fetch(url, {
@@ -39,18 +39,17 @@ function ajax()
         return resp
       })
       .then(() => {
-        initSlider()
-        stopLoader()
+        initSliderKitchens()
+        stopLoader('.example-wrapper-bottom .loader-container')
       })
   })
 }
 
-function initSlider() {
+function initSliderKitchens() {
   new Swiper(".swiper-kitchen", {
 
     breakpoints: {
       769: {
-        watchOverflow: true,
         slidesPerView: 2,
         spaceBetween: 28,
         slidesPerGroup: 2,
@@ -61,7 +60,6 @@ function initSlider() {
       },
 
       1281: {
-        watchOverflow: true,
         slidesPerView: 4,
         spaceBetween: 28,
         slidesPerGroup: 4,
@@ -69,9 +67,8 @@ function initSlider() {
       },
     },
 
-
+    watchOverflow: true,
     slidesPerView: 1,
-
 
     navigation: {
       nextEl: ".swiper-button-next",
@@ -80,4 +77,4 @@ function initSlider() {
 
   });
 }
-initSlider();
+initSliderKitchens();

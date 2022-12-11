@@ -9,3 +9,4 @@
 //=include ../../modules/hero/hero.js
 //=include ../../modules/reviews/reviews.js
 //=include ../../modules/example-kitchens/example-kitchens.js
+//=include ../../modules/popular-styles/popular-styles.js

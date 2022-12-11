@@ -1,0 +1,106 @@
+.kitchen-style {
+  &-headline h2 {
+    font-weight: 200;
+    font-size: 50px;
+    line-height: 89.52%;
+    text-align: center;
+    margin-bottom: 45px;
+
+    @include _992 {
+      font-size: 35px;
+      margin-bottom: 14px;
+    }
+
+    @include _480 {
+      text-align: start;
+    }
+  }
+
+  .kitchen-style-wrapper {
+    position: relative;
+  }
+
+  .kitchen-style-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid $c-gray2;
+    margin-bottom: 60px;
+
+    @include _992 {
+      flex-direction: column;
+      align-items: center;
+      border-bottom: unset;
+      margin-bottom: 22px;
+    }
+
+    @include _480 {
+      align-items: start;
+    }
+
+    .kitchen-style-tab {
+      padding: 0 60px 17px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 93.52%;
+      color: $c-gray3;
+      cursor: pointer;
+      white-space: nowrap;
+
+      @include _992 {
+        padding: 14px 0 14px 0;
+      }
+
+      &.js-active-tab {
+        border-bottom: 2px solid $c-red;
+        font-weight: 700;
+        color: $c-dark-black;
+
+        @include _992 {
+          border-bottom: unset;
+        }
+      }
+    }
+  }
+
+  .swiper-style {
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+
+    @include _992 {
+      height: 400px;
+    }
+
+    @include _480 {
+      height: 290px;
+    }
+
+    .swiper-slide {
+      display: block;
+      width: 100%;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: 680px;
+        max-height: 482px;
+        border-radius: 9px;
+        object-fit: cover;
+
+        @include _992 {
+          max-height: 350px;
+          max-width: 100%;
+        }
+
+        @include _480 {
+          max-height: 243px;
+        }
+      }
+    }
+
+    .swiper-pagination {
+      bottom: 0;
+    }
+  }
+}

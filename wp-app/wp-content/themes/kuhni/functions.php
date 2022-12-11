@@ -1,28 +1,12 @@
 <?php
 include 'hooks_filters/register_styles_scripts.php';
+include 'hooks_filters/postTypes_taxonomies.php';
+include 'hooks_filters/webp_upload.php';
+include 'hooks_filters/after_setup_theme.php';
 
-if (function_exists('add_theme_support')) {
-    add_theme_support('menus');
-    add_theme_support('post-thumbnails');
-}
-
-add_filter('show_admin_bar', '__return_false');
-
-add_action('after_setup_theme', function () {
-    register_nav_menus([
-        'header_menu_desktop' => 'Меню хедер desktop',
-        'header_menu_mobile' => 'Меню хедер mobile',
-    ]);
-    add_theme_support(
-        'custom-logo',
-        array(
-            'height' => 500,
-            'width' => 500,
-            'flex-height' => true,
-        )
-    );
-});
-
+require_once 'ajax/Ajax.php';
+$ajax = new Ajax();
+$ajax->register();
 
 add_action('acf/init', 'my_register_blocks');
 function my_register_blocks()
@@ -75,9 +59,3 @@ function my_acf_block_render_callback($block)
         include(get_theme_file_path("modules/" . $slug . '/' . $slug . ".php"));
     }
 }
-
-include 'hooks_filters/postTypes_taxonomies.php';
-include 'hooks_filters/webp_upload.php';
-require_once 'ajax/Ajax.php';
-$ajax = new Ajax();
-$ajax->register();
