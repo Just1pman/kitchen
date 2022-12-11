@@ -17,6 +17,7 @@ gulp.task('build', function (cb) {
 })
 
 function style() {
+  const number = getRandomInRange(1000, 1000000);
   return gulp.src(
     [
       'assets/style/main.scss',
@@ -25,7 +26,7 @@ function style() {
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCSS())
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
-    .pipe(concat(`style.min.css`))
+    .pipe(concat(`style${number}.min.css`))
     .pipe(gulp.dest('dist/css'));
 }
 
@@ -35,6 +36,7 @@ function fonts() {
 }
 
 function scripts() {
+  const number = getRandomInRange(1000, 1000000);
   return gulp.src(
     [
       'assets/js/main.js',
@@ -42,7 +44,7 @@ function scripts() {
   )
     .pipe(include())
     .on('error', console.log)
-    .pipe(concat(`build.js`))
+    .pipe(concat(`build${number}.js`))
     .pipe(minify({noSource: true}))
     .pipe(gulp.dest('dist/js'))
 }
