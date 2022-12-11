@@ -50,4 +50,4 @@ jobs:
           username: kuhnitema_1
           password: ${{ secrets.ftp_password }}
           local-dir: ./wp-app/
-          server-dir: "/home/k/kuhnitema/kuhnitema.beget.tech/public_html/"
+          server-dir: "./kuhnitema.beget.tech/public_html/"
