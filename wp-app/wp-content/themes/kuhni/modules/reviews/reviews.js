@@ -19,7 +19,7 @@ function initReviewSlider () {
       },
       768: {
         pagination: {
-          el: ".swiper-pagination",
+          el: ".reviews .swiper-pagination",
           clickable: true,
         },
       },
@@ -42,7 +42,7 @@ class ReviewsControl {
   }
 
   getReviews(e) {
-    this.container = document.querySelector('.swiper-wrapper');
+    this.container = document.querySelector('.reviews .swiper-wrapper');
     const { type } = this.dataset;
 
     const url = '/wp-admin/admin-ajax.php';
@@ -65,7 +65,6 @@ class ReviewsControl {
             }
           })
           .then(() => {
-            console.log('success');
             initReviewSlider();
             stopLoader()
           })

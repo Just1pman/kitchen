@@ -1,5 +1,5 @@
 new Swiper(".swiper-hero", {
   pagination: {
-    el: ".swiper-pagination",
+    el: ".hero .swiper-pagination",
   },
 });
