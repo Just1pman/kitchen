@@ -5,6 +5,15 @@
     margin: 0 auto;
   }
 
+  &__logo-wrapper {
+    margin: 0 auto;
+
+    a {
+      max-width: 242px;
+      display: block;
+    }
+  }
+
   &__title {
     display: block;
     margin-bottom: 18px;
