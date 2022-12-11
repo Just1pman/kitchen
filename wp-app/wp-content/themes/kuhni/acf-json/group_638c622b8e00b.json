@@ -330,6 +330,50 @@
                     "parent_repeater": "field_638c780e7775a"
                 }
             ]
+        },
+        {
+            "key": "field_6396358a6353e",
+            "label": "Формы",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_639635fde8667",
+            "label": "Обратный звонок",
+            "name": "back_call",
+            "type": "acf_cf7",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_6396361ee8668",
+            "label": "Оформление заказа",
+            "name": "Checkout",
+            "type": "acf_cf7",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -350,5 +394,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670157490
+    "modified": 1670788719
 }
