@@ -3,31 +3,6 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
-    name: 👷 Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: ❤️Install dependencies
-        run: |
-          cd ./wp-app/wp-content/themes/kuhni
-          npm i
-
-      - name: 🔄 Run gulp prod command
-        run: |
-          cd ./wp-app/wp-content/themes/kuhni
-          gulp build
-
-      - name: 📤 Upload artefacts
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: ./wp-app/wp-content/themes/kuhni/dist/
-
   deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
@@ -35,13 +10,6 @@ jobs:
     steps:
       - name: 📩 Get latest code
         uses: actions/checkout@v2
-
-      - uses: actions/download-artifact@master
-        with:
-          name: dist
-          path: ./wp-app/wp-content/themes/kuhni/dist
-
-      - run: ls ./wp-app/wp-content/themes/kuhni/dist
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
