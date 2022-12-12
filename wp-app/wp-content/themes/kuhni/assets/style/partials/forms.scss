@@ -1,0 +1,121 @@
+.modal-form {
+  padding: 65px 53px 73px;
+  background: $c-light-gray;
+  box-shadow: -37.4536px 37.4536px 74.9072px -7.49072px rgba(145, 158, 171, 0.24);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 572px;
+
+  .form-headline {
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 51px;
+    color: $c-black3;
+    max-width: 410px;
+    text-align: center;
+    margin: 0 auto 7px auto;
+  }
+
+  .form-subheadline {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: $c-gray3;
+    max-width: 410px;
+    margin: 0 auto 29px auto;
+  }
+
+  .carousel__button.is-close {
+    margin: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $c-dark-gray;
+    top: -20px;
+    right: -20px;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  input[type=text], input[type=tel] {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-black3;
+    display: flex;
+    width: 100%;
+    padding: 18px 26px 17px;
+    background: $c-white;
+    border: 1px solid $c-gray4;
+    border-radius: 6px;
+    margin-bottom: 17px;
+    direction: unset;
+    outline: unset;
+
+    &::placeholder {
+      color: $c-other-gray;
+    }
+
+    &.wpcf7-not-valid {
+      border: 1px solid $c-red;
+    }
+  }
+
+  .send-btn {
+    display: flex;
+    position: relative;
+
+    .wpcf7-spinner {
+      position: absolute;
+      left: 13px;
+      top: 12px;
+      margin: 0;
+    }
+
+    .button {
+      padding: 14px 43px;
+      background: $c-red;
+      color: $c-white;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.05em;
+      margin-right: 22px;
+      border-radius: 110.334px;
+      border: unset;
+      cursor: pointer;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 17px;
+
+      color: $c-black3;
+
+      a {
+        color: $c-red;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .wpcf7-not-valid-tip {
+    display: none;
+  }
+
+  .wpcf7 form .wpcf7-response-output {
+    margin: 16px 0 0 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    border: unset;
+    color: $c-red;
+    text-align: center;
+  }
+}
