@@ -1,3 +1,4 @@
+</main>
 <?php
 $logo = get_field('logo', 'option');
 $socials = get_field('socials', 'option');
@@ -5,20 +6,25 @@ $phones = get_field('phones', 'option');
 $emailInfo = get_field('emailInfo', 'option');
 $addressInfo = get_field('addressInfo', 'option');
 $workingMode = get_field('workingMode', 'option');
-$back_call = get_field('back_call', 'option');
-
+$back_call_form = get_field('back_call', 'option');
+$checkout_form = get_field('checkout', 'option');
 ?>
 
-<div class="modal-form form-back-call" id="back-call">
-    <div class="form-wrapper">
-        <p class="form-headline">Обратный звонок</p>
-        <p class="form-subheadline">Заполните простую форму и мы с вами свяжемся  в ближайшее время для уточнения информации.</p>
-        <?= $back_call ?>
-    </div>
-</div>
-</main>
-
 <footer id="footer" class="footer">
+    <div class="modal-form form-back-call" id="back-call">
+        <div class="form-wrapper">
+            <p class="form-headline">Обратный звонок</p>
+            <p class="form-subheadline">Заполните простую форму и мы с вами свяжемся в ближайшее время для уточнения информации.</p>
+            <?= $back_call_form ?>
+        </div>
+    </div>
+    <div class="modal-form form-checkout" id="checkout">
+        <div class="form-wrapper">
+            <p class="form-headline">Обратный звонок</p>
+            <p class="form-subheadline">Заполните простую форму и мы с вами свяжемся в ближайшее время для уточнения информации.</p>
+            <?= $checkout_form ?>
+        </div>
+    </div>
     <div class="container">
         <div class="footer__wrapper">
 

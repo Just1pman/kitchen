@@ -35,7 +35,7 @@ $logo = get_field('logo', 'option');
                     <div class="header-email"> <?= $emailInfo['email'] ?? '' ?> </div>
                     <div class="header-phone"> <?= $phones[0]['phone'] ?? '' ?> </div>
                     <div class="header-work">Работаем с <?= $workingMode['workingTime'] ?? '' ?> </div>
-                    <a href="javascript:;" data-fancybox data-src="#back-call" class="header-feedback">Обратный звонок</a>
+                    <a href="javascript:;" data-fancybox data-src="#checkout" class="header-feedback">Обратный звонок</a>
                 </div>
             </div>
         </div>

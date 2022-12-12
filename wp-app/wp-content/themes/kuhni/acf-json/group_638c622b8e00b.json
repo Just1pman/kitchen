@@ -364,7 +364,7 @@
         {
             "key": "field_6396361ee8668",
             "label": "Оформление заказа",
-            "name": "Checkout",
+            "name": "checkout",
             "type": "acf_cf7",
             "instructions": "",
             "required": 0,
@@ -394,5 +394,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670788719
+    "modified": 1670876065
 }

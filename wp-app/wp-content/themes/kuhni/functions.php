@@ -9,6 +9,7 @@ require_once 'ajax/Ajax.php';
 $ajax = new Ajax();
 $ajax->register();
 
+add_filter('show_admin_bar', '__return_false');
 add_filter('wpcf7_autop_or_not', '__return_false');
 add_action('acf/init', 'my_register_blocks');
 function my_register_blocks()
