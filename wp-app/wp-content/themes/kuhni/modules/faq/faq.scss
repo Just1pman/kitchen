@@ -10,22 +10,80 @@
     }
   }
 
+  &__image-section {
+    margin-bottom: 85px;
+
+    @include _480 {
+      margin-bottom: 42px;
+    }
+
+
+    img {
+      min-height: 250px;
+      object-fit: cover;
+
+      @include _480 {
+        min-height: 295px;
+      }
+    }
+  }
+
+  &__main-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 51px;
+
+    @include _480 {
+      margin-bottom: 41px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
   &__links {
     display: flex;
     flex-direction: column;
     gap: 23px;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 
   &__anchor {
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    text-decoration: underline;
     color: inherit;
+    position: relative;
+    padding-bottom: 3px;
 
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+
+
+      width: 100%;
+      height: 1px;
+      background-color: $c-black3;
+    }
+
+    &:hover::before {
+      background-color: $c-red;
+    }
 
     &:hover {
       color: $c-red;
+      font-weight: 700;
     }
   }
 
@@ -40,13 +98,59 @@
       padding-bottom: 35px;
       margin-bottom: 35px;
       border-bottom: 1px solid $c-dark-gray;
+
+      @include _480 {
+        padding-bottom: 28px;
+        margin-bottom: 28px;
+      }
     }
 
-    p {
+    p, li {
       font-weight: 400;
       font-size: 16px;
       line-height: 28px;
       color: inherit;
+
+      @include _480 {
+        font-size: 14px;
+        line-height: 23px;
+      }
+    }
+
+    ol, ul {
+      counter-reset: item;
+      list-style-type: none;
+
+      strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      em {
+        font-weight: 800;
+        font-style: normal;
+      }
+    }
+
+    li {
+      display: block;
+      margin-bottom: 15px;
+      padding-left: 36px;
+
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        content: counter(item, decimal-leading-zero) ".";
+        counter-increment: item;
+        color: $c-red;
+        font-weight: 800;
+        line-height: 28px;
+        font-size: 16px;
+      }
     }
 
     div  {
@@ -64,5 +168,11 @@
     color: inherit;
 
     margin-bottom: 17px;
+
+    @include _480 {
+      font-size: 14px;
+
+      margin-bottom: 13px;
+    }
   }
 }
