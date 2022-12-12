@@ -20,7 +20,7 @@ $checkout_form = get_field('checkout', 'option');
     </div>
     <div class="modal-form form-checkout" id="checkout">
         <div class="form-wrapper">
-            <p class="form-headline">Обратный звонок</p>
+            <p class="form-headline">Оформление заказа</p>
             <p class="form-subheadline">Заполните простую форму и мы с вами свяжемся в ближайшее время для уточнения информации.</p>
             <?= $checkout_form ?>
         </div>
