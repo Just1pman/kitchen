@@ -133,17 +133,6 @@
     }
   }
 
-  &__socials-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    @include _480 {
-      margin: 0 auto;
-      order: -2;
-    }
-  }
-
   &-additional {
     display: flex;
     justify-content: space-between;
@@ -172,5 +161,16 @@
         gap: 6px;
       }
     }
+  }
+}
+
+.socials-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @include _480 {
+    margin: 0 auto;
+    order: -2;
   }
 }

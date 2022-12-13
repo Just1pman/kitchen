@@ -85,6 +85,16 @@ function custom_register_post_types()
             "has_archive" => false,
         ],
         [
+            "post_type_name" => "articles",
+            "name" => "Статьи",
+            "name_plural" => "Статьи",
+            "name_lowercase" => "Статьи",
+            "name_lowercase_plural" => "Статьи",
+            'menu_icon' => 'dashicons-shield-alt',
+            "supports" => ['title', 'editor', 'thumbnail'],
+            "has_archive" => false,
+        ],
+        [
             "post_type_name" => "reviews",
             "name" => "Отзывы",
             "name_plural" => "Отзывы",

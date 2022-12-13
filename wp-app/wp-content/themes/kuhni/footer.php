@@ -164,11 +164,11 @@ $checkout_form = get_field('checkout', 'option');
                     </div>
 
                 </div>
-                <ul class="footer__socials-list">
+                <ul class="socials-list">
                     <?php if (!empty($socials)) : ?>
                         <?php foreach ($socials as $social) : ?>
                             <?php if (!empty($social['logo']) && !empty($social['link'])) : ?>
-                                <li class="footer__socials-item">
+                                <li class="socials-item">
                                     <a href="<?= $social['link'] ?>">
                                         <img
                                                 src="<?= $social['logo']['url'] ?>"
