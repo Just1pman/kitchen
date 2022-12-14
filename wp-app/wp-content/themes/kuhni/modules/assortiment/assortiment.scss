@@ -1,0 +1,51 @@
+.assortiment {
+  .assortiment-wrapper-top {
+    h2 {
+      font-weight: 200;
+      font-size: 50px;
+      line-height: 89.52%;
+      color: $c-dark-black;
+      margin-bottom: 48px;
+
+      @include _992 {
+        font-size: 35px;
+        line-height: 108.52%;
+        margin-bottom: 19px;
+        text-align: center;
+      }
+    }
+
+    .wrapper-top-assortiments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 30px;
+      column-gap: 98px;
+
+      @include _1280 {
+        column-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include _768 {
+        gap: 29px;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .wrapper-top-assortiment {
+        padding-left: 12px;
+        position: relative;
+
+        p {
+          font-size: 16px;
+          line-height: 159.02%;
+        }
+
+        svg {
+          position: absolute;
+          top: 8px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
