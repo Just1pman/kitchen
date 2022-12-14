@@ -49,7 +49,7 @@ $logo = get_field('logo', 'option');
                                     <?= $fact['subtitle'] ?>
                                 </span>
                             </li>
-                        <?endforeach; ?>
+                        <?php endforeach; ?>
 
                     </ul>
                 </div>

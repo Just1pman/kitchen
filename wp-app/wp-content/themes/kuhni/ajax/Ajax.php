@@ -88,7 +88,7 @@ class Ajax
 
     public function get_popular_styles($term_id)
     {
-        $term = get_term($term_id, 'kitchen-style');
+        $term = get_term($term_id, 'kitchen-category');
 
         return get_field('gallery', $term->taxonomy . '_' . $term->term_id);
     }
