@@ -5,6 +5,7 @@
 /* PARTIALS */
 //=include partials/loader.js
 //=include partials/header.js
+//=include partials/single-kitchens.js
 
 /**** MODULES ****/
 //=include ../../modules/hero/hero.js

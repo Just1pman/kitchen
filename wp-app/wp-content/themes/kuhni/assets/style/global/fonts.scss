@@ -27,3 +27,13 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/Manrope/Manrope-SemiBold.ttf');
+  src: local('Roboto SemiBold'), local('Roboto-SemiBold'),
+  url('../fonts/Manrope/Manrope-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
