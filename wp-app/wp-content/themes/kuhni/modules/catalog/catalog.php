@@ -28,12 +28,12 @@ $categories_bottom = array_slice($terms, '3', 6);
                     <div class="catalog-top-left">
                         <?php if (!empty($categories_top)) : ?>
                             <?php
-                            $image = get_field('image', $categories_top[0]->taxonomy . '_' . $categories_top[0]->term_id);
+                            $gallery = get_field('gallery', $categories_top[0]->taxonomy . '_' . $categories_top[0]->term_id);
                             $url = sprintf("%s/%s/%s", home_url(), $categories_top[0]->taxonomy, $categories_top[0]->slug);
                             ?>
                             <a href="<?= $url ?? '#' ?>" class="catalog-top-left-item">
                                 <picture>
-                                    <img loading="lazy" src="<?= $image['url'] ?>" alt="<?= $image['title'] ?>">
+                                    <img loading="lazy" src="<?= $gallery[0]['url'] ?>" alt="<?= $gallery[0]['title'] ?>">
                                 </picture>
                                 <div class="item-title"><?= $categories_top[0]->name ?></div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="59" height="58" viewBox="0 0 59 58"
@@ -59,12 +59,12 @@ $categories_bottom = array_slice($terms, '3', 6);
                             <?php foreach ($categories_top as $key => $term) : ?>
                                 <?php if ($key > 0) : ?>
                                     <?php
-                                    $image = get_field('image', $term->taxonomy . '_' . $term->term_id);
+			                        $gallery = get_field('gallery', $term->taxonomy . '_' . $term->term_id);
                                     $url = sprintf("%s/%s/%s", home_url(), $term->taxonomy, $term->slug);
                                     ?>
                                     <a href="<?= $url ?? '#' ?>" class="catalog-top-right-item">
                                         <picture>
-                                            <img loading="lazy" src="<?= $image['url'] ?>" alt="<?= $image['title'] ?>">
+                                            <img loading="lazy" src="<?= $gallery[0]['url'] ?>" alt="<?= $gallery[0]['title'] ?>">
                                         </picture>
                                         <div class="item-title"><?= $term->name ?></div>
                                     </a>
@@ -78,12 +78,12 @@ $categories_bottom = array_slice($terms, '3', 6);
                     <div class="catalog-bottom">
                         <?php foreach ($categories_bottom as $term) : ?>
                             <?php
-                            $image = get_field('image', $term->taxonomy . '_' . $term->term_id);
+	                        $gallery = get_field('gallery', $term->taxonomy . '_' . $term->term_id);
                             $url = sprintf("%s/%s/%s", home_url(), $term->taxonomy, $term->slug);
                             ?>
                             <a href="<?= $url ?? '#' ?>" class="catalog-bottom-item">
                                 <picture>
-                                    <img loading="lazy" src="<?= $image['url'] ?>" alt="<?= $image['title'] ?>">
+                                    <img loading="lazy" src="<?= $gallery[0]['url'] ?>" alt="<?= $gallery[0]['title'] ?>">
                                 </picture>
                                 <div class="item-title"><?= $term->name ?></div>
                             </a>

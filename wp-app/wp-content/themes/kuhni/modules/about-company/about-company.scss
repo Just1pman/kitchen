@@ -1,0 +1,208 @@
+.about-company {
+  .about-company-wrapper-top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 94px;
+
+    @include _1280 {
+      grid-template-columns: 1fr;
+    }
+
+    @include _992 {
+      margin-bottom: 58px;
+    }
+
+    .about-company-wrapper-top-left {
+      max-width: 471px;
+
+      @include _1280 {
+        max-width: 100%;
+        margin-bottom: 38px;
+        text-align: center;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 51px;
+        color: $c-black3;
+        margin-bottom: 23px;
+        @include _992 {
+          font-size: 30px;
+          line-height: 89.52%;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 159.02%;
+        color: $c-dark-black;
+      }
+    }
+
+    .about-company-wrapper-top-right {
+      box-shadow: -37.4536px 37.4536px 74.9072px -7.49072px rgba(145, 158, 171, 0.24);
+      border-radius: 6px;
+      background: $c-white;
+      padding: 55px;
+
+      @include _768 {
+        padding: 35px 30px;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 37px;
+        color: $c-black3;
+        margin-bottom: 25px;
+      }
+
+      .about-company-wrapper-numbers {
+        display: flex;
+        justify-content: space-between;
+
+        @include _992 {
+          flex-wrap: wrap;
+        }
+
+        @include _768 {
+          justify-content: flex-start;
+        }
+
+        .about-company-number {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          border-right: 1px solid $c-dark-gray;
+          padding-right: 35px;
+          margin-right: 35px;
+
+          @include _992 {
+            max-width: 200px;
+          }
+
+          @include _768 {
+            max-width: 135px;
+          }
+
+          @include _768 {
+            padding-right: 7px;
+            margin-right: 7px;
+            border-right: unset;
+            padding-bottom: 9px;
+
+            &::after {
+              content: '';
+              display: block;
+              background-color: $c-dark-gray;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 90%;
+              height: 1px;
+            }
+          }
+
+          &:last-child {
+            padding-right: 0;
+            margin-right: 0;
+            border-right: unset;
+          }
+
+          h3 {
+            font-weight: 700;
+            font-size: 47px;
+            line-height: 65px;
+            color: $c-black;
+            white-space: nowrap;
+            z-index: 1;
+          }
+
+          p {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 19px;
+            color: $c-gray;
+          }
+
+          svg {
+            position: absolute;
+            top: 7px;
+            left: -3px
+          }
+        }
+      }
+    }
+  }
+
+  .about-company-wrapper-bottom {
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      max-width: 443px;
+      max-height: 347px;
+      overflow: hidden;
+      cursor: pointer;
+
+      @include _992 {
+        max-width: 100%;
+        max-height: 300px;
+      }
+
+      .slide-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $c-dark-black;
+        opacity: 0.7;
+      }
+
+      .slide-backside {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        color: $c-white;
+
+        h4 {
+          font-weight: 700;
+          font-size: 34px;
+          line-height: 26px;
+          margin-bottom: 14px;
+        }
+
+        p {
+          font-weight: 300;
+          font-size: 20px;
+          line-height: 19px;
+          margin-bottom: 14px;
+          text-align: center;
+        }
+      }
+
+      &:hover {
+        .slide-bg, .slide-backside {
+          display: flex;
+        }
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+  }
+}

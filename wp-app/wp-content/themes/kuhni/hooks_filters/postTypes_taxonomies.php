@@ -40,35 +40,6 @@ function create_taxonomy() {
         'update_count_callback' => '_update_post_term_count',
         'query_var'             => true,
     ] );
-
-    register_taxonomy( 'kitchen-style', [ 'kitchens' ], [
-        'label'                 => __( 'Style kitchen' ),
-        'rewrite'               => [ 'slug' => 'style-kitchen' ],
-        'labels'                => [
-            'name'              => 'Стили кухонь',
-            'singular_name'     => 'Стили кухонь',
-            'search_items'      => 'Найти стиль кухни',
-            'all_items'         => 'Все стили кухонь',
-            'view_item '        => 'Просмотреть стиль кухонь',
-            'parent_item'       => 'Родительский стиль кухни',
-            'parent_item_colon' => 'Родительский стиль кухни:',
-            'edit_item'         => 'Редактировать стиль кухни',
-            'update_item'       => 'Обновить стиль кухни',
-            'add_new_item'      => 'Добавить новый стиль кухни',
-            'new_item_name'     => 'Новое название стиля кухни',
-            'menu_name'         => 'Стили кухонь',
-        ],
-        'public'                => true,
-        'hierarchical'          => true,
-        'capabilities'          => [],
-        'meta_box_cb'           => null,
-        'show_admin_column'     => false,
-        'show_in_rest'          => true,
-        'show_ui'               => true,
-        'publicly_queryable'    => true,
-        'update_count_callback' => '_update_post_term_count',
-        'query_var'             => true,
-    ] );
 }
 
 function custom_register_post_types()

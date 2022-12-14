@@ -1,12 +1,12 @@
 {
     "key": "group_6395eacab1aed",
-    "title": "Фото для категории",
+    "title": "Галерея для категорий",
     "fields": [
         {
             "key": "field_6395eae0c1add",
-            "label": "Картинка",
-            "name": "image",
-            "type": "image",
+            "label": "Галерея",
+            "name": "gallery",
+            "type": "gallery",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -17,6 +17,8 @@
             },
             "return_format": "array",
             "library": "all",
+            "min": "",
+            "max": "",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -24,6 +26,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
+            "insert": "append",
             "preview_size": "medium"
         }
     ],
@@ -45,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670769489
+    "modified": 1671036323
 }
