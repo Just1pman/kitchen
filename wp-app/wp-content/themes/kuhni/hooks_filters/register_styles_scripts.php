@@ -42,3 +42,10 @@ function register_styles_scripts(): void
 }
 
 add_action('wp_enqueue_scripts', 'register_styles_scripts', 1);
+
+function admin_register_styles_scripts()
+{
+    wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/assets/admin/admin-style.css');
+}
+
+add_action('admin_enqueue_scripts', 'admin_register_styles_scripts');

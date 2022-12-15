@@ -1,0 +1,9 @@
+#menu-posts-ipad, #menu-posts-iphone, #menu-posts-macbook, #menu-posts-apple-watch, #menu-posts-airpods {
+    background: green;
+}
+
+.block-editor-block-list__block.wp-block {
+    max-width: 100%;
+    padding: 0 30px;
+    text-align: center;
+}
