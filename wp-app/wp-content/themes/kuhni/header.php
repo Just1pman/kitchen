@@ -14,6 +14,7 @@ $workingMode = get_field('workingMode', 'option');
 $phones = get_field('phones', 'option');
 $emailInfo = get_field('emailInfo', 'option');
 $logo = get_field('logo', 'option');
+$phone_numbers = $phones[0]['phone'] ? preg_replace('/[^0-9]/', "", $phones[0]['phone']) : '';
 ?>
 
 <body>
@@ -33,7 +34,7 @@ $logo = get_field('logo', 'option');
 
                 <div class="header-top-right">
                     <div class="header-email"> <?= $emailInfo['email'] ?? '' ?> </div>
-                    <div class="header-phone"> <?= $phones[0]['phone'] ?? '' ?> </div>
+                    <a href="tel:+<?= $phone_numbers ?>" class="header-phone"> <?= $phones[0]['phone'] ?? '' ?> </a>
                     <div class="header-work">Работаем с <?= $workingMode['workingTime'] ?? '' ?> </div>
                     <a href="javascript:;" data-fancybox data-src="#back-call" class="header-feedback">Обратный звонок</a>
                 </div>
