@@ -9,37 +9,96 @@ if (function_exists('acf_add_options_page')) {
     ));
 }
 
-add_action( 'init', 'create_taxonomy' );
-function create_taxonomy() {
+add_action('init', 'create_taxonomy');
+function create_taxonomy()
+{
 
-    register_taxonomy( 'kitchen-category', [ 'kitchens' ], [
-        'label'                 => __( 'kitchen category' ),
-        'rewrite'               => [ 'slug' => 'kitchen-category' ],
-        'labels'                => [
-            'name'              => 'Категория кухонь',
-            'singular_name'     => 'Категории кухонь',
-            'search_items'      => 'Найти категорию',
-            'all_items'         => 'Все категории кухонь',
-            'view_item '        => 'Просмотреть категорию кухонь',
-            'parent_item'       => 'Родительская категория кухни',
+    register_taxonomy('kitchen-category', ['kitchens'], [
+        'label' => __('kitchen category'),
+        'rewrite' => ['slug' => 'kitchen-category'],
+        'labels' => [
+            'name' => 'Категория кухонь',
+            'singular_name' => 'Категории кухонь',
+            'search_items' => 'Найти категорию',
+            'all_items' => 'Все категории кухонь',
+            'view_item ' => 'Просмотреть категорию кухонь',
+            'parent_item' => 'Родительская категория кухни',
             'parent_item_colon' => 'Родительская категория кухни:',
-            'edit_item'         => 'Редактировать категорию кухни',
-            'update_item'       => 'Обновить категорию кухни',
-            'add_new_item'      => 'Добавить новую категорию кухни',
-            'new_item_name'     => 'Новое название категории кухни',
-            'menu_name'         => 'Категории кухонь',
+            'edit_item' => 'Редактировать категорию кухни',
+            'update_item' => 'Обновить категорию кухни',
+            'add_new_item' => 'Добавить новую категорию кухни',
+            'new_item_name' => 'Новое название категории кухни',
+            'menu_name' => 'Категории кухонь',
         ],
-        'public'                => true,
-        'hierarchical'          => true,
-        'capabilities'          => [],
-        'meta_box_cb'           => null,
-        'show_admin_column'     => false,
-        'show_in_rest'          => true,
-        'show_ui'               => true,
-        'publicly_queryable'    => true,
+        'public' => true,
+        'hierarchical' => true,
+        'capabilities' => [],
+        'meta_box_cb' => null,
+        'show_admin_column' => false,
+        'show_in_rest' => true,
+        'show_ui' => true,
+        'publicly_queryable' => true,
         'update_count_callback' => '_update_post_term_count',
-        'query_var'             => true,
-    ] );
+        'query_var' => true,
+    ]);
+
+    register_taxonomy('kitchen-material', ['kitchens'], [
+        'label' => __('kitchen material'),
+        'rewrite' => ['slug' => 'kitchen-material'],
+        'labels' => [
+            'name' => 'Материал',
+            'singular_name' => 'Материалы',
+            'search_items' => 'Найти материал',
+            'all_items' => 'Все материалы',
+            'view_item ' => 'Просмотреть материал',
+            'parent_item' => 'Родительский материал',
+            'parent_item_colon' => 'Родительский материал:',
+            'edit_item' => 'Редактировать материал',
+            'update_item' => 'Обновить материал',
+            'add_new_item' => 'Добавить новый материал',
+            'new_item_name' => 'Новое название материала',
+            'menu_name' => 'Материалы',
+        ],
+        'public' => true,
+        'hierarchical' => true,
+        'capabilities' => [],
+        'meta_box_cb' => null,
+        'show_admin_column' => false,
+        'show_in_rest' => true,
+        'show_ui' => true,
+        'publicly_queryable' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+    ]);
+
+    register_taxonomy('kitchen-size', ['kitchens'], [
+        'label' => __('kitchen size'),
+        'rewrite' => ['slug' => 'kitchen-size'],
+        'labels' => [
+            'name' => 'Размер',
+            'singular_name' => 'Размеры',
+            'search_items' => 'Найти размер',
+            'all_items' => 'Все размеры',
+            'view_item ' => 'Просмотреть размер',
+            'parent_item' => 'Родительский размер',
+            'parent_item_colon' => 'Родительский размер:',
+            'edit_item' => 'Редактировать размер',
+            'update_item' => 'Обновить размер',
+            'add_new_item' => 'Добавить новый размер',
+            'new_item_name' => 'Новое название размера',
+            'menu_name' => 'Размеры',
+        ],
+        'public' => true,
+        'hierarchical' => true,
+        'capabilities' => [],
+        'meta_box_cb' => null,
+        'show_admin_column' => false,
+        'show_in_rest' => true,
+        'show_ui' => true,
+        'publicly_queryable' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+    ]);
 }
 
 function custom_register_post_types()

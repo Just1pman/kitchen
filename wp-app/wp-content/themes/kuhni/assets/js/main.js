@@ -6,6 +6,7 @@
 //=include partials/loader.js
 //=include partials/header.js
 //=include partials/single-kitchens.js
+//=include partials/taxonomy-kitchen-category.js
 
 /**** MODULES ****/
 //=include ../../modules/hero/hero.js
