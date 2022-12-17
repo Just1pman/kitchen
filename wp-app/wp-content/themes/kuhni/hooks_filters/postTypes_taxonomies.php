@@ -111,7 +111,7 @@ function custom_register_post_types()
             "name_lowercase" => "Кухни",
             "name_lowercase_plural" => "Кухни",
             'menu_icon' => 'dashicons-shield-alt',
-            "supports" => ['title', 'editor', 'thumbnail'],
+            "supports" => ['title', 'editor'],
             "has_archive" => false,
         ],
         [

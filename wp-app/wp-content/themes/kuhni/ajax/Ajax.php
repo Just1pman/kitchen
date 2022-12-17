@@ -21,7 +21,8 @@ class Ajax
         add_action('wp_ajax_nopriv_popular_styles', [$this, 'popular_styles']);
     }
 
-    public function example_kitchens() {
+    public function example_kitchens()
+    {
         $format = $_POST['format'];
         $kitchens = $this->get_example_kitchens($format);
 
@@ -29,7 +30,8 @@ class Ajax
         wp_die();
     }
 
-    public function get_example_kitchens($format) {
+    public function get_example_kitchens($format)
+    {
         $args = [];
         $defaultArgs = [
             'post_type' => 'kitchens',
@@ -46,25 +48,26 @@ class Ajax
 
         if ($format === 'popular') {
             $args = [
-                'meta_key'       => 'popular',
-                'meta_value'     => '1',
-                'compare'   => '=',
+                'meta_key' => 'popular',
+                'meta_value' => '1',
+                'compare' => '=',
             ];
         }
 
         if ($format === 'discount') {
             $args = [
-                'meta_key'       => 'discount',
-                'meta_value'     => '1',
-                'compare'   => '=',
+                'meta_key' => 'discount',
+                'meta_value' => '1',
+                'compare' => '=',
             ];
         }
 
         return get_posts(array_merge($defaultArgs, $args));
     }
 
-    public function reviews() {
-        [ 'type' => $type ] = $_POST;
+    public function reviews()
+    {
+        ['type' => $type] = $_POST;
         $args = [];
         $defaultArgs = [
             'post_type' => 'reviews',
@@ -78,7 +81,8 @@ class Ajax
         wp_die();
     }
 
-    public function popular_styles() {
+    public function popular_styles()
+    {
         $term_id = $_POST['termId'];
         $gallery = $this->get_popular_styles($term_id);
 

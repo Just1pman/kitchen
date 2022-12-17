@@ -5,18 +5,20 @@
         {
             "key": "field_638c7f4497580",
             "label": "Фото кухни",
-            "name": "image",
-            "type": "image",
+            "name": "images",
+            "type": "gallery",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "return_format": "array",
             "library": "all",
+            "min": "",
+            "max": "",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -24,87 +26,65 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
+            "insert": "append",
             "preview_size": "medium"
-        },
-        {
-            "key": "field_638c7b4914150",
-            "label": "Размер кухни",
-            "name": "kitchen_size",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_638c7ba114151",
-            "label": "Материал",
-            "name": "material",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_638c7edcbe0b1",
             "label": "Цена",
             "name": "price",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 0,
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_638c7ef79757f",
-            "label": "Процент скидки",
-            "name": "discount_percentage",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "min": "",
-            "max": "",
+            "maxlength": "",
             "placeholder": "",
-            "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_639d81bd7af84",
+            "label": "Популярная",
+            "name": "popular",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_639d81dc7af85",
+            "label": "Скидка",
+            "name": "discount",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_639a07397ad65",
@@ -198,5 +178,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671038997
+    "modified": 1671267084
 }
