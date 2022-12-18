@@ -5,6 +5,8 @@ class KitchenTabInfo {
     this.init();
 
     this.initTabsSlider()
+
+    this.initGallerySlider();
   }
 
   init() {
@@ -41,11 +43,32 @@ class KitchenTabInfo {
   initTabsSlider() {
     new Swiper(".swiper-single-kitchen", {
       slidesPerView: 'auto',
-
+      watchOverflow: true,
       slidesPerColumn: 1,
       slidesPerGroup: 1,
       slidesPerColumnFill: 'row',
       freeMode: true,
+    });
+  }
+
+  initGallerySlider() {
+    const swiper = new Swiper(".kitchen-slider__thumb", {
+      spaceBetween: 13,
+      slidesPerView: 4,
+      loop: false,
+      watchSlidesProgress: true,
+      direction: 'vertical',
+    });
+    new Swiper(".kitchen-slider__preview", {
+      noSwiping: true,
+      noSwipingClass: 'swiper-slide',
+      thumbs: {
+        swiper: swiper,
+      },
+      navigation: {
+        nextEl: ".kitchen-thumb__button-next",
+        prevEl: ".kitchen-thumb__button-prev",
+      },
     });
   }
 }
