@@ -63,13 +63,6 @@
                 "operator": "==",
                 "value": "acf\/example-kitchens"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "kitchens"
-            }
         ]
     ],
     "menu_order": 0,
@@ -81,5 +74,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671358662
+    "modified": 1670690109
 }

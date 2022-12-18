@@ -181,6 +181,27 @@
     bottom: 0;
   }
 
+  .custom-swiper-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $c-red;
+    border-radius: 100%;
+
+    &.swiper-button-disabled {
+      background-color: $c-dark-gray;
+
+      path {
+        fill: $c-other-gray;
+      }
+    }
+    &.prev {
+      rotate: 180deg;
+    }
+  }
+
   &__swiper-buttons {
     display: none;
     justify-content: center;
@@ -193,6 +214,8 @@
     }
   }
 }
+
+
 
 
 
@@ -209,27 +232,6 @@
   }
 }
 
-
-.custom-swiper-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: $c-red;
-  border-radius: 100%;
-
-  &.swiper-button-disabled {
-    background-color: $c-dark-gray;
-
-    path {
-      fill: $c-other-gray;
-    }
-  }
-  &.prev {
-    rotate: 180deg;
-  }
-}
 
 
 
