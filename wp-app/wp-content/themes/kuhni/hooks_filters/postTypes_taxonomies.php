@@ -99,6 +99,37 @@ function create_taxonomy()
         'update_count_callback' => '_update_post_term_count',
         'query_var' => true,
     ]);
+
+
+    //СТАТЬИ
+    register_taxonomy('articles-category', ['articles'], [
+        'label' => __('articles category'),
+        'rewrite' => ['slug' => 'articles-category'],
+        'labels' => [
+            'name' => 'Категория',
+            'singular_name' => 'Категория статей',
+            'search_items' => 'Найти категорию статей',
+            'all_items' => 'Все категории статей',
+            'view_item ' => 'Просмотреть категории статей',
+            'parent_item' => 'Родительская категория статей',
+            'parent_item_colon' => 'Родительская категория:',
+            'edit_item' => 'Редактировать категорию статей',
+            'update_item' => 'Обновить категорию статей',
+            'add_new_item' => 'Добавить новую категорию статей',
+            'new_item_name' => 'Новое название категории статей',
+            'menu_name' => 'Категории статей',
+        ],
+        'public' => true,
+        'hierarchical' => true,
+        'capabilities' => [],
+        'meta_box_cb' => null,
+        'show_admin_column' => false,
+        'show_in_rest' => true,
+        'show_ui' => true,
+        'publicly_queryable' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+    ]);
 }
 
 function custom_register_post_types()

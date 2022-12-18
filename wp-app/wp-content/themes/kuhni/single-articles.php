@@ -1,4 +1,7 @@
 <?php
+
+use helpers\Helpers;
+
 get_header();
 
 $title = get_the_title();
@@ -7,11 +10,7 @@ $image = get_field('photo');
 $text = get_field('text');
 $socials = get_field('socials', 'option');
 
-
-$wordPerMinute = 200;
-$clearText = strip_tags($text);
-$countWords = count(preg_split('/\W+/u', $clearText, -1, PREG_SPLIT_NO_EMPTY));
-$readTimeMinutes = floor($countWords / 200);
+$readTimeMinutes = Helpers::get_reading_time($text);
 
 ?>
 <section class="single-article">

@@ -14,3 +14,4 @@
 //=include ../../modules/example-kitchens/example-kitchens.js
 //=include ../../modules/popular-styles/popular-styles.js
 //=include ../../modules/about-company/about-company.js
+//=include ../../modules/articles-category/articles-category.js

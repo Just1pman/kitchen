@@ -22,7 +22,49 @@ class Ajax
 
         add_action('wp_ajax_kitchen_filter', [$this, 'kitchen_filter']);
         add_action('wp_ajax_nopriv_kitchen_filter', [$this, 'kitchen_filter']);
+
+        add_action('wp_ajax_article_categories', [$this, 'popular_styles']);
+        add_action('wp_ajax_nopriv_article_categories', [$this, 'popular_styles']);
     }
+
+    public function get_articles(
+        ?string $category = null
+    ): array
+    {
+        $args = [];
+        $defaultArgs = [
+            'post_type' => 'articles',
+            'posts_per_page' => 6,
+            'post_status' => 'publish',
+        ];
+
+//        if ($format === 'new') {
+//            $args = [
+//                'orderby' => 'publish_date',
+//                'order' => 'DESC',
+//            ];
+//        }
+//
+//        if ($format === 'popular') {
+//            $args = [
+//                'meta_key' => 'popular',
+//                'meta_value' => '1',
+//                'compare' => '=',
+//            ];
+//        }
+//
+//        if ($format === 'discount') {
+//            $args = [
+//                'meta_key' => 'discount',
+//                'meta_value' => '1',
+//                'compare' => '=',
+//            ];
+//        }
+
+        return get_posts(array_merge($defaultArgs, $args));
+    }
+
+
 
     public function example_kitchens()
     {

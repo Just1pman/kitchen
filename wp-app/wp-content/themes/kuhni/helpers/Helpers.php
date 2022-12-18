@@ -41,4 +41,12 @@ class Helpers
 
         return max($prices);
     }
+
+    public static function get_reading_time(string $text) : string
+    {
+        $wordPerMinute = 200;
+        $clearText = strip_tags($text);
+        $countWords = count(preg_split('/\W+/u', $clearText, -1, PREG_SPLIT_NO_EMPTY));
+        return floor($countWords / $wordPerMinute);
+    }
 }

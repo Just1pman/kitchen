@@ -7,11 +7,13 @@ Mode: preview
 
 ?>
 
-<?php if (!is_admin()) : ?>
+<?php use helpers\Helpers;
+
+if (!is_admin()) : ?>
     <section class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-wrapper">
-                <?= \helpers\Helpers::get_breadcrumb() ?>
+                <?= Helpers::get_breadcrumb() ?>
             </div>
         </div>
     </section>

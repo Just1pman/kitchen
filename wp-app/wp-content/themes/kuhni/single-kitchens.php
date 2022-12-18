@@ -47,7 +47,23 @@ get_header();
                                 <span class="characteristics-value">Без острова</span>
                             </li>
                         </ul>
-                        <span class="characteristics-list__all-btn">Все характеристики</span>
+                        <a href="#all-chars" class="characteristics-list__all-btn">Все характеристики</a>
+                    </div>
+                </div>
+                    <div class="kitchen__price-block">
+                        <b class="kitchen__price-title">Стоимость</b>
+                        <p class="kitchen__price">
+                            <?php if(!empty($price)) : ?>
+                                от <?= $price ?>
+                                <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.856 0H2.55435V10.7283H0V13.1123H2.55435V15.4964H0V17.8804H2.55435V21.4565H5.1087V17.8804H10.2174V15.4964H5.1087V13.1123H10.856C14.7386 13.1123 17.8804 10.1799 17.8804 6.55616C17.8804 2.93239 14.7386 0 10.856 0ZM10.856 10.7283H5.1087V2.38406H10.856C13.3209 2.38406 15.3261 4.25554 15.3261 6.55616C15.3261 8.85678 13.3209 10.7283 10.856 10.7283Z" fill="#303030"/>
+                                </svg>
+                            <?php endif; ?>
+                        </p>
+                        <?php if(!empty($subPrice)): ?>
+                            <p class="kitchen__price-subtitle"><?= $subPrice ?></p>
+                        <?php endif; ?>
+                        <p class="kitchen__price-availability"><?= $inStock ? 'В наличии' : 'Под заказ:' ?> <?php if (!$inStock) :?><span><?= $delay ?></span> <?php endif; ?></p>
                     </div>
                 </div>
 
