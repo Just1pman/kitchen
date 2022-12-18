@@ -90,7 +90,7 @@ get_header();
                                 <span class="characteristics-value">Без острова</span>
                             </li>
                         </ul>
-                        <span class="characteristics-list__all-btn">Все характеристики</span>
+                        <a href="#all-chars" class="characteristics-list__all-btn">Все характеристики</a>
                     </div>
                 </div>
                     <div class="kitchen__price-block">
@@ -140,7 +140,7 @@ get_header();
                 <div class="swiper-wrapper info-module__tabs">
 
                     <div class="swiper-slide ">
-                        <div class="info-module__tab active" data-tab="tab-1">
+                        <div id="all-chars" class="info-module__tab active" data-tab="tab-1">
                             Описание и характеристики
                         </div>
                     </div>

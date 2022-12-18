@@ -53,11 +53,18 @@ class KitchenTabInfo {
 
   initGallerySlider() {
     const swiper = new Swiper(".kitchen-slider__thumb", {
-      spaceBetween: 13,
-      slidesPerView: 4,
+      spaceBetween: 11.5,
+      slidesPerView: 3,
       loop: false,
       watchSlidesProgress: true,
-      direction: 'vertical',
+      direction: 'horizontal',
+      breakpoints: {
+        768: {
+          direction: 'vertical',
+          slidesPerView: 4,
+          spaceBetween: 13,
+        },
+      },
     });
     new Swiper(".kitchen-slider__preview", {
       noSwiping: true,
