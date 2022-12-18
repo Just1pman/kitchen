@@ -224,6 +224,7 @@ get_header();
             <div class="info-module__tab-content tab-3">Гарантия</div>
             <div class="info-module__tab-content tab-4">Отзывы</div>
         </div>
+        <?php include get_template_directory() . '/modules/example-kitchens/example-kitchens.php' ?>
     </div>
 </section>
 
