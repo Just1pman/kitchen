@@ -3,6 +3,35 @@
 $title = $post->post_title ?? null;
 $description = get_field('description');
 $gallery = get_field('images');
+$materials = get_the_terms($post, 'kitchen-material');
+$price = get_field('price');
+$subPrice = get_field('sub_price');
+
+$delivery = get_field('delivery');
+$pickup = get_field('pickup');
+$delay = get_field('delay');
+$inStock = get_field('instock');
+
+if (!empty($materials)) {
+    $materials = array_map(function (WP_Term $WP_Term) {
+        return $WP_Term->name;
+    }, $materials);
+
+    $materials = implode(', ', $materials);
+}
+
+$kitchenInfo = [
+  'Стиль' => get_field('style'),
+  'Планировка' => get_field('layout'),
+  'Материал корпуса' => $materials ?? '',
+  'Материал фасада' => get_field('material_facade'),
+  'Столешница цвет' => get_field('color_table'),
+  'Покрытие фасада' => get_field('facade_cover'),
+  'Декор корпуса' => get_field('decor'),
+  'Материал фасадов' => get_field('material_facade'),
+];
+
+$shortInfo = array_slice($kitchenInfo, 0, 3);
 
 get_header();
 ?>
@@ -77,18 +106,12 @@ get_header();
                         <h3 class="characteristics-title">Характеристики кухни</h3>
 
                         <ul class="characteristics-list">
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Стиль</span>
-                                <span class="characteristics-value">Современный</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Планировка</span>
-                                <span class="characteristics-value">2,5 метра</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Материал корпуса</span>
-                                <span class="characteristics-value">Без острова</span>
-                            </li>
+                            <?php foreach($shortInfo as $key => $item) : ?>
+                                <li class="characteristics-item">
+                                    <span class="characteristics-key"><?= $key ?></span>
+                                    <span class="characteristics-value"><?= $item ?></span>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                         <a href="#all-chars" class="characteristics-list__all-btn">Все характеристики</a>
                     </div>
@@ -96,13 +119,15 @@ get_header();
                     <div class="kitchen__price-block">
                         <b class="kitchen__price-title">Стоимость</b>
                         <p class="kitchen__price">
-                            от 48 000
+                            <?= $price ?? '' ?>
                             <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.856 0H2.55435V10.7283H0V13.1123H2.55435V15.4964H0V17.8804H2.55435V21.4565H5.1087V17.8804H10.2174V15.4964H5.1087V13.1123H10.856C14.7386 13.1123 17.8804 10.1799 17.8804 6.55616C17.8804 2.93239 14.7386 0 10.856 0ZM10.856 10.7283H5.1087V2.38406H10.856C13.3209 2.38406 15.3261 4.25554 15.3261 6.55616C15.3261 8.85678 13.3209 10.7283 10.856 10.7283Z" fill="#303030"/>
                             </svg>
                         </p>
-                        <p class="kitchen__price-subtitle">цена зависит от аксессуаров</p>
-                        <p class="kitchen__price-availability">Под заказ: <span>10 дней</span></p>
+                        <?php if(!empty($subPrice)): ?>
+                            <p class="kitchen__price-subtitle"><?= $subPrice ?></p>
+                        <?php endif; ?>
+                        <p class="kitchen__price-availability"><?= $inStock ? 'В наличии' : 'Под заказ:' ?> <?php if (!$inStock) :?><span><?= $delay ?></span> <?php endif; ?></p>
                     </div>
                 </div>
 
@@ -117,19 +142,26 @@ get_header();
                         </button>
                     </div>
                     <ul class="delivery-list">
-                        <li class="delivery-item">
-                            <svg class="delivery-icon" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.0181 4.93241H15.6327L15.0082 2.32006C14.9205 1.94134 14.5883 1.67694 14.199 1.67694H11.66V1.17866C11.66 0.537546 11.1385 0.0159912 10.4973 0.0159912H1.16267C0.521555 0.015958 0 0.537513 0 1.17863V8.91875C0 9.55953 0.521555 10.0814 1.16267 10.0814H2.11441C2.3363 10.9402 3.11764 11.5763 4.04444 11.5763C4.97127 11.5763 5.75257 10.9402 5.97447 10.0814H11.2912C11.5131 10.9402 12.2945 11.5763 13.2213 11.5763C14.1481 11.5763 14.9294 10.9402 15.1513 10.0814H15.8373C16.4784 10.0814 16.9999 9.55986 16.9999 8.91875V5.91439C17 5.37292 16.5595 4.93241 16.0181 4.93241ZM14.0677 2.6735L14.6079 4.93241H11.66V2.6735H14.0677ZM0.996592 8.91875V7.46109H2.05547C2.33066 7.46109 2.55375 7.238 2.55375 6.96282C2.55375 6.68763 2.33066 6.46454 2.05547 6.46454H0.996592V1.17863C0.996592 1.08696 1.071 1.01255 1.16267 1.01255H10.4973C10.589 1.01255 10.6634 1.08696 10.6634 1.17863V9.08483H5.9745C5.75261 8.2261 4.97127 7.58996 4.04447 7.58996C3.11764 7.58996 2.33634 8.2261 2.11444 9.08483H1.16267C1.071 9.08483 0.996592 9.01009 0.996592 8.91875ZM4.04444 10.5797C3.49489 10.5797 3.04785 10.1321 3.04785 9.58311C3.04785 8.56702 4.39878 8.20717 4.90712 9.08483C5.08473 9.3896 5.08672 9.77203 4.90712 10.0814C4.73443 10.3791 4.41253 10.5797 4.04444 10.5797ZM13.2213 10.5797C12.4543 10.5797 11.9759 9.74401 12.3586 9.08483C12.8689 8.20385 14.2178 8.56952 14.2178 9.58311C14.2179 10.1299 13.7727 10.5797 13.2213 10.5797ZM16.0034 8.91875C16.0034 9.01042 15.929 9.08483 15.8373 9.08483H15.1514C14.9295 8.2261 14.1481 7.58996 13.2213 7.58996C12.5898 7.58996 12.0257 7.88526 11.66 8.34536V5.92897H16.0034V8.91875H16.0034Z" fill="black"/>
-                                <path d="M4.79845 6.42091C4.98412 6.63318 5.30885 6.64922 5.51451 6.45621L7.74021 4.36737C7.94086 4.17904 7.95089 3.86371 7.76256 3.66303C7.57426 3.46238 7.25893 3.45235 7.05822 3.64068L5.20881 5.37634L4.63506 4.72038C4.45387 4.51323 4.13907 4.49221 3.93195 4.67337C3.72483 4.85456 3.70378 5.16935 3.88493 5.37648L4.79845 6.42091Z" fill="#ED1C24"/>
-                            </svg>
-                            <div><b>Доставка</b><span>В течение 1-2 дней, от 300</span></li>
-                        <li class="delivery-item">
-                            <svg class="delivery-icon" width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.935 1.29896C13.7725 0.819583 13.3175 0.478333 12.7812 0.478333H3.84375C3.3075 0.478333 2.86062 0.819583 2.69 1.29896L1 6.16583V12.6658C1 13.1127 1.36562 13.4783 1.8125 13.4783H2.625C3.07188 13.4783 3.4375 13.1127 3.4375 12.6658V11.8533H13.1875V12.6658C13.1875 13.1127 13.5531 13.4783 14 13.4783H14.8125C15.2594 13.4783 15.625 13.1127 15.625 12.6658V6.16583L13.935 1.29896ZM4.12812 2.10333H12.4887L13.3662 4.63021H3.25062L4.12812 2.10333ZM14 10.2283H2.625V6.16583H14V10.2283Z" fill="black" stroke="white" stroke-width="0.4"/>
-                                <path d="M4.65625 9.41583C5.32935 9.41583 5.875 8.87018 5.875 8.19708C5.875 7.52399 5.32935 6.97833 4.65625 6.97833C3.98315 6.97833 3.4375 7.52399 3.4375 8.19708C3.4375 8.87018 3.98315 9.41583 4.65625 9.41583Z" fill="#ED1C24"/>
-                                <path d="M11.9688 9.41583C12.6418 9.41583 13.1875 8.87018 13.1875 8.19708C13.1875 7.52399 12.6418 6.97833 11.9688 6.97833C11.2957 6.97833 10.75 7.52399 10.75 8.19708C10.75 8.87018 11.2957 9.41583 11.9688 9.41583Z" fill="#ED1C24"/>
-                            </svg>
-                            <b>Самовывоз</b><span>По готовности до 18:00, бесплатно</span></li>
+                        <?php if (!empty($delivery)) : ?>
+                            <li class="delivery-item">
+                                <svg class="delivery-icon" width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.0181 4.93241H15.6327L15.0082 2.32006C14.9205 1.94134 14.5883 1.67694 14.199 1.67694H11.66V1.17866C11.66 0.537546 11.1385 0.0159912 10.4973 0.0159912H1.16267C0.521555 0.015958 0 0.537513 0 1.17863V8.91875C0 9.55953 0.521555 10.0814 1.16267 10.0814H2.11441C2.3363 10.9402 3.11764 11.5763 4.04444 11.5763C4.97127 11.5763 5.75257 10.9402 5.97447 10.0814H11.2912C11.5131 10.9402 12.2945 11.5763 13.2213 11.5763C14.1481 11.5763 14.9294 10.9402 15.1513 10.0814H15.8373C16.4784 10.0814 16.9999 9.55986 16.9999 8.91875V5.91439C17 5.37292 16.5595 4.93241 16.0181 4.93241ZM14.0677 2.6735L14.6079 4.93241H11.66V2.6735H14.0677ZM0.996592 8.91875V7.46109H2.05547C2.33066 7.46109 2.55375 7.238 2.55375 6.96282C2.55375 6.68763 2.33066 6.46454 2.05547 6.46454H0.996592V1.17863C0.996592 1.08696 1.071 1.01255 1.16267 1.01255H10.4973C10.589 1.01255 10.6634 1.08696 10.6634 1.17863V9.08483H5.9745C5.75261 8.2261 4.97127 7.58996 4.04447 7.58996C3.11764 7.58996 2.33634 8.2261 2.11444 9.08483H1.16267C1.071 9.08483 0.996592 9.01009 0.996592 8.91875ZM4.04444 10.5797C3.49489 10.5797 3.04785 10.1321 3.04785 9.58311C3.04785 8.56702 4.39878 8.20717 4.90712 9.08483C5.08473 9.3896 5.08672 9.77203 4.90712 10.0814C4.73443 10.3791 4.41253 10.5797 4.04444 10.5797ZM13.2213 10.5797C12.4543 10.5797 11.9759 9.74401 12.3586 9.08483C12.8689 8.20385 14.2178 8.56952 14.2178 9.58311C14.2179 10.1299 13.7727 10.5797 13.2213 10.5797ZM16.0034 8.91875C16.0034 9.01042 15.929 9.08483 15.8373 9.08483H15.1514C14.9295 8.2261 14.1481 7.58996 13.2213 7.58996C12.5898 7.58996 12.0257 7.88526 11.66 8.34536V5.92897H16.0034V8.91875H16.0034Z" fill="black"/>
+                                    <path d="M4.79845 6.42091C4.98412 6.63318 5.30885 6.64922 5.51451 6.45621L7.74021 4.36737C7.94086 4.17904 7.95089 3.86371 7.76256 3.66303C7.57426 3.46238 7.25893 3.45235 7.05822 3.64068L5.20881 5.37634L4.63506 4.72038C4.45387 4.51323 4.13907 4.49221 3.93195 4.67337C3.72483 4.85456 3.70378 5.16935 3.88493 5.37648L4.79845 6.42091Z" fill="#ED1C24"/>
+                                </svg>
+                                <div><b>Доставка</b><span><?= $delivery ?></span>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!empty($pickup)) : ?>
+                            <li class="delivery-item">
+                                <svg class="delivery-icon" width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.935 1.29896C13.7725 0.819583 13.3175 0.478333 12.7812 0.478333H3.84375C3.3075 0.478333 2.86062 0.819583 2.69 1.29896L1 6.16583V12.6658C1 13.1127 1.36562 13.4783 1.8125 13.4783H2.625C3.07188 13.4783 3.4375 13.1127 3.4375 12.6658V11.8533H13.1875V12.6658C13.1875 13.1127 13.5531 13.4783 14 13.4783H14.8125C15.2594 13.4783 15.625 13.1127 15.625 12.6658V6.16583L13.935 1.29896ZM4.12812 2.10333H12.4887L13.3662 4.63021H3.25062L4.12812 2.10333ZM14 10.2283H2.625V6.16583H14V10.2283Z" fill="black" stroke="white" stroke-width="0.4"/>
+                                    <path d="M4.65625 9.41583C5.32935 9.41583 5.875 8.87018 5.875 8.19708C5.875 7.52399 5.32935 6.97833 4.65625 6.97833C3.98315 6.97833 3.4375 7.52399 3.4375 8.19708C3.4375 8.87018 3.98315 9.41583 4.65625 9.41583Z" fill="#ED1C24"/>
+                                    <path d="M11.9688 9.41583C12.6418 9.41583 13.1875 8.87018 13.1875 8.19708C13.1875 7.52399 12.6418 6.97833 11.9688 6.97833C11.2957 6.97833 10.75 7.52399 10.75 8.19708C10.75 8.87018 11.2957 9.41583 11.9688 9.41583Z" fill="#ED1C24"/>
+                                </svg>
+                                <b>Самовывоз</b><span><?= $pickup ?></span>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -178,42 +210,12 @@ get_header();
                         <h3 class="characteristics-title">Характеристики</h3>
 
                         <ul class="characteristics-list">
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Стиль</span>
-                                <span class="characteristics-value">Современный</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Планировка</span>
-                                <span class="characteristics-value">2,5 метра</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Материал корпуса</span>
-                                <span class="characteristics-value">Без острова</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Материал фасада:</span>
-                                <span class="characteristics-value">ЛДСП</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Столешница цвет:</span>
-                                <span class="characteristics-value">Светлая</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Покрытие фасада:</span>
-                                <span class="characteristics-value">Матовое</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Материал корпуса:</span>
-                                <span class="characteristics-value">ЛДСП</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Декор корпуса:</span>
-                                <span class="characteristics-value">«Гейнсборо» и «Дуб Винченца»</span>
-                            </li>
-                            <li class="characteristics-item">
-                                <span class="characteristics-key">Материал фасадов:</span>
-                                <span class="characteristics-value">МДФ в плёнке</span>
-                            </li>
+                            <?php foreach($kitchenInfo as $key => $item) : ?>
+                                <li class="characteristics-item">
+                                    <span class="characteristics-key"><?= $key ?></span>
+                                    <span class="characteristics-value"><?= $item ?></span>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
 
 

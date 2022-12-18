@@ -30,6 +30,25 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_639a07e5d51aa",
+            "label": "Описание кухни",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
             "key": "field_638c7edcbe0b1",
             "label": "Цена",
             "name": "price",
@@ -57,7 +76,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -76,7 +95,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -95,7 +114,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -106,13 +125,40 @@
             "append": ""
         },
         {
-            "key": "field_639a07557ad66",
-            "label": "Декор корпуса",
-            "name": "decor",
-            "type": "text",
+            "key": "field_639f0db512ce9",
+            "label": "В наличии",
+            "name": "instock",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
+        },
+        {
+            "key": "field_639f0e7276be0",
+            "label": "Длительность поставки",
+            "name": "delay",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_639f0db512ce9",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -141,10 +187,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_639a07e5d51aa",
-            "label": "Описание кухни",
-            "name": "description",
-            "type": "wysiwyg",
+            "key": "field_639a07557ad66",
+            "label": "Декор корпуса",
+            "name": "decor",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -154,10 +200,159 @@
                 "id": ""
             },
             "default_value": "",
-            "delay": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f01314947c",
+            "label": "Цвет столешницы",
+            "name": "color_table",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f013b4947d",
+            "label": "Покрытие фасада",
+            "name": "facade_cover",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f014a4947e",
+            "label": "Стиль кухни",
+            "name": "style",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f09ac76548",
+            "label": "Материал фасадов",
+            "name": "material_facade",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f0bdbba647",
+            "label": "Подпись к цене",
+            "name": "sub_price",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f0c6628a8f",
+            "label": "Доставка",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_639f0c7628a90",
+            "label": "Доставка",
+            "name": "delivery",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_639f0d055c7eb",
+            "label": "Самовывоз",
+            "name": "pickup",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -178,5 +373,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671267084
+    "modified": 1671368623
 }
