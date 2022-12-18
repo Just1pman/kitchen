@@ -27,45 +27,6 @@ class Ajax
         add_action('wp_ajax_nopriv_article_categories', [$this, 'popular_styles']);
     }
 
-    public function get_articles(
-        ?string $category = null
-    ): array
-    {
-        $args = [];
-        $defaultArgs = [
-            'post_type' => 'articles',
-            'posts_per_page' => 6,
-            'post_status' => 'publish',
-        ];
-
-//        if ($format === 'new') {
-//            $args = [
-//                'orderby' => 'publish_date',
-//                'order' => 'DESC',
-//            ];
-//        }
-//
-//        if ($format === 'popular') {
-//            $args = [
-//                'meta_key' => 'popular',
-//                'meta_value' => '1',
-//                'compare' => '=',
-//            ];
-//        }
-//
-//        if ($format === 'discount') {
-//            $args = [
-//                'meta_key' => 'discount',
-//                'meta_value' => '1',
-//                'compare' => '=',
-//            ];
-//        }
-
-        return get_posts(array_merge($defaultArgs, $args));
-    }
-
-
-
     public function example_kitchens()
     {
         $format = $_POST['format'];
@@ -267,5 +228,54 @@ class Ajax
             'paged' => $paged,
             'max_page' => $max_page
         ];
+    }
+
+
+    public function get_articles(
+        ?string $taxonomy = '',
+        ?string $term_id = '',
+    ): array
+    {
+        $paged = $_GET['np'] ?? 1;
+        $sorting = 6;
+
+        if ($taxonomy && $term_id) {
+            $current_tax = [
+                'taxonomy' => $taxonomy,
+                'field' => 'term_id',
+                'terms' => $term_id,
+            ];
+        }
+
+        $tax_query = [
+            'relation' => 'AND',
+            $current_tax ?? '',
+        ];
+
+        $args = [
+            'post_type' => 'articles',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+
+            'tax_query' => [
+                $tax_query
+            ],
+        ];
+
+        $articles = get_posts($args);
+        $count_articles = count($articles);
+        $max_page = ceil($count_articles / $sorting);
+        $articles = array_splice($articles, (($paged - 1) * $sorting), $sorting);
+
+        if ($max_page < $paged) {
+            $paged = $max_page;
+        }
+
+        return [
+            'articles' => $articles,
+            'paged' => $paged,
+            'max_page' => $max_page
+        ];
+
     }
 }

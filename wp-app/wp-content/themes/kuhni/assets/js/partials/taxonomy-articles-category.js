@@ -1,4 +1,4 @@
-class ArticlesCategory {
+class TaxonomyArticlesCategory {
   constructor() {
     this.initSlider()
   }
@@ -22,4 +22,4 @@ class ArticlesCategory {
   }
 }
 
-new ArticlesCategory()
+new TaxonomyArticlesCategory()
