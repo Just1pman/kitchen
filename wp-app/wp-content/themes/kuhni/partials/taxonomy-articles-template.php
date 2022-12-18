@@ -34,7 +34,7 @@ $categoryData = array_map(function (WP_Term $term) {
 ?>
     <section class="articles-category">
         <div class="container">
-            <h1 class="articles-category__main-title"><?= get_the_title() ?></h1>
+            <h1 class="articles-category__main-title">Категории статей</h1>
 
             <div class="articles-category__slider-block">
                 <div class="swiper swiper-article__category">
