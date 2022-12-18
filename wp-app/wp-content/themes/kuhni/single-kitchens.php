@@ -9,14 +9,14 @@ get_header();
 <section class="kitchen-single">
 
     <div class="container">
-        <ul class="kitchen-single__breadcrumbs-list">
-            <li class="kitchen-single__breadcrumbs-item">
-                Главная
-            </li>
-            <li class="kitchen-single__breadcrumbs-item">
-                Каталог
-            </li>
-        </ul>
+<!--        <ul class="kitchen-single__breadcrumbs-list">-->
+<!--            <li class="kitchen-single__breadcrumbs-item">-->
+<!--                Главная-->
+<!--            </li>-->
+<!--            <li class="kitchen-single__breadcrumbs-item">-->
+<!--                Каталог-->
+<!--            </li>-->
+<!--        </ul>-->
         <?php if (!empty($title)) : ?>
             <h1 class="kitchen-single__title">
                 <?= $title ?>
