@@ -19,6 +19,9 @@ class Ajax
 
         add_action('wp_ajax_popular_styles', [$this, 'popular_styles']);
         add_action('wp_ajax_nopriv_popular_styles', [$this, 'popular_styles']);
+
+        add_action('wp_ajax_kitchen_filter', [$this, 'kitchen_filter']);
+        add_action('wp_ajax_nopriv_kitchen_filter', [$this, 'kitchen_filter']);
     }
 
     public function example_kitchens()
@@ -30,7 +33,7 @@ class Ajax
         wp_die();
     }
 
-    public function get_example_kitchens($format)
+    public function get_example_kitchens($format): array
     {
         $args = [];
         $defaultArgs = [
@@ -97,4 +100,130 @@ class Ajax
         return get_field('gallery', $term->taxonomy . '_' . $term->term_id);
     }
 
+    public function kitchen_filter(): void
+    {
+        $dataFilter = $this->get_kitchen_filter();
+
+        $kitchens = $dataFilter['kitchens'];
+        $paged = $dataFilter['paged'];
+        $max_page = $dataFilter['max_page'];
+        $classContainer = 'catalog-filter-results';
+
+        include $this->ajax_blocks_path . 'filter-card-ajax.php';
+        wp_die();
+    }
+
+    public function get_kitchen_filter(
+        ?string $taxonomy = '',
+        ?string $term_id = '',
+    ): array
+    {
+        $paged = $_GET['np'] ?? 1;
+        $sort = $_GET['sort'] ?? 'new';
+        $cheap = $_GET['cheap'] ?? 0;
+        $expensive = $_GET['expensive'] ?? \helpers\Helpers::getMaxPrice();
+        $materials = $_GET['materials'] ?? '';
+        $sizes = $_GET['sizes'] ?? '';
+        $sorting = 9;
+
+        if ($taxonomy && $term_id) {
+            $current_tax = [
+                'taxonomy' => $taxonomy,
+                'field' => 'term_id',
+                'terms' => $term_id,
+            ];
+        }
+
+        if ($materials) {
+            $materials_tax = [
+                'taxonomy' => 'kitchen-material',
+                'field' => 'term_id',
+                'terms' => explode(',', $materials),
+            ];
+        }
+
+        if ($sizes) {
+            $sizes_tax = [
+                'taxonomy' => 'kitchen-size',
+                'field' => 'term_id',
+                'terms' => explode(',', $sizes),
+            ];
+        }
+
+        $tax_query = [
+            'relation' => 'AND',
+            $current_tax ?? '',
+            $materials_tax ?? '',
+            $sizes_tax ?? ''
+        ];
+
+        $meta_query = [
+            'relation' => 'AND',
+            'key' => 'price',
+            'value' => [(int)$cheap, (int)$expensive],
+            'type' => 'numeric',
+            'compare' => 'BETWEEN'
+        ];
+
+        if ($sort === 'new') {
+            $order = [
+                'orderby'=> 'post_date',
+                'order' => 'ASC',
+            ];
+        }
+
+        if ($sort === 'discount') {
+            $order = [
+                'meta_key'       => 'discount',
+                'orderby'        => 'meta_value_num',
+                'order'         => 'DESC',
+            ];
+        }
+
+        if ($sort === 'expensive') {
+            $order = [
+                'meta_key'       => 'price',
+                'orderby'        => 'meta_value_num',
+                'order'         => 'DESC',
+            ];
+        }
+
+        if ($sort === 'cheap') {
+            $order = [
+                'meta_key'       => 'price',
+                'orderby'        => 'meta_value_num',
+                'order'         => 'ASC',
+            ];
+        }
+
+        $args = [
+            'post_type' => 'kitchens',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+
+            'tax_query' => [
+                $tax_query
+            ],
+
+            'meta_query' => [
+                $meta_query
+            ]
+        ];
+
+
+        $kitchens = get_posts(array_merge(array_merge($args, $order ?? [])));
+        $count_kitchens = count($kitchens);
+        $max_page = ceil($count_kitchens / $sorting);
+        $kitchens = array_splice($kitchens, (($paged - 1) * $sorting), $sorting);
+
+        if ($max_page < $paged) {
+            $paged = $max_page;
+        }
+
+        return [
+            'kitchens' => $kitchens,
+            'paged' => $paged,
+            'max_page' => $max_page
+        ];
+    }
 }

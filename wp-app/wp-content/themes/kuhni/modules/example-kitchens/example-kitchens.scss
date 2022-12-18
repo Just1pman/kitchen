@@ -1,4 +1,4 @@
-.example-kitchens {
+.example-kitchens, .catalog-filter-results {
 
   .swiper-kitchen {
     overflow: hidden;
@@ -87,21 +87,6 @@
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(1, 547px);
       column-gap: 28px;
-
-      .kitchen-link {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background: $c-white;
-        border: 1px solid #EFEFEF;
-        border-radius: 6px;
-        overflow: hidden;
-        width: 100%;
-
-        @include _768 {
-          margin: 0 15px;
-        }
-      }
     }
 
     .swiper-button-next, .swiper-button-prev {
@@ -137,6 +122,21 @@
       svg path {
         fill: $c-other-gray;
       }
+    }
+  }
+
+  .kitchen-link {
+    display: flex;
+    flex-direction: column;
+    background: $c-white;
+    border: 1px solid #EFEFEF;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    max-height: 547px;
+
+    @include _768 {
+      margin: 0 15px;
     }
   }
 
@@ -182,6 +182,7 @@
   .kitchen-top {
     display: inline-block;
     height: 50%;
+    width: 100%;
 
     img {
       width: 100%;
@@ -256,6 +257,10 @@
         font-size: 22px;
         line-height: 33px;
         color: $c-dark-black;
+
+        &.discount-price {
+          color: $c-red;
+        }
       }
 
       button {

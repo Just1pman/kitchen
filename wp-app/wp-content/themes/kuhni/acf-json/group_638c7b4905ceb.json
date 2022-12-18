@@ -33,7 +33,7 @@
             "key": "field_638c7edcbe0b1",
             "label": "Цена",
             "name": "price",
-            "type": "text",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,8 +43,10 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
+            "min": "",
+            "max": "",
             "placeholder": "",
+            "step": "",
             "prepend": "",
             "append": ""
         },
@@ -178,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671267084
+    "modified": 1671358615
 }

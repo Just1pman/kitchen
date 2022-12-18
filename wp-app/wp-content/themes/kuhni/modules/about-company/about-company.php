@@ -5,14 +5,14 @@ Title: О компании
 Mode: preview
 */
 
-$headline        = get_field( 'headline' );
-$text            = get_field( 'text' );
-$company_numbers = get_field( 'company_numbers' );
-$images          = get_field( 'images' );
+$headline = get_field('headline');
+$text = get_field('text');
+$company_numbers = get_field('company_numbers');
+$images = get_field('images');
 
 ?>
 
-<?php if ( ! is_admin() ) : ?>
+<?php if (!is_admin()) : ?>
     <section class="about-company">
         <div class="container">
             <div class="about-company-wrapper">
@@ -23,9 +23,9 @@ $images          = get_field( 'images' );
                     </div>
                     <div class="about-company-wrapper-top-right">
                         <h2> <?= $company_numbers['headline'] ?> </h2>
-						<?php if ( ! empty( $company_numbers['numbers'] ) ) : ?>
+                        <?php if (!empty($company_numbers['numbers'])) : ?>
                             <div class="about-company-wrapper-numbers">
-								<?php foreach ( $company_numbers['numbers'] as $number ) : ?>
+                                <?php foreach ($company_numbers['numbers'] as $number) : ?>
                                     <div class="about-company-number">
                                         <h3> <?= $number['headline'] ?> </h3>
                                         <p><?= $number['subheadline'] ?></p>
@@ -35,16 +35,16 @@ $images          = get_field( 'images' );
                                                   fill="#ED1C24"/>
                                         </svg>
                                     </div>
-								<?php endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
-						<?php endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="about-company-wrapper-bottom">
-					<?php if ( ! empty( $images ) ) : ?>
+                    <?php if (!empty($images)) : ?>
                         <div class="swiper about-company-swiper">
                             <div class="swiper-wrapper">
-								<?php foreach ( $images as $image ) : ?>
+                                <?php foreach ($images as $image) : ?>
                                     <div class="swiper-slide">
                                         <picture>
                                             <img loading="lazy" src="<?= $image['image']['url'] ?>"
@@ -53,20 +53,20 @@ $images          = get_field( 'images' );
                                         <div class="slide-bg"></div>
                                         <div class="slide-backside">
                                             <h4><?= $image['headline'] ?></h4>
-	                                        <?php if ( ! empty( $image['values'] ) ) : ?>
+                                            <?php if (!empty($image['values'])) : ?>
                                                 <div class="slider-numbers">
-			                                        <?php foreach ( $image['values'] as $value ) : ?>
+                                                    <?php foreach ($image['values'] as $value) : ?>
                                                         <p><?= $value['name'] ?></p>
-			                                        <?php endforeach; ?>
+                                                    <?php endforeach; ?>
                                                 </div>
-	                                        <?php endif; ?>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-								<?php endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
-					<?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

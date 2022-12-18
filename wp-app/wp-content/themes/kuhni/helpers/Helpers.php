@@ -23,4 +23,22 @@ class Helpers
 
         return $result;
     }
+
+    public static function getMaxPrice() : int
+    {
+        $kitchens = get_posts([
+            'post_type' => 'kitchens',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+        ]);
+
+        $prices = [];
+        foreach ($kitchens as $kitchen) {
+            $price = get_field('price', $kitchen->ID);
+            $price = str_replace(' ', '', $price);
+            $prices[] = trim($price);
+        }
+
+        return max($prices);
+    }
 }
