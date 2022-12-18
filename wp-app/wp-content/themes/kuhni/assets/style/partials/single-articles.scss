@@ -49,8 +49,24 @@
   }
 
   &__photo {
-    min-height: 295px;
-    object-fit: cover;
+    display: block;
+
+    min-height: 724px;
+    @include _768 {
+      min-height: 400px;
+
+    }
+
+    @include _480 {
+      min-height: 295px;
+
+    }
+
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: cover;
+
   }
 
   &__read-time {

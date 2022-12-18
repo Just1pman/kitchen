@@ -49,9 +49,9 @@ $readTimeMinutes = floor($countWords / 200);
     <?endif; ?>
     <div class="container-s">
         <?php if(!empty($image)) : ?>
-            <picture>
-                <img class="single-article__photo" src="<?= $image['url'] ?>" alt="">
-            </picture>
+            <div class="single-article__photo" style="background-image: url(<?= $image['url'] ?>)">
+<!--                <img src="--><?//= $image['url'] ?><!--" alt="">-->
+            </div>
         <?php endif; ?>
     </div>
     <div class="container">
