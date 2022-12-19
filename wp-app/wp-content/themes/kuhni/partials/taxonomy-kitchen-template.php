@@ -253,6 +253,10 @@ $classContainer = 'catalog-filter-results';
                                 Скидки
                                 <span></span>
                             </p>
+                            <p class="sorting-item" data-type="popular">
+                                Популярные
+                                <span></span>
+                            </p>
                             <p class="sorting-item" data-type="cheap">
                                 Сначала дешёвые
                                 <span></span>
