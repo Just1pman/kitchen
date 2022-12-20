@@ -25,6 +25,16 @@ $checkout_form = get_field('checkout', 'option');
             <?= $checkout_form ?>
         </div>
     </div>
+
+    <div class="modal-form form-checkout" id="end-order">
+        <div class="form-wrapper">
+            <p class="form-headline">Ваша заказ оформлен</p>
+            <p class="form-subheadline">Пожалуйста дождитесь ответа наших сотрудников, в ближайшее время они с вами свяжутся для уточнения информации и подтверждения заказа.</p>
+        </div>
+    </div>
+
+    <button style="display: none" href="javascript:;" data-fancybox data-src="#end-order" class="end-order"></button>
+
     <div class="container">
         <div class="footer__wrapper">
 
