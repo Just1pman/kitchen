@@ -8,6 +8,7 @@
 //=include partials/single-kitchens.js
 //=include partials/taxonomy-kitchen-category.js
 //=include partials/taxonomy-articles-category.js
+//=include partials/forms.js
 
 /**** MODULES ****/
 //=include ../../modules/hero/hero.js

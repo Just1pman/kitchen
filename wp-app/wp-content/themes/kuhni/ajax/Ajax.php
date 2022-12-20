@@ -199,6 +199,14 @@ class Ajax
             ];
         }
 
+        if ($sort === 'popular') {
+            $order = [
+                'meta_key'       => 'popular',
+                'orderby'        => 'meta_value_num',
+                'order'         => 'DESC',
+            ];
+        }
+
         $args = [
             'post_type' => 'kitchens',
             'posts_per_page' => -1,
