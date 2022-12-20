@@ -11,11 +11,19 @@
     display: block;
 
     overflow: hidden;
+
+    @include _480 {
+      margin-bottom: 20px;
+    }
   }
 
   &--articles-container {
     position: relative;
     padding-top: 88px;
+
+    @include _480 {
+      padding-top: 60px;
+    }
   }
 
   &--articles-result {
@@ -44,6 +52,16 @@
     @include _768 {
       display: flex;
     }
+
+    .custom-swiper-button {
+      background: red;
+      width: 37px;
+      height: 37px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -53,6 +71,10 @@
 
   overflow: hidden;
   position: relative;
+
+  @include _480 {
+    height: 251px;
+  }
 
   &__overlay {
     position: absolute;
@@ -72,10 +94,7 @@
     }
 
     @include _480 {
-      padding-top: 31px;
-      padding-left: 22px;
-      padding-right: 20px;
-      padding-bottom: 20px;
+      padding: 31px 20px 20px 22px;
     }
   }
 
@@ -109,9 +128,32 @@
   }
 
   &__button {
+
+    background-color: $c-red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
     position: absolute;
     bottom: 33px;
     left: 37px;
+
+    @include _480 {
+      width: 28px;
+      height: 28px;
+    }
+
+    svg {
+      @include _480 {
+        width: 12px;
+        height: 12px;
+        display: block;
+      }
+    }
   }
 
   &__image {
