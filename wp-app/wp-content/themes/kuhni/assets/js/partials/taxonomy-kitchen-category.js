@@ -199,7 +199,6 @@ let sort = 'new';
 function filterAjax()
 {
   startLoader('.catalog-filter-wrapper-results .loader-container')
-
   materials = getDataFilter('tax-materials', materials)
   sizes = getDataFilter('tax-sizes', sizes)
 
@@ -316,7 +315,7 @@ reset && reset.addEventListener('click', async () => {
 })
 
 function filterPagination() {
-  const paginationItems = document.querySelectorAll('.page-numbers:not(.dots)');
+  const paginationItems = document.querySelectorAll('.catalog-kitchen-pagination .page-numbers:not(.dots)');
 
   paginationItems && paginationItems.forEach((item) => {
     item.addEventListener('click', async () => {
