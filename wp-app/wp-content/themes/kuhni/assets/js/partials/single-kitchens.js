@@ -43,6 +43,7 @@ class KitchenTabInfo {
   initTabsSlider() {
     new Swiper(".swiper-single-kitchen", {
       slidesPerView: 'auto',
+      watchOverflow: true,
 
       slidesPerColumn: 1,
       slidesPerGroup: 1,
