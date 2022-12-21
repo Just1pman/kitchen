@@ -3,9 +3,9 @@
     font-size: 34px;
     font-weight: 700;
     line-height: 51px;
+
+    margin-bottom: 21px;
   }
-
-
 }
 
 .info-module {
@@ -171,6 +171,13 @@
     flex-grow: 1;
     min-width: 360px;
 
+    &__info-wrapper {
+      padding-top: 7px;
+      @include _768 {
+        padding-top: 0;
+      }
+    }
+
     @include _480 {
       min-width: unset;
     }
@@ -193,12 +200,24 @@
     font-size: 12px;
     line-height: 17px;
     color: $c-gray;
+
+    text-decoration: underline;
   }
 }
 
 .swiper-single-kitchen {
   .swiper-slide {
     width: unset !important;
+  }
+}
+
+.kitchen-gallery__button {
+  &-prev {
+    rotate: 270deg !important;
+  }
+
+  &-next {
+    rotate: 90deg !important;
   }
 }
 
@@ -209,10 +228,303 @@
     justify-content: space-between;
 
     margin-bottom: 64px;
+
+    @include _1440 {
+      flex-direction: column;
+    }
+
+    @include _768 {
+      margin-bottom: 45px;
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+
+      @include _768 {
+        flex-direction: column;
+        gap: 19px;
+      }
+    }
+
+    &-right {
+      padding: 53px 73px 70px 65px;
+
+      @include  _768 {
+        padding-left: 43px;
+        padding-right: 23px;
+        padding-bottom: 0;
+      }
+      @include _480 {
+        padding-top: 43px;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  &__parameters-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+
+    @include _768 {
+      gap: 26px;
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin-bottom: 4px;
+
+    &-block {
+      @include _768 {
+        margin-bottom: 23px;
+      }
+    }
+
+    &-title {
+      color: $c-gray;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 400;
+    }
+
+    &-subtitle {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 19px;
+      margin-bottom: 4px;
+      color: $c-gray5;
+    }
+
+    &-availability {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 19px;
+      color: $c-gray5;
+
+      span {
+        color: $c-gray;
+      }
+    }
+
   }
 
   &__preview-right {
     display: flex;
     justify-content: space-between;
+
+    @include _768 {
+      flex-direction: column;
+    }
+
+    .characteristics {
+
+      &-title {
+        line-height: 24px;
+      }
+
+      &-item {
+        font-size: 12px;
+        line-height: 19px;
+        font-weight: 400;
+      }
+
+      &-item:last-child {
+        margin-bottom: 18px;
+      }
+
+      &-block {
+
+        &__button-group {
+          margin-bottom: 30px;
+          display: flex;
+          gap: 13px;
+          align-items: center;
+
+          @include _768 {
+            margin-bottom: 27px;
+          }
+        }
+
+
+        &__info {
+          &-order {
+            display: flex;
+            padding: 13px 35px;
+            border-radius: 32px;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 18px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+          }
+
+          &-share {
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .delivery {
+      &-icon {
+        position: absolute;
+        left: 0;
+        top: 7px;
+      }
+
+      &-item {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 14px;
+
+        b {
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 19px;
+          color: $c-black;
+          margin-bottom: 4px;
+          position: relative;
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 1px;
+            background-color: $c-black;
+            bottom: 0;
+            left: 0;
+            right: 0;
+          }
+        }
+
+        span {
+          display: block;
+          color: $c-other-gray;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 19px;
+        }
+      }
+
+    }
+  }
+}
+
+.kitchen-slider {
+  &__preview {
+    max-width: 541px;
+    height: 100%;
+    width: 100%;
+    max-height: 442px;
+
+    @include _480 {
+      max-height: 368px;
+    }
+
+    overflow: hidden;
+
+    @include _768 {
+      order: -1;
+    }
+  }
+
+  &__thumb {
+    height: 300px;
+    overflow: hidden;
+
+    @include _768 {
+      height: 60px;
+      max-width: 244px;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      @include _768 {
+        flex-direction: row;
+      }
+    }
+
+    &button-prev {
+      display: none;
+    }
+
+    .swiper-slide {
+      width: 80px ;
+      height: 65px ;
+      opacity: 0.6;
+
+      @include _768 {
+        width: 74px !important;
+        height: 60px !important;
+      }
+
+      &-thumb-active {
+        opacity: 1;
+      }
+
+      img {
+        border-radius: 6px;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.kitchen-thumb__button {
+  &-prev {
+    rotate: 270deg !important;
+
+    @include _768 {
+      rotate: 180deg !important;
+    }
+
+    @include _480 {
+      width: 29px !important;
+      height: 29px !important;
+
+      svg {
+        width: 13px;
+      }
+    }
+  }
+
+  &-next {
+    rotate: 90deg !important;
+
+    @include _768 {
+      rotate: 360deg !important;
+    }
+
+    @include _480 {
+      width: 29px !important;
+      height: 29px !important;
+
+      svg {
+        width: 13px;
+      }
+    }
   }
 }

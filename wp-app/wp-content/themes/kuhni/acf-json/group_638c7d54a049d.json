@@ -63,6 +63,13 @@
                 "operator": "==",
                 "value": "acf\/example-kitchens"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "kitchens"
+            }
         ]
     ],
     "menu_order": 0,
