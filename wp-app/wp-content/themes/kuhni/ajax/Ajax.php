@@ -23,8 +23,8 @@ class Ajax
         add_action('wp_ajax_kitchen_filter', [$this, 'kitchen_filter']);
         add_action('wp_ajax_nopriv_kitchen_filter', [$this, 'kitchen_filter']);
 
-        add_action('wp_ajax_article_categories', [$this, 'popular_styles']);
-        add_action('wp_ajax_nopriv_article_categories', [$this, 'popular_styles']);
+        add_action('wp_ajax_article_categories', [$this, 'get_articles_filter']);
+        add_action('wp_ajax_nopriv_article_categories', [$this, 'get_articles_filter']);
     }
 
     public function example_kitchens()
@@ -240,16 +240,15 @@ class Ajax
 
 
     public function get_articles(
-        ?string $taxonomy = '',
         ?string $term_id = '',
     ): array
     {
         $paged = $_GET['np'] ?? 1;
+        $term_id = $_GET['term_id'] ?? $term_id;
         $sorting = 6;
-
-        if ($taxonomy && $term_id) {
+        if ($term_id) {
             $current_tax = [
-                'taxonomy' => $taxonomy,
+                'taxonomy' => 'articles-category',
                 'field' => 'term_id',
                 'terms' => $term_id,
             ];
@@ -285,5 +284,19 @@ class Ajax
             'max_page' => $max_page
         ];
 
+    }
+
+    public function get_articles_filter(): void
+    {
+        $dataFilter = $this->get_articles();
+
+        [
+            'articles' => $articles,
+            'paged' => $paged,
+            'max_page' => $max_page
+        ] = $dataFilter;
+
+        include $this->ajax_blocks_path . 'filter-cards-articles-ajax.php';
+        wp_die();
     }
 }

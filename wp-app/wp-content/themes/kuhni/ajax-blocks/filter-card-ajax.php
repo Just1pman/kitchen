@@ -46,7 +46,7 @@
 </div>
 
 <?php if ($classContainer === 'catalog-filter-results' && count($kitchens) > 0) : ?>
-    <div class="filter-pagination">
+    <div class="filter-pagination catalog-kitchen-pagination">
         <?php if ($paged - 2 > 0) : ?>
             <div class="page-numbers paged"> 1</div>
         <?php endif; ?>

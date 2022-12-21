@@ -568,43 +568,6 @@
         position: relative;
       }
 
-      .filter-pagination {
-        width: max-content;
-        margin: 40px auto 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        @include _992 {
-          margin: 16px auto 0 auto;
-        }
-
-        .page-numbers {
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 21px;
-          color: $c-black3;
-          width: 100%;
-          cursor: pointer;
-          padding: 9px 20px;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          &.current {
-            color: $c-red;
-            background: $c-white;
-            border: 1px solid $c-dark-gray;
-            border-radius: 50%;
-            padding: 9px 16px;
-          }
-
-          &.dots {
-            cursor: default;
-          }
-        }
-      }
     }
   }
 }

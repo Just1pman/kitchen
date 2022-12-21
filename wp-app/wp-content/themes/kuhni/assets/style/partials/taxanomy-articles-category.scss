@@ -11,13 +11,36 @@
     display: block;
 
     overflow: hidden;
+
+    @include _480 {
+      margin-bottom: 20px;
+    }
   }
 
   &--articles-container {
+    position: relative;
     padding-top: 88px;
-    display: grid;
-    gap: 43px;
-    grid-template-columns: repeat(2, 1fr);
+
+    @include _480 {
+      padding-top: 60px;
+    }
+  }
+
+  &--articles-result {
+
+    .wrapper {
+      display: grid;
+      gap: 43px;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include _768 {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      @include _480 {
+        gap: 24px;
+      }
+    }
   }
 
   &__slider-buttons {
@@ -29,15 +52,29 @@
     @include _768 {
       display: flex;
     }
+
+    .custom-swiper-button {
+      background: red;
+      width: 37px;
+      height: 37px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
   }
 }
 
 .article-card {
-  width: 678px;
+  max-width: 678px;
   height: 411px;
 
   overflow: hidden;
   position: relative;
+
+  @include _480 {
+    height: 251px;
+  }
 
   &__overlay {
     position: absolute;
@@ -48,6 +85,17 @@
     top: 0;
     bottom: 0;
     background: #1E1E1DCC;
+
+    @include _992 {
+      padding-right: 40px;
+      padding-left: 25px;
+      width: 225px;
+      height: auto;
+    }
+
+    @include _480 {
+      padding: 31px 20px 20px 22px;
+    }
   }
 
   &__reading-time {
@@ -58,6 +106,12 @@
 
     margin-bottom: 14px;
 
+    @include _480 {
+      font-size: 12px;
+      line-height: 14px;
+
+      margin-bottom: 9px;
+    }
   }
 
   &__title {
@@ -66,12 +120,40 @@
     font-size: 20px;
     line-height: 25px;
     color: $c-white;
+
+    @include _480 {
+      font-size: 14px;
+      line-height: 17px;
+    }
   }
 
   &__button {
+
+    background-color: $c-red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
     position: absolute;
     bottom: 33px;
     left: 37px;
+
+    @include _480 {
+      width: 28px;
+      height: 28px;
+    }
+
+    svg {
+      @include _480 {
+        width: 12px;
+        height: 12px;
+        display: block;
+      }
+    }
   }
 
   &__image {
