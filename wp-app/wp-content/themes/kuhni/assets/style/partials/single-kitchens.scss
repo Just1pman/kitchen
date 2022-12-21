@@ -493,6 +493,18 @@
   }
 }
 
+.kitchen-slider__thumb-wrapper {
+  .custom-swiper-button {
+    background: red;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .kitchen-thumb__button {
   &-prev {
     rotate: 270deg !important;
