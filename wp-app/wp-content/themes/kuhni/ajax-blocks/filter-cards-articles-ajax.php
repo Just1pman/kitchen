@@ -16,7 +16,7 @@ foreach($articles as $article) : ?>
     <div class="article-card">
         <a href="<?= $link ?>">
             <div class="article-card__overlay">
-                <p class="article-card__reading-time">Статья <?= $readingTime ?> минут</p>
+                <p class="article-card__reading-time">Статья <?= $readingTime ?> минут(ы)</p>
                 <p class="article-card__title">
                     <?= $title ?>
                 </p>
