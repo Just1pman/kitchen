@@ -86,6 +86,12 @@ get_header();
                         <?php if(!empty($gallery)) : ?>
                             <?php foreach ($gallery as $item) : ?>
                                 <div class="swiper-slide">
+                                    <a class="slider-loop" href="javascript:;" data-fancybox="slider" data-src="<?= $item['url'] ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="36" viewBox="0 0 38 36" fill="none">
+                                            <path d="M19.3038 36C29.5362 36 37.8312 27.9411 37.8312 18C37.8312 8.05888 29.5362 0 19.3038 0C9.07136 0 0.776367 8.05888 0.776367 18C0.776367 27.9411 9.07136 36 19.3038 36Z" fill="white"/>
+                                            <path d="M25.7012 23.9476L22.4647 20.7111C23.2303 19.7763 23.6912 18.5823 23.6912 17.282C23.6912 14.2922 21.2588 11.8598 18.2689 11.8598C15.2791 11.8598 12.8467 14.2922 12.8467 17.282C12.8467 20.2719 15.2791 22.7043 18.2689 22.7043C19.5692 22.7043 20.7632 22.2434 21.698 21.4778L24.9345 24.7143C25.1465 24.9263 25.4892 24.9263 25.7012 24.7143C25.9132 24.5023 25.9132 24.1596 25.7012 23.9476ZM13.9311 17.282C13.9311 14.8903 15.8772 12.9442 18.2689 12.9442C20.6607 12.9442 22.6067 14.8903 22.6067 17.282C22.6067 19.6738 20.6607 21.6198 18.2689 21.6198C15.8772 21.6198 13.9311 19.6738 13.9311 17.282Z" fill="#303030"/>
+                                        </svg>
+                                    </a>
                                     <picture>
                                         <img loading="lazy" src="<?= $item['url'] ?>" alt="<?= $item['alt'] ?>" />
                                     </picture>
@@ -132,7 +138,7 @@ get_header();
 
                 <div class="characteristics-block__info-wrapper">
                     <div class="characteristics-block__button-group">
-                        <button class="characteristics-block__info-order button button--red">Оформить заказ</button>
+                        <a href="javascript:;" data-fancybox="" data-src="#checkout" class="characteristics-block__info-order button button--red">Оформить заказ</a>
                         <div class="kitchen-share-wrapper">
                             <button class="characteristics-block__info-share">
                                 <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">

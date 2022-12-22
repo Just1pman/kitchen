@@ -60,10 +60,16 @@
         font-size: 14px;
         border-radius: 110px;
         padding: 19.5px 73.5px;
+        transition: $transition;
 
         @include _768 {
           padding: 12px 24px;
           font-size: 12px;
+        }
+
+        &:hover {
+          color: $c-white;
+          background: $c-red;
         }
       }
 
@@ -257,6 +263,7 @@
         font-size: 22px;
         line-height: 33px;
         color: $c-dark-black;
+        transition: $transition;
 
         &.discount-price {
           color: $c-red;
@@ -269,6 +276,7 @@
         color: $c-dark-black;
         border-radius: 82px;
         font-size: 12px;
+        transition: $transition;
       }
     }
   }

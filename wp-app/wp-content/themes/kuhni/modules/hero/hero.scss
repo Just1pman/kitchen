@@ -134,10 +134,15 @@
           padding: 19px 67px;
           letter-spacing: 0.02em;
           border-radius: 110px;
+          transition: $transition;
 
           @include _992 {
             font-size: 12px;
             padding: 15px 54px;
+          }
+
+          &:hover {
+            opacity: 0.8;
           }
         }
       }

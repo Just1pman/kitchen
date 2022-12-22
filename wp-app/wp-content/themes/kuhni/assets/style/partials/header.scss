@@ -32,6 +32,7 @@ header {
 
         a {
           color: $c-dark-black;
+          transition: $transition;
 
           &:hover {
             color: $c-red;
@@ -56,6 +57,7 @@ header {
 
         .header-email {
           margin-right: 32px;
+          color: $c-dark-black;
         }
 
         .header-phone {
@@ -73,6 +75,11 @@ header {
         .header-feedback {
           text-decoration: underline;
           color: $c-dark-black;
+          transition: $transition;
+
+          &:hover {
+            color: $c-red;
+          }
         }
       }
     }
@@ -115,6 +122,15 @@ header {
             p {
               padding-left: 8px;
               color: $c-dark-black;
+              transition: $transition;
+            }
+          }
+
+          a:hover {
+            transition: $transition;
+
+            p {
+              color: $c-red;
             }
           }
         }
@@ -216,8 +232,12 @@ header {
     white-space: nowrap;
     display: flex;
     align-items: center;
-    a {
-      color: $c-dark-black;
+    transition: $transition;
+
+    &:hover {
+      background: $c-red;
+      color: $c-white;
+      border-color: $c-red;
     }
   }
 }
