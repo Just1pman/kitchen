@@ -8,7 +8,6 @@ $title = get_the_title();
 $created_at = get_the_date('j F Y', $post);
 $image = get_field('photo');
 $text = get_field('text');
-$socials = get_field('socials', 'option');
 
 $readTimeMinutes = Helpers::get_reading_time($text);
 
@@ -68,19 +67,9 @@ $readTimeMinutes = Helpers::get_reading_time($text);
             <?endif; ?>
             <div class="single-article__share-wrapper share">
                 <span class="share__title">Поделиться статьей: </span>
-                <ul class="socials-list">
-                    <?php foreach ($socials as $social) : ?>
-                        <?php if (!empty($social['logo']) && !empty($social['link'])) : ?>
-                            <li class="socials-item">
-                                <a href="<?= $social['link'] ?>">
-                                    <img
-                                            src="<?= $social['logo']['url'] ?>"
-                                            alt="<?= $social['logo']['alt'] ?? '' ?>"
-                                    >
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                <div class="share-buttons share-article">
+                    <div class="ya-share2" data-curtain data-size="l" data-shape="round" data-limit="3" data-services="vkontakte,telegram"></div>
+                </div>
             </div>
 
         </div>

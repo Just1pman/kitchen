@@ -1,0 +1,39 @@
+.kitchen-share-wrapper {
+  position: relative;
+
+  &.show {
+    .share-buttons {
+      display: block;
+    }
+
+    svg {
+      fill: antiquewhite;
+    }
+  }
+}
+
+.share-buttons {
+  position: absolute;
+  top: 100%;
+  &.hidden {
+    display: none;
+  }
+
+  .ya-share2__icon {
+    display: block;
+    width: 37px !important;
+    height: 37px !important;
+    background-size: 37px 37px !important;
+  }
+}
+
+.share-article {
+  &.share-buttons {
+    position: unset;
+  }
+
+  .ya-share2__list {
+    display: flex;
+    gap: 3px;
+  }
+}

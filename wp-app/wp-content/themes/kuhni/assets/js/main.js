@@ -9,6 +9,7 @@
 //=include partials/taxonomy-kitchen-category.js
 //=include partials/taxonomy-articles-category.js
 //=include partials/forms.js
+//=include partials/share-buttons.js
 
 /**** MODULES ****/
 //=include ../../modules/hero/hero.js
