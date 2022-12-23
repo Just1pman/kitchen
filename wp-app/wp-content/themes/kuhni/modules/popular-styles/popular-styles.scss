@@ -45,6 +45,7 @@
       color: $c-gray3;
       cursor: pointer;
       white-space: nowrap;
+      transition: $transition;
 
       @include _992 {
         padding: 14px 0 14px 0;
@@ -58,6 +59,10 @@
         @include _992 {
           border-bottom: unset;
         }
+      }
+
+      &:hover {
+        color: $c-dark-black;
       }
     }
   }

@@ -428,12 +428,17 @@
           color: $c-white;
           letter-spacing: 0.02em;
           text-transform: uppercase;
+          transition: $transition;
 
           @include _992 {
             margin-top: 25px;
             margin-bottom: 19px;
             font-size: 12px;
             padding: 7px 0;
+          }
+
+          &:hover {
+            opacity: 0.7;
           }
         }
 

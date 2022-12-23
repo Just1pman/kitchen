@@ -188,6 +188,8 @@ const sortingItems = document.querySelectorAll('.sorting-item');
 const filterShowAll = document.querySelector('.filter-show-all');
 const filterTitleMobile = document.querySelector('.catalog-filter-left-filters-wrapper h3');
 const categoryTitleMobile = document.querySelector('.catalog-filter-left-categories-wrapper h3');
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
 let materials = [];
 let sizes = [];
@@ -348,3 +350,17 @@ categoryTitleMobile && categoryTitleMobile.addEventListener('click', () => {
 
   container.classList.toggle('js-open');
 })
+
+if (urlParams.get('sort')) {
+  sortingItems.forEach((item) => {
+    item.classList.remove('js-active-sort')
+  })
+
+  sortingItems.forEach((item) => {
+    const dataSort = item.getAttribute('data-type')
+
+    if (dataSort && dataSort === urlParams.get('sort')) {
+      item.classList.add('js-active-sort')
+    }
+  })
+}

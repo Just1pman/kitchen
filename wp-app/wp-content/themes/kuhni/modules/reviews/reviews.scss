@@ -91,6 +91,7 @@
     border: 1px solid $c-dark-gray;
     color: $c-other-gray;
     border-radius: 110px;
+    transition: $transition;
 
     padding: 20px 78px;
 
@@ -104,6 +105,11 @@
 
     &.active {
       border: none;
+      color: $c-white;
+    }
+
+    &:hover {
+      background: $c-red;
       color: $c-white;
     }
   }
