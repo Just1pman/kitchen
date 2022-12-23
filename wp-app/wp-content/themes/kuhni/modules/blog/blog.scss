@@ -1,6 +1,5 @@
 .blog {
   &__all-articles {
-
     @include _768 {
       margin: 30px auto 0;
     }
@@ -20,7 +19,6 @@
       }
     }
 
-
     &__button {
       @include  _480 {
         bottom: 20px;
@@ -28,7 +26,6 @@
       }
     }
   }
-
 
   .all-articles-button-wrapper {
     display: block;

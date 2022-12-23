@@ -1,8 +1,6 @@
 class Blog {
   constructor() {
     this.initSlider();
-
-    console.log('init')
   }
 
   initSlider() {
