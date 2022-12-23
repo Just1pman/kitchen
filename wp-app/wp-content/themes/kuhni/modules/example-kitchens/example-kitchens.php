@@ -35,7 +35,7 @@ $kitchens = $ajax->get_example_kitchens('new');
                 </div>
             </div>
             <?php if (!empty($button['url'])) : ?>
-                <a href="<?= $button['url'] ?>" class="example-kitchens-link"
+                <a href="<?= $button['url'] ?>" class="example-kitchens-link all-entities-link"
                     <?php if ($button['target']) : ?> target="_blank" <?php endif; ?>
                 >
                     <?= $button['title'] ?? '' ?>

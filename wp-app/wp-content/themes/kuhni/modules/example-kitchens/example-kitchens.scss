@@ -141,42 +141,42 @@
   }
 
   .example-kitchens-link {
-    display: flex;
-    width: max-content;
-    justify-content: center;
+    //display: flex;
+    //width: max-content;
+    //justify-content: center;
     margin: 57px auto 0;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: $c-other-gray;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 89.52%;
+    //letter-spacing: 0.02em;
+    //text-transform: uppercase;
+    //color: $c-other-gray;
+    //font-weight: 300;
+    //font-size: 18px;
+    //line-height: 89.52%;
     padding-bottom: 8px;
-    border-bottom: 1px solid $c-other-gray;
-    position: relative;
+    //border-bottom: 1px solid $c-other-gray;
+    //position: relative;
 
     @include _768 {
       margin-top: 36px;
     }
 
-    .circle {
-      position: absolute;
-      top: -6px;
-      right: -22px;
+    //.circle {
+    //  position: absolute;
+    //  top: -6px;
+    //  right: -22px;
+    //
+    //  circle {
+    //    fill: $c-other-gray;
+    //  }
+    //}
 
-      circle {
-        fill: $c-other-gray;
-      }
-    }
-
-    &:hover {
-      color: $c-red;
-      border-bottom: 1px solid $c-red;
-
-      .circle circle {
-        fill: $c-red;
-      }
-    }
+    //&:hover {
+    //  color: $c-red;
+    //  border-bottom: 1px solid $c-red;
+    //
+    //  .circle circle {
+    //    fill: $c-red;
+    //  }
+    //}
   }
 
   .kitchen-top {

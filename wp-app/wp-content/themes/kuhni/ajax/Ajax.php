@@ -258,7 +258,6 @@ class Ajax
             'relation' => 'AND',
             $current_tax ?? '',
         ];
-
         $args = [
             'post_type' => 'articles',
             'posts_per_page' => -1,

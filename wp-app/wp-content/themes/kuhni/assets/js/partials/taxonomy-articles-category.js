@@ -7,8 +7,6 @@ class TaxonomyArticlesCategory {
     }
     this.termId = this.result.dataset.termId;
 
-    console.log(this.termId)
-
     this.initSlider()
     this.initPagination();
   }
@@ -22,7 +20,6 @@ class TaxonomyArticlesCategory {
       spaceBetween: 32,
       grabCursor: true,
       watchOverflow: true,
-
 
       navigation: {
         nextEl: ".swiper-article__category-next",
