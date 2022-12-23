@@ -364,3 +364,17 @@ if (urlParams.get('sort')) {
     }
   })
 }
+
+if (urlParams.get('sort')) {
+  sortingItems.forEach((item) => {
+    item.classList.remove('js-active-sort')
+  })
+
+  sortingItems.forEach((item) => {
+    const dataSort = item.getAttribute('data-type')
+
+    if (dataSort && dataSort === urlParams.get('sort')) {
+      item.classList.add('js-active-sort')
+    }
+  })
+}
