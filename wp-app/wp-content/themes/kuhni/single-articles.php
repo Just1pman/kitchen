@@ -9,12 +9,9 @@ $category = !empty($categories) ? $categories[array_rand($categories)] : [];
 
 $ajax = new Ajax();
 if (!empty($category)) {
-
     $articlesData = [
         'articles' => $ajax->getArticlesByTermId($category->term_id)
     ];
-
-
 }
 
 $title = get_the_title();
