@@ -3,6 +3,19 @@
 use helpers\Helpers;
 
 get_header();
+$categories = get_the_terms($post, 'articles-category');
+
+$category = !empty($categories) ? $categories[array_rand($categories)] : [];
+
+$ajax = new Ajax();
+if (!empty($category)) {
+
+    $articlesData = [
+        'articles' => $ajax->getArticlesByTermId($category->term_id)
+    ];
+
+
+}
 
 $title = get_the_title();
 $created_at = get_the_date('j F Y', $post);
@@ -12,6 +25,8 @@ $text = get_field('text');
 $readTimeMinutes = Helpers::get_reading_time($text);
 $additionalBlogClass = 'additional-articles';
 $blogTitle = 'Другие статьи по теме';
+
+
 
 ?>
 <?php include get_template_directory() . '/modules/breadcrumb/breadcrumb.php' ?>
@@ -67,7 +82,7 @@ $blogTitle = 'Другие статьи по теме';
     </div>
 
     <?php
-        if (!wp_is_mobile()) {
+        if (!wp_is_mobile() && !empty($articlesData)) {
             include get_template_directory() . '/modules/blog/blog.php';
         }
     ?>

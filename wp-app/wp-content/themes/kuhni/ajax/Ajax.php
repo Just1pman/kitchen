@@ -238,6 +238,16 @@ class Ajax
         ];
     }
 
+    public function getArticlesByTermId(?string $termId): array
+    {
+        ['articles' => $articles] = $this->get_articles($termId);
+
+        $articles = $articles ?? [];
+        shuffle($articles);
+        $articles = array_slice($articles, 0, 10);
+
+        return $articles;
+    }
 
     public function get_articles(
         ?string $term_id = '',

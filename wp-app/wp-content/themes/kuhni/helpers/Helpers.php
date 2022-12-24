@@ -57,6 +57,8 @@ class Helpers
         $wordPerMinute = 200;
         $clearText = strip_tags($text);
         $countWords = count(preg_split('/\W+/u', $clearText, -1, PREG_SPLIT_NO_EMPTY));
-        return floor($countWords / $wordPerMinute);
+        $readingTime = floor($countWords / $wordPerMinute);
+
+        return !empty($readingTime) ? $readingTime : 1;
     }
 }

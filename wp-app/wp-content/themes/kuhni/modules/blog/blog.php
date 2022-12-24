@@ -8,7 +8,7 @@ Mode: preview
 //$logo = get_field('logo', 'option');
 $ajax = new Ajax();
 
-$articlesData = $ajax->get_articles(null);
+$articlesData = $articlesData ?? $ajax->get_articles(null);
 
 $articles = $articlesData['articles'];
 
