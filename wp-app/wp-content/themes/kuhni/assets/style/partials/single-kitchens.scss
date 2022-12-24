@@ -449,6 +449,16 @@
       right: 20px;
       z-index: 5;
       cursor: pointer;
+
+      &:hover {
+        .bg {
+          fill: $c-red;
+        }
+
+        .icon {
+          fill: white;
+        }
+      }
     }
   }
 
@@ -522,6 +532,10 @@
 
 .kitchen-thumb__button {
   &-prev {
+    &.swiper-button-disabled {
+      background-color: $c-dark-gray;
+    }
+
     rotate: 270deg !important;
 
     @include _768 {
@@ -540,6 +554,10 @@
 
   &-next {
     rotate: 90deg !important;
+
+    &.swiper-button-disabled {
+      background-color: $c-dark-gray;
+    }
 
     @include _768 {
       rotate: 360deg !important;
