@@ -5,6 +5,10 @@
     }
   }
 
+  .blog__swiper-buttons {
+    display: none;
+  }
+
   .article-card {
     &__overlay {
       @include _480 {
@@ -66,5 +70,39 @@
       width: 100%;
       min-height: 251px;
     }
+  }
+}
+
+.additional-articles {
+  .blog__swiper-buttons {
+    display: flex;
+    gap: 8px;
+
+    .custom-swiper-button {
+      background-color: $c-red;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blog__button-prev {
+      rotate: 180deg;
+    }
+
+    .swiper-button-disabled {
+      background-color: $c-dark-gray;
+    }
+  }
+  .blog__wrapper {
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    max-width: 678px;
+    max-height: 411px;
+    width: 100%;
   }
 }

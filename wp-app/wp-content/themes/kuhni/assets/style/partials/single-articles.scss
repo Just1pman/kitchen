@@ -113,9 +113,10 @@
     max-width: 1184px;
     border-radius: 9px;
     width: 100%;
-    padding: 68px 149px 17px 100px;
+    padding: 68px 149px 0 100px;
 
-    margin: -10vw auto 0;
+    margin: auto 0 60px;
+
     background: $c-white;
     z-index: 1000;
     position: relative;
@@ -131,6 +132,7 @@
     }
 
     @include _480 {
+      margin-bottom: 18px;
       margin-top: -30px  !important;;
       padding-top: 37px;
       padding-left: 23px;
