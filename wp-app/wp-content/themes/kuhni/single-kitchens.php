@@ -35,9 +35,9 @@ $shortInfo = array_slice($kitchenInfo, 0, 3);
 
 get_header();
 ?>
+<?php include get_template_directory() . '/modules/breadcrumb/breadcrumb.php' ?>
 <section class="kitchen-single">
     <div class="container">
-        <?php include get_template_directory() . '/modules/breadcrumb/breadcrumb.php' ?>
         <?php if (!empty($title)) : ?>
             <h1 class="kitchen-single__title">
                 <?= $title ?>
