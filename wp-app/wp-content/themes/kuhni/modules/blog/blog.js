@@ -15,6 +15,10 @@ class Blog {
       grabCursor: true,
       direction: 'vertical',
       watchOverflow: true,
+      navigation: {
+        nextEl: ".blog__button-next",
+        prevEl: ".blog__button-prev",
+      },
       breakpoints: {
         480: {
           spaceBetween: 35,

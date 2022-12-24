@@ -10,6 +10,8 @@ $image = get_field('photo');
 $text = get_field('text');
 
 $readTimeMinutes = Helpers::get_reading_time($text);
+$additionalBlogClass = 'additional-articles';
+$blogTitle = 'Другие статьи по теме';
 
 ?>
 <section class="single-article">
@@ -71,10 +73,14 @@ $readTimeMinutes = Helpers::get_reading_time($text);
                     <div class="ya-share2" data-curtain data-size="l" data-shape="round" data-limit="3" data-services="vkontakte,telegram"></div>
                 </div>
             </div>
-
-        </div>
         </div>
     </div>
+
+    <?php
+        if (!wp_is_mobile()) {
+            include get_template_directory() . '/modules/blog/blog.php';
+        }
+    ?>
 </section>
 
 <?php get_footer(); ?>
