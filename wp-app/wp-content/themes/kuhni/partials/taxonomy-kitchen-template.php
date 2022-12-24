@@ -46,7 +46,7 @@ $classContainer = 'catalog-filter-results';
         <div class="container">
             <div class="materials-title">
                 <h1><?= $title_page ?? '' ?></h1>
-                <div class="materials-count"><?= count($materials) ?> моделей</div>
+                <div class="materials-count"><?= count($kitchens) ?> моделей</div>
             </div>
             <?php if (!empty($materials)) : ?>
                 <div class="swiper materials-swiper">
