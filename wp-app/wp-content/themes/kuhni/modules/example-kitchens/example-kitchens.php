@@ -5,7 +5,7 @@ Title: Примеры кухонь модуль
 Mode: preview
 */
 
-$headline = get_field('headline');
+$headline = $headline ?? get_field('headline');
 $button = get_field('link');
 $filter_on = get_field('filter_on');
 $ajax = new Ajax();
@@ -16,7 +16,7 @@ $kitchens = $ajax->get_example_kitchens('new');
     <section class="example-kitchens">
         <div class="container">
             <div class="example-wrapper-top">
-                <h2 class="top-left"> <?= $headline ?? '' ?> </h2>
+                <h2 class="top-left section-title"> <?= $headline ?? '' ?> </h2>
                 <?php if ($filter_on) : ?>
                     <div class="top-right">
                         <button class="button button-active" data-format="new">Новинки</button>

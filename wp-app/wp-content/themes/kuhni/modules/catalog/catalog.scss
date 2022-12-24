@@ -9,6 +9,14 @@
     margin-bottom: 38px;
   }
 
+  a {
+    transition: $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
   .catalog-wrapper {
     .catalog-top {
       display: grid;

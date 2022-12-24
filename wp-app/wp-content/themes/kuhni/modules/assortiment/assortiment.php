@@ -13,7 +13,7 @@ $assortiments = get_field( 'assortiments' );
     <section class="assortiment">
         <div class="container">
             <div class="assortiment-wrapper-top">
-                <h2><?= $headline ?? '' ?></h2>
+                <h2 class="section-title"><?= $headline ?? '' ?></h2>
 				<?php if ( ! empty( $assortiments ) ) : ?>
                     <div class="wrapper-top-assortiments">
 						<?php foreach ( $assortiments as $assortiment ) : ?>
