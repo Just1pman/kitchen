@@ -3,15 +3,16 @@
     h2 {
       font-weight: 200;
       font-size: 50px;
-      line-height: 89.52%;
+      line-height: 45px;
       color: $c-dark-black;
       margin-bottom: 48px;
 
       @include _992 {
         font-size: 35px;
-        line-height: 108.52%;
-        margin-bottom: 19px;
+        line-height: 45px;
         text-align: center;
+        width: max-content;
+        margin: 0 auto 19px auto;
       }
     }
 

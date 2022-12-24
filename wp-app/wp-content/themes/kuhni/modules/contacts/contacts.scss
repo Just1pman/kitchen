@@ -73,12 +73,25 @@
         }
       }
 
+      .phone .info-text {
+        transition: $transition;
+
+        &:hover {
+          color: $c-red;
+        }
+      }
+
       .email .info-text {
         text-decoration-line: underline;
         font-weight: 400;
         font-size: 18px;
         line-height: 27px;
         color: $c-gray5;
+        transition: $transition;
+
+        &:hover {
+          color: $c-red;
+        }
       }
 
       .work-time span {

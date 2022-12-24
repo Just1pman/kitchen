@@ -14,7 +14,7 @@ $terms = get_field('select_styles');
     <section class="kitchen-style">
         <div class="container">
             <div class="kitchen-style-headline">
-                <h2><?= $headline ?? '' ?></h2>
+                <h2 class="section-title"><?= $headline ?? '' ?></h2>
             </div>
             <?php if (!empty($terms)) : ?>
                 <div class="kitchen-style-tabs">

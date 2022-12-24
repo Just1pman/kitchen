@@ -39,8 +39,8 @@ $slides = get_field('slides');
                                 </div>
                                 <div class="hero-image">
                                     <picture>
-                                        <img loading="lazy" src="<?= $slide['image']['url'] ?>"
-                                             alt="<?= $slide['image']['title'] ?>">
+                                        <img loading="lazy" src="<?= $slide['image']['url'] ?? '' ?>"
+                                             alt="<?= $slide['image']['title'] ?? '' ?>">
                                     </picture>
                                 </div>
                             </div>

@@ -52,7 +52,7 @@ $emailInfo = get_field('emailInfo', 'option');
                             <p class="info-text"><?= $full_address ?? '' ?></p>
                         </div>
                     </div>
-                    <div class="wrapper-top-left-item">
+                    <div class="wrapper-top-left-item phone">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38"
                                  fill="none">
@@ -71,7 +71,7 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">Телефон</p>
-                            <p class="info-text"><?= $phones[0]['phone'] ?? '' ?></p>
+                            <a href="tel:+<?= $phones[0]['phone'] ?? '' ?>" class="info-text"> <?= $phones[0]['phone'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item email">
@@ -93,7 +93,7 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">E-mail</p>
-                            <p class="info-text"><?= $emailInfo['email'] ?? '' ?> </p>
+                            <a href="mailto:<?= $emailInfo['email'] ?? '' ?>" class="info-text"> <?= $emailInfo['email'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item work-time">

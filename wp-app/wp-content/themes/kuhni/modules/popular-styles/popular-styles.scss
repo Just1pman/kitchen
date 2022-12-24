@@ -1,20 +1,27 @@
 .kitchen-style {
-  &-headline h2 {
-    font-weight: 200;
-    font-size: 50px;
-    line-height: 89.52%;
-    text-align: center;
-    margin-bottom: 45px;
+  &-headline {
+    width: max-content;
+    margin: 0 auto;
 
-    @include _992 {
-      font-size: 35px;
-      margin-bottom: 14px;
-    }
+    h2 {
+      font-weight: 200;
+      font-size: 50px;
+      line-height: 45px;
+      text-align: center;
+      margin-bottom: 45px;
 
-    @include _480 {
-      text-align: start;
+      @include _992 {
+        font-size: 35px;
+        margin-bottom: 14px;
+      }
+
+      @include _480 {
+        text-align: start;
+      }
     }
   }
+
+
 
   .kitchen-style-wrapper {
     position: relative;
