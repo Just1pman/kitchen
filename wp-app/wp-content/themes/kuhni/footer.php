@@ -123,57 +123,37 @@ $checkout_form = get_field('checkout', 'option');
 
                 <div class="footer__links-section footer__seller-section">
                     <b class="footer__title">Покупателям</b>
-                    <ul class="footer__links-list">
-                        <li class="footer__links-item">
-                            О компании
-                        </li>
-                        <li class="footer__links-item">
-                            Каталоги техники
-                        </li>
-                        <li class="footer__links-item">
-                            Блог
-                        </li>
-                        <li class="footer__links-item">
-                            Контакты
-                        </li>
-                    </ul>
+                    <?= wp_nav_menu(
+                        [
+                            'menu' => 'header_menu_desktop',
+                            'theme_location' => 'header_menu_desktop',
+                            'menu_class' => 'footer-buyers',
+                        ]);
+                    ?>
                 </div>
 
                 <div class="footer__links-wrapper">
                     <div class="footer__links-section footer__catalog-section">
                         <b class="footer__title">Каталог</b>
-                        <ul class="footer__links-list footer__catalog-list">
-                            <li class="footer__links-item">
-                                Угловые кухни
-                            </li>
-                            <li class="footer__links-item">
-                                Прямые кухни
-                            </li>
-                            <li class="footer__links-item">
-                                Трехъярусные кухни
-                            </li>
-                            <li class="footer__links-item">
-                                Кухни классика
-                            </li>
-                            <li class="footer__links-item">
-                                Кухни модерн
-                            </li>
-                            <li class="footer__links-item">
-                                Кухни лофт
-                            </li>
-                            <li class="footer__links-item">
-                                Кухни  зеленые
-                            </li>
-                            <li class="footer__links-item">
-                                Кухни красные
-                            </li>
-                            <li class="footer__links-item footer__links-item--more">
-                                весь каталог
-                            </li>
-                        </ul>
+                        <?= wp_nav_menu(
+                            [
+                                'menu' => 'footer_catalog_left',
+                                'theme_location' => 'footer_catalog_left',
+                                'menu_class' => 'footer-catalog-left',
+                            ]);
+                        ?>
                     </div>
-
                 </div>
+                <div class="footer__catalog-others">
+                    <?= wp_nav_menu(
+                        [
+                            'menu' => 'footer_catalog_right',
+                            'theme_location' => 'footer_catalog_right',
+                            'menu_class' => 'footer-catalog-right',
+                        ]);
+                    ?>
+                </div>
+
                 <ul class="socials-list">
                     <?php if (!empty($socials)) : ?>
                         <?php foreach ($socials as $social) : ?>
