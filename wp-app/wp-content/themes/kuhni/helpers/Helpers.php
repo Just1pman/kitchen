@@ -12,8 +12,16 @@ class Helpers
         if (!is_front_page()) {
             $result .= '<a href="' . get_home_url() . '">Главная</a>' . $separator;
 
+            if (get_post_type() === 'articles') {
+                $totalPage = '<a href="' . get_home_url() . '/blog' . '">Блог</a>';
+            }
+
+            if (get_post_type() === 'kitchens') {
+                $totalPage = '<a href="' . get_home_url() . '/categories' . '">Каталог</a>';
+            }
+
             if (is_single()) {
-                $result .= '<a href="' . get_home_url() . '/categories' . '">Каталог</a>' . $separator . get_the_title();
+                $result .= ($totalPage ?? '') . $separator . get_the_title();
             } elseif (is_page()) {
                 $result .= get_the_title();
             } elseif (is_category()) {

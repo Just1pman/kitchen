@@ -12,20 +12,10 @@ $text = get_field('text');
 $readTimeMinutes = Helpers::get_reading_time($text);
 
 ?>
+<?php include get_template_directory() . '/modules/breadcrumb/breadcrumb.php' ?>
 <section class="single-article">
     <?php if(!empty($title)) : ?>
             <div class="container">
-                <ul class="single-article__breadcrumbs-list">
-                    <li class="single-article__breadcrumb-item">
-                        <a href="<?= home_url() ?>">Главная</a>
-                    <li><svg style="display: flex" width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="1.5" cy="1.5" r="1.5" fill="#9F9F9F"/>
-                        </svg>
-                    </li>
-                    <li class="single-article__breadcrumb-item">
-                        <span>Статья</span>
-                    </li>
-                </ul>
                 <div class="single-article__header">
                     <div class="single-article__title-wrapper">
                         <h2 class="single-article__title">

@@ -1,4 +1,6 @@
-.about-company {
+.main section.about-company {
+  padding-top: 0;
+
   .about-company-wrapper-top {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
