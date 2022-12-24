@@ -55,6 +55,7 @@
     position: relative;
     padding: 17px 31px;
     flex: 0 0 auto;
+    cursor: pointer;
 
     &.active {
       color: $c-black;
@@ -503,6 +504,7 @@
 
 .kitchen-slider__thumb-wrapper {
   .custom-swiper-button {
+    cursor: pointer !important;
     background: red;
     border-radius: 50%;
     width: 30px;
