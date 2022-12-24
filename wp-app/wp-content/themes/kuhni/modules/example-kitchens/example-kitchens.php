@@ -5,7 +5,7 @@ Title: Примеры кухонь модуль
 Mode: preview
 */
 
-$headline = get_field('headline');
+$headline = $headline ?? get_field('headline');
 $button = get_field('link');
 $filter_on = get_field('filter_on');
 $ajax = new Ajax();

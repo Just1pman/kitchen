@@ -37,14 +37,7 @@ get_header();
 ?>
 <section class="kitchen-single">
     <div class="container">
-        <ul class="kitchen-single__breadcrumbs-list">
-            <li class="kitchen-single__breadcrumbs-item">
-                Главная
-            </li>
-            <li class="kitchen-single__breadcrumbs-item">
-                Каталог
-            </li>
-        </ul>
+        <?php include get_template_directory() . '/modules/breadcrumb/breadcrumb.php' ?>
         <?php if (!empty($title)) : ?>
             <h1 class="kitchen-single__title">
                 <?= $title ?>
@@ -236,6 +229,9 @@ get_header();
             <div class="info-module__tab-content tab-3">Гарантия</div>
             <div class="info-module__tab-content tab-4">Отзывы</div>
         </div>
+        <?php
+        $headline = 'Смотрите такжже';
+        ?>
         <?php include get_template_directory() . '/modules/example-kitchens/example-kitchens.php' ?>
     </div>
 </section>
