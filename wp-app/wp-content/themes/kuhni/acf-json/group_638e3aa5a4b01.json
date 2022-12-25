@@ -3,25 +3,6 @@
     "title": "Доп. атрибуты отзывов",
     "fields": [
         {
-            "key": "field_638f9245011eb",
-            "label": "Автор",
-            "name": "author",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_638e3b8daf67c",
             "label": "Это видео отзыв",
             "name": "is_video",
@@ -133,5 +114,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671992601
+    "modified": 1671992790
 }
