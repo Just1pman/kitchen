@@ -8,6 +8,7 @@ function initReviewSlider () {
     slidesPerColumnFill: 'row',
     observer: true,
     grabCursor: true,
+    watchOverflow: true,
 
     navigation: {
       nextEl: ".reviews__button-next",
@@ -31,6 +32,7 @@ class ReviewsControl {
   constructor() {
     this.controlBtns = document.querySelectorAll('.reviews__button');
     this.init();
+    this.initWindowRemoveActiveClass()
   }
 
   init() {
@@ -41,11 +43,25 @@ class ReviewsControl {
     initReviewSlider();
   }
 
-  getReviews(e) {
+  initWindowRemoveActiveClass() {
+    window.removeActiveClass = () => this.removeActiveClass()
+  }
+  removeActiveClass() {
+    const buttons = document.querySelectorAll('.reviews__button');
+
+    buttons.forEach(btn => btn.classList.remove('active'))
+  }
+
+  getReviews (e) {
+    const tab = e.target;
+    window.removeActiveClass();
+
+    tab.classList.add('active')
     this.container = document.querySelector('.reviews .swiper-wrapper');
-    const { type } = this.dataset;
+    const { type } = tab.dataset;
 
     const url = '/wp-admin/admin-ajax.php';
+    startLoader('.reviews-loader_wrapper .loader-container')
     const promise = fetch(url, {
       method: 'POST',
       headers: {
@@ -66,7 +82,7 @@ class ReviewsControl {
           })
           .then(() => {
             initReviewSlider();
-            stopLoader()
+            stopLoader('.reviews-loader_wrapper .loader-container')
           })
     })
   }

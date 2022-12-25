@@ -292,7 +292,6 @@ class Ajax
             'paged' => $paged,
             'max_page' => $max_page
         ];
-
     }
 
     public function get_articles_filter(): void
@@ -308,4 +307,17 @@ class Ajax
         include $this->ajax_blocks_path . 'filter-cards-articles-ajax.php';
         wp_die();
     }
+
+
+    public function get_reviews(): array
+    {
+        $args = [
+            'post_type' => 'reviews',
+            'posts_per_page' => 10,
+            'post_status' => 'publish',
+        ];
+
+        return get_posts($args);
+    }
+
 }

@@ -7,57 +7,8 @@ Mode: preview
 
 $title = get_field('title');
 
-$data = [
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-    [
-        'author' => 'Евгения',
-        'date' => '15 ноября 2022',
-        'text' => 'Ну вот и приехала к нам наша идеальная кухня! Сказать, что мы довольны - ничего не сказать 😃  все как с картинки Pinterest 😍 светло, уютно, практично, функциональн...',
-        'more' => 'Читать отзыв',
-        'image' => 'http://kuhni.loc/wp-content/uploads/2022/12/Mask-group.jpg'
-    ],
-];
+/** @var WP_Post[] $reviews */
+$reviews = (new Ajax())->get_reviews();
 ?>
 
 <?php if (!is_admin()) : ?>
@@ -75,36 +26,44 @@ $data = [
                         <button class="button reviews__button" data-type="video">
                             Видеоотзывы
                         </button>
-                        <button class="button button--red reviews__button active" data-type="image">
+                        <button class="button reviews__button active" data-type="image">
                             Отзывы
                         </button>
                     </div>
                 </div>
-
-                <div class="swiper swiper-reviews">
+                <div class="reviews-loader_wrapper">
+                    <div class="swiper swiper-reviews">
                     <div class="swiper-wrapper">
-                        <?php if (!empty($data)) : ?>
-                            <?php foreach ($data as $key => $review) : ?>
+                        <?php if (!empty($reviews)) : ?>
+                            <?php foreach ($reviews as $key => $review) : ?>
+                                <?php
+                                    $author = $review->post_author;
+                                    $created_at = get_the_date('j F Y', $review);
+                                    $text = get_field('text', $review);
+                                    $img = get_field('photo', $review);
+                                    $link = get_post_permalink($review);
+                                ?>
                                 <div class="swiper-slide">
                                     <div class="reviews__card">
                                         <div class="reviews__content-wrapper">
                                             <h3 class="reviews__title">
-                                                <?= $review['author'] ?>
+                                                <?= $author ?? '' ?>
                                             </h3>
                                             <span class="reviews__date">
-                                                <?= $review['date'] ?>
+                                                <?= $created_at ?? '' ?>
                                             </span>
-                                            <p class="reviews__text">
-                                                <?= $review['text'] ?>
-                                            </p>
+                                            <div class="reviews__text">
+                                                <?= $text ?? '' ?>
+                                            </div>
                                             <a
                                                 class="reviews__more"
-                                                href="#">
-                                                <?= $review['more'] ?>
+                                                href="<?= $link ?>">
+                                                <?= 'Читать отзыв' ?>
                                             </a>
                                         </div>
+
                                         <div class="reviews__image-wrapper">
-                                            <a class="zoom reviews__zoom" href="javascript:;" data-fancybox="image<?=$key?>" data-src="<?= $review['image'] ?>">
+                                            <a class="zoom reviews__zoom" href="javascript:;" data-fancybox="image<?=$key?>" data-src="<?= $img['url'] ?>">
                                                 <svg
                                                     class="zoom__icon"
                                                     width="15"
@@ -112,16 +71,23 @@ $data = [
                                                     <path d="M17.3069 16.3124L13.6532 12.6587C14.5175 11.6034 15.0378 10.2555 15.0378 8.78765C15.0378 5.41245 12.2919 2.6665 8.91668 2.6665C5.54148 2.6665 2.79553 5.41245 2.79553 8.78765C2.79553 12.1629 5.54148 14.9088 8.91668 14.9088C10.3845 14.9088 11.7324 14.3885 12.7877 13.5242L16.4414 17.1779C16.6807 17.4172 17.0676 17.4172 17.3069 17.1779C17.5463 16.9386 17.5463 16.5517 17.3069 16.3124ZM4.01976 8.78765C4.01976 6.08761 6.21664 3.89073 8.91668 3.89073C11.6167 3.89073 13.8136 6.08761 13.8136 8.78765C13.8136 11.4877 11.6167 13.6846 8.91668 13.6846C6.21664 13.6846 4.01976 11.4877 4.01976 8.78765Z" fill="black"/>
                                                 </svg>
                                             </a>
-                                            <img
-                                                loading="lazy"
-                                                src="<?= $review['image'] ?>"
-                                                alt=""
-                                            >
+                                            <picture>
+                                                <img
+                                                    loading="lazy"
+                                                    src="<?= $img['url'] ?? '' ?>"
+                                                    alt=""
+                                                >
+                                            </picture>
                                         </div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
+                    </div>
+                </div>
+                    <div class="loader-container" style="display: none">
+                        <div class="loader"></div>
+                        <div class="loader-bg"></div>
                     </div>
                 </div>
             </div>
