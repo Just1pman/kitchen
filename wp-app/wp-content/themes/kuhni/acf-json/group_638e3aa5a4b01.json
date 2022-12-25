@@ -4,9 +4,9 @@
     "fields": [
         {
             "key": "field_638e3b8daf67c",
-            "label": "Тип отзыва",
+            "label": "Это видео отзыв",
             "name": "is_video",
-            "type": "checkbox",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,17 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Видео: да": "Видео: да"
-            },
-            "default_value": [
-                "true"
-            ],
-            "return_format": "value",
-            "allow_custom": 0,
-            "layout": "vertical",
-            "toggle": 0,
-            "save_custom": 0
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 0
         },
         {
             "key": "field_638e3ae74f844",
@@ -33,7 +27,7 @@
             "name": "photo",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -62,14 +56,15 @@
             "key": "field_638e3b0e4f845",
             "label": "Видео",
             "name": "video",
-            "type": "file",
+            "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
                         "field": "field_638e3b8daf67c",
-                        "operator": "!=empty"
+                        "operator": "==",
+                        "value": "1"
                     }
                 ]
             ],
@@ -78,11 +73,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": ""
         },
         {
             "key": "field_638e3ac54f843",
@@ -141,5 +133,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1670353482
+    "modified": 1671992189
 }

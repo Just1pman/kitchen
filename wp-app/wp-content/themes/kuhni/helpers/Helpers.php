@@ -61,4 +61,10 @@ class Helpers
 
         return !empty($readingTime) ? $readingTime : 1;
     }
+
+    public static function get_youtube_id_from_url(string $url):?string {
+//        $url = "http://www.youtube.com/watch?v=C4kxS1ksqtw&feature=relate";
+        parse_str(parse_url($url, PHP_URL_QUERY), $my_array_of_vars);
+        return $my_array_of_vars['v'] ?? null;
+    }
 }

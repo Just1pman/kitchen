@@ -74,14 +74,7 @@ class Ajax
     public function reviews()
     {
         ['type' => $type] = $_POST;
-        $args = [];
-        $defaultArgs = [
-            'post_type' => 'reviews',
-            'posts_per_page' => 15,
-            'post_status' => 'publish',
-        ];
-
-        $reviews = get_posts(array_merge($defaultArgs, $args));
+        $reviews = $this->get_reviews($type);
 
         include $this->ajax_blocks_path . 'review-card.php';
         wp_die();
@@ -309,13 +302,25 @@ class Ajax
     }
 
 
-    public function get_reviews(): array
+    public function get_reviews(?string $type = null): array
     {
         $args = [
             'post_type' => 'reviews',
             'posts_per_page' => 10,
             'post_status' => 'publish',
         ];
+
+
+        $isVideo = $type === 'video';
+        $meta_query = [
+            'key' => 'is_video',
+            'value' => $isVideo,
+            'compare' => '='
+        ];
+        $args['meta_query'] = [
+            $meta_query
+        ];
+
 
         return get_posts($args);
     }
