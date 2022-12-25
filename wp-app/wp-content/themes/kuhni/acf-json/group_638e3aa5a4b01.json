@@ -32,7 +32,8 @@
                 [
                     {
                         "field": "field_638e3b8daf67c",
-                        "operator": "==empty"
+                        "operator": "!=",
+                        "value": "1"
                     }
                 ]
             ],
@@ -114,5 +115,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671992790
+    "modified": 1671992977
 }
