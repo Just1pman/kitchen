@@ -37,7 +37,7 @@ $reviews = (new Ajax())->get_reviews();
                         <?php if (!empty($reviews)) : ?>
                             <?php foreach ($reviews as $key => $review) : ?>
                                 <?php
-                                    $author = $review->post_author;
+                                    $author = $review->post_title;
                                     $created_at = get_the_date('j F Y', $review);
                                     $text = get_field('text', $review);
                                     $img = get_field('photo', $review);
