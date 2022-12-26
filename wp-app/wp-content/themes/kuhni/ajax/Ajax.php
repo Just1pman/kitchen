@@ -313,8 +313,8 @@ class Ajax
 
         $isVideo = $type === 'video';
         $meta_query = [
-            'key' => 'is_video',
-            'value' => $isVideo,
+            'meta_key' => 'is_video',
+            'meta_value' => $isVideo,
             'compare' => '='
         ];
         $args['meta_query'] = [
