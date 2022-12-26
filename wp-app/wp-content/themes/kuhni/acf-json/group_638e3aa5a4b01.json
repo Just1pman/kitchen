@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_638e3b8daf67c",
-            "label": "Это видео отзыв",
+            "label": "Тип отзыва",
             "name": "is_video",
             "type": "true_false",
             "instructions": "",
@@ -17,9 +17,9 @@
             },
             "message": "",
             "default_value": 0,
+            "ui": 0,
             "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 0
+            "ui_off_text": ""
         },
         {
             "key": "field_638e3ae74f844",
@@ -27,7 +27,7 @@
             "name": "photo",
             "type": "image",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": [
                 [
                     {
@@ -95,6 +95,25 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1
+        },
+        {
+            "key": "field_638f9245011eb",
+            "label": "Автор",
+            "name": "author",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -115,5 +134,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671992977
+    "modified": 1672073724
 }

@@ -304,23 +304,18 @@ class Ajax
 
     public function get_reviews(?string $type = null): array
     {
+        if ($type === 'video') {
+            $meta_value = 1;
+        }
+
         $args = [
             'post_type' => 'reviews',
             'posts_per_page' => 10,
             'post_status' => 'publish',
-        ];
-
-
-        $isVideo = $type === 'video';
-        $meta_query = [
             'meta_key' => 'is_video',
-            'meta_value' => $isVideo,
-            'compare' => '='
+            'meta_value' => $meta_value ?? 0,
+            'compare' => '=',
         ];
-        $args['meta_query'] = [
-            $meta_query
-        ];
-
 
         return get_posts($args);
     }
