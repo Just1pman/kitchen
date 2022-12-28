@@ -13,8 +13,8 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: kuhnitema.beget.tech
-          username: kuhnitema_1
+          server: 31.31.196.220
+          username: u1827169
           password: ${{ secrets.ftp_password }}
           local-dir: ./wp-app/
-          server-dir: "./kuhnitema.beget.tech/public_html/"
+          server-dir: "./www/temakuhni.ru/"
