@@ -163,40 +163,40 @@ class Ajax
 
         if ($sort === 'new') {
             $order = [
-                'orderby'=> 'post_date',
+                'orderby' => 'post_date',
                 'order' => 'ASC',
             ];
         }
 
         if ($sort === 'discount') {
             $order = [
-                'meta_key'       => 'discount',
-                'orderby'        => 'meta_value_num',
-                'order'         => 'DESC',
+                'meta_key' => 'discount',
+                'orderby' => 'meta_value_num',
+                'order' => 'DESC',
             ];
         }
 
         if ($sort === 'expensive') {
             $order = [
-                'meta_key'       => 'price',
-                'orderby'        => 'meta_value_num',
-                'order'         => 'DESC',
+                'meta_key' => 'price',
+                'orderby' => 'meta_value_num',
+                'order' => 'DESC',
             ];
         }
 
         if ($sort === 'cheap') {
             $order = [
-                'meta_key'       => 'price',
-                'orderby'        => 'meta_value_num',
-                'order'         => 'ASC',
+                'meta_key' => 'price',
+                'orderby' => 'meta_value_num',
+                'order' => 'ASC',
             ];
         }
 
         if ($sort === 'popular') {
             $order = [
-                'meta_key'       => 'popular',
-                'orderby'        => 'meta_value_num',
-                'order'         => 'DESC',
+                'meta_key' => 'popular',
+                'orderby' => 'meta_value_num',
+                'order' => 'DESC',
             ];
         }
 

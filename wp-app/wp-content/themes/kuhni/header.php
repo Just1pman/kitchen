@@ -132,7 +132,7 @@ $phone_numbers = $phones[0]['phone'] ? preg_replace('/[^0-9]/', "", $phones[0]['
                             <p>Акции</p>
                         </a>
                     </div>
-                    <a href="<?= home_url() ?>/categories" class="header-bottom-right button-header">Подобрать кухню</a>
+                    <a href="javascript:;" data-fancybox data-src="#pick-up" class="header-bottom-right button-header">Подобрать кухню</a>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ $phone_numbers = $phones[0]['phone'] ? preg_replace('/[^0-9]/', "", $phones[0]['
             </div>
             <div class="">
                 <div class="header-mobile-button button-header">
-                    <a href="">подобрать кухню</a>
+                    <a href="javascript:;" data-fancybox data-src="#pick-up">Подобрать кухню</a>
                 </div>
             </div>
         </div>
