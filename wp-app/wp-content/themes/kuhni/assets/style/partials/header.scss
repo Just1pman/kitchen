@@ -193,6 +193,10 @@ header {
         .header-mobile-button {
           width: max-content;
           margin: 0 auto 23px auto;
+
+          a {
+            color: $c-dark-black;
+          }
         }
       }
     }

@@ -32,9 +32,10 @@ quizSend && quizSend.addEventListener('click', () => {
 })
 
 const slider = new Swiper(".swiper-pick-up", {
-  simulateTouch: false,
+  allowTouchMove: false,
   autoHeight: true,
   speed: 100,
+  noSwiping: true,
 
   navigation: {
     nextEl: ".swiper-pick-up .next",
