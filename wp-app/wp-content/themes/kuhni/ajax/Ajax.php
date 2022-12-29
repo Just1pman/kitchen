@@ -142,7 +142,7 @@ class Ajax
             $sizes_tax = [
                 'taxonomy' => 'kitchen-size',
                 'field' => 'term_id',
-                'terms' => explode(',', $sizes),
+                'terms' => explode(',', $sizes)
             ];
         }
 
