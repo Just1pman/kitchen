@@ -73,7 +73,6 @@ class Ajax
 
     public function reviews()
     {
-
         ['type' => $type] = $_POST;
         $reviews = $this->get_reviews($type);
 
