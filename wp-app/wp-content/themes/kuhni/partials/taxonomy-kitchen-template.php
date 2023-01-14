@@ -1,4 +1,7 @@
 <?php
+
+use helpers\Helpers;
+
 get_header();
 include get_template_directory() . '/modules/breadcrumb/' . 'breadcrumb.php'
 ?>
@@ -29,14 +32,14 @@ $taxonomy = $current_tax->taxonomy;
 $term_id = $current_tax->term_id;
 
 $dataFilter = $ajax->get_kitchen_filter($taxonomy, $term_id);
-$kitchens = $dataFilter['kitchens'];
+$entities = $dataFilter['kitchens'];
 $paged = $dataFilter['paged'];
 $max_page = $dataFilter['max_page'];
 
 $sort = $_GET['sort'] ?? 'new';
 
 $cheap = $_GET['cheap'] ?? 0;
-$expensive = $_GET['expensive'] ?? \helpers\Helpers::getMaxPrice();
+$expensive = $_GET['expensive'] ?? Helpers::getMaxPrice();
 $materialsParams = $_GET['materials'] ?? '';
 $sizesParams = $_GET['sizes'] ?? '';
 $classContainer = 'catalog-filter-results';
@@ -46,7 +49,7 @@ $classContainer = 'catalog-filter-results';
         <div class="container">
             <div class="materials-title">
                 <h1><?= $title_page ?? '' ?></h1>
-                <div class="materials-count"><?= count($kitchens) ?> моделей</div>
+                <div class="materials-count"><?= count($entities) ?> моделей</div>
             </div>
             <?php if (!empty($materials)) : ?>
                 <div class="swiper materials-swiper">
@@ -220,7 +223,7 @@ $classContainer = 'catalog-filter-results';
                         <div class="taxonomy-container">
                             <h4 class="taxonomy-container-title">Цена</h4>
                             <div class="range-inputs-container">
-                                <div class="dual-range" data-min="0" data-max="<?= \helpers\Helpers::getMaxPrice() ?>">
+                                <div class="dual-range" data-min="0" data-max="<?= Helpers::getMaxPrice() ?>">
                                     <span class="handle left" data-value="<?= $cheap ?>"></span>
                                     <span class="highlight"></span>
                                     <span class="handle right" data-value="<?= $expensive ?>"></span>
@@ -228,11 +231,11 @@ $classContainer = 'catalog-filter-results';
 
                                 <div class="range-inputs">
                                     <input class="range-inputs-left" type="text" placeholder="0" min="0"
-                                           max="<?= \helpers\Helpers::getMaxPrice() ?>"
+                                           max="<?= Helpers::getMaxPrice() ?>"
                                            oninput="validity.valid||(value='');">
                                     <input class="range-inputs-right" type="text"
                                            min="0"
-                                           max="<?= \helpers\Helpers::getMaxPrice() ?>"
+                                           max="<?= Helpers::getMaxPrice() ?>"
                                            oninput="validity.valid||(value='');">
                                 </div>
                             </div>

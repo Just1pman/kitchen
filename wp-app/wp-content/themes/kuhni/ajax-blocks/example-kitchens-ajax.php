@@ -1,7 +1,7 @@
 <?php
 $classContainer = 'swiper-wrapper';
 ?>
-<?php if (!empty($kitchens)) : ?>
+<?php if (!empty($entities)) : ?>
     <div class="swiper swiper-kitchen">
         <?php  include get_template_directory() . '/ajax-blocks/filter-card-ajax.php' ?>
         <div class="swiper-button-next">

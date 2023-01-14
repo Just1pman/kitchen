@@ -52,7 +52,7 @@
             "key": "field_638c7edcbe0b1",
             "label": "Цена",
             "name": "price",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -62,10 +62,8 @@
                 "id": ""
             },
             "default_value": "",
-            "min": "",
-            "max": "",
+            "maxlength": "",
             "placeholder": "",
-            "step": "",
             "prepend": "",
             "append": ""
         },
@@ -78,7 +76,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -97,7 +95,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "15",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -146,31 +144,26 @@
             "ui": 0
         },
         {
-            "key": "field_639f0e7276be0",
-            "label": "Длительность поставки",
-            "name": "delay",
-            "type": "text",
+            "key": "field_63bf0b39ed655",
+            "label": "Отзывы",
+            "name": "отзывы",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_639f0db512ce9",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "post_type": [
+                "reviews"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 1
         },
         {
             "key": "field_639a07d8d51a9",
@@ -338,6 +331,33 @@
             "append": ""
         },
         {
+            "key": "field_639f0e7276be0",
+            "label": "Длительность поставки",
+            "name": "delay",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_639f0db512ce9",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_639f0d055c7eb",
             "label": "Самовывоз",
             "name": "pickup",
@@ -375,5 +395,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1671368623
+    "modified": 1673465242
 }

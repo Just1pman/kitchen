@@ -1,5 +1,7 @@
 <?php
 
+use helpers\Helpers;
+
 class Ajax
 {
     public string $ajax_blocks_path;
@@ -22,6 +24,9 @@ class Ajax
 
         add_action('wp_ajax_kitchen_filter', [$this, 'kitchen_filter']);
         add_action('wp_ajax_nopriv_kitchen_filter', [$this, 'kitchen_filter']);
+
+        add_action('wp_ajax_get_technics', [$this, 'get_technics_filter']);
+        add_action('wp_ajax_nopriv_get_technics', [$this, 'get_technics_filter']);
 
         add_action('wp_ajax_article_categories', [$this, 'get_articles_filter']);
         add_action('wp_ajax_nopriv_article_categories', [$this, 'get_articles_filter']);
@@ -100,7 +105,7 @@ class Ajax
     {
         $dataFilter = $this->get_kitchen_filter();
 
-        $kitchens = $dataFilter['kitchens'];
+        $entities = $dataFilter['kitchens'];
         $paged = $dataFilter['paged'];
         $max_page = $dataFilter['max_page'];
         $classContainer = 'catalog-filter-results';
@@ -117,7 +122,7 @@ class Ajax
         $paged = $_GET['np'] ?? 1;
         $sort = $_GET['sort'] ?? 'new';
         $cheap = $_GET['cheap'] ?? 0;
-        $expensive = $_GET['expensive'] ?? \helpers\Helpers::getMaxPrice();
+        $expensive = $_GET['expensive'] ?? Helpers::getMaxPrice();
         $materials = $_GET['materials'] ?? '';
         $sizes = $_GET['sizes'] ?? '';
         $sorting = 9;
@@ -214,7 +219,6 @@ class Ajax
             ]
         ];
 
-
         $kitchens = get_posts(array_merge(array_merge($args, $order ?? [])));
         $count_kitchens = count($kitchens);
         $max_page = ceil($count_kitchens / $sorting);
@@ -229,6 +233,85 @@ class Ajax
             'paged' => $paged,
             'max_page' => $max_page
         ];
+    }
+
+    public function get_technics(
+         string $taxonomy = null,
+         int $termId = null
+    ): array
+    {
+        $paged = $_GET['onpage'] ?? 1;
+//        $term_id = $_GET['term_id'] ?? $term_id;
+        $sorting = 6;
+//        if ($term_id) {
+//            $current_tax = [
+//                'taxonomy' => 'articles-category',
+//                'field' => 'term_id',
+//                'terms' => $term_id,
+//            ];
+//        }
+
+        if (!empty($taxonomy) && !empty($termId)) {
+            $current_tax = [
+                'taxonomy' => $taxonomy,
+                'field' => 'term_id',
+                'terms' => $termId,
+            ];
+        }
+
+        $tax_query = [
+            'relation' => 'AND',
+            $current_tax ?? '',
+        ];
+        $args = [
+            'post_type' => 'technics',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+
+            'tax_query' => [
+                $tax_query
+            ],
+        ];
+
+        $technics = get_posts($args);
+        $count_technics = count($technics);
+        $max_page = ceil($count_technics / $sorting);
+        $technics = array_splice($technics, (($paged - 1) * $sorting), $sorting);
+
+        if ($max_page < $paged) {
+            $paged = $max_page;
+        }
+
+//        var_dump($paged);
+//
+//        die();
+
+
+        return [
+            'technics' => $technics,
+            'paged' => $paged,
+            'max_page' => (int)$max_page
+        ];
+    }
+
+    public function get_technics_filter(): void
+    {
+        $termId = $_GET['termId'];
+        $taxonomy = $_GET['taxonomy'];
+
+        $dataFilter = $this->get_technics($taxonomy, $termId);
+
+        [
+            'technics' => $entities,
+            'paged' => $paged,
+            'max_page' => $max_page
+        ] = $dataFilter;
+
+        $classContainer = 'catalog-filter-results';
+        $catalogPaginationClass = 'catalog-technics-pagination';
+
+        include get_template_directory() . '/ajax-blocks/filter-card-ajax.php';
+        wp_die();
     }
 
     public function getArticlesByTermId(?string $termId): array
