@@ -6,12 +6,13 @@ $ajax = new Ajax();
 $taxonomy = $current_tax->taxonomy ?? null;
 $termId = $current_tax->term_id ?? null;
 
-$dataFilter = $ajax->get_technics(
+$dataFilter = $ajax->get_accessories(
     $taxonomy,
     $termId
 );
 
-$entities = $dataFilter['technics'];
+$entities = $dataFilter['accessories'];
+
 $paged = $dataFilter['paged'];
 $max_page = $dataFilter['max_page'];
 
@@ -22,7 +23,7 @@ $catalogPaginationClass = 'catalog-technics-pagination';
 
 
 $categories = get_terms([
-    'taxonomy' => 'technics-category',
+    'taxonomy' => 'accessories-category',
     'hide_empty' => false,
 ]);
 
@@ -78,7 +79,7 @@ get_header();
 
                 </div>
                 <div class="catalog-filter-right">
-                    <div class="catalog-filter-wrapper-results" data-action="get_technics" data-taxanomy="<?= $taxonomy ?? '' ?>" data-term-id="<?= $termId ?? '' ?>">
+                    <div class="catalog-filter-wrapper-results" data-action="get_accessories" data-taxanomy="<?= $taxonomy ?? '' ?>" data-term-id="<?= $termId ?? '' ?>">
                         <div class="catalog-ajax-container">
                             <?php include get_template_directory() . '/ajax-blocks/filter-card-ajax.php' ?>
                         </div>

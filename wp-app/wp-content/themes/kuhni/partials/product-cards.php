@@ -10,6 +10,13 @@
         $brand = get_the_terms($entity->ID, 'technics-brand');
         $country = get_the_terms($entity->ID, 'technics-country');
 
+        if (empty($brand)) {
+            $brand = get_the_terms($entity->ID, 'accessories-brand');
+        }
+
+        if (empty($country)) {
+            $country = get_the_terms($entity->ID, 'accessories-country');
+        }
         $link = get_post_permalink($entity->ID);
         ?>
 

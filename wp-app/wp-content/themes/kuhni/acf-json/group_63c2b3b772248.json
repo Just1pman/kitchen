@@ -1,9 +1,9 @@
 {
-    "key": "group_63c05b37435c2",
-    "title": "Доп атрибуты Техники",
+    "key": "group_63c2b3b772248",
+    "title": "Доп атрибуты Аксессуаров",
     "fields": [
         {
-            "key": "field_63c05b3713d04",
+            "key": "field_63c2b3b776aa8",
             "label": "Фото",
             "name": "images",
             "type": "gallery",
@@ -30,7 +30,7 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_63c29a7feda48",
+            "key": "field_63c2b3b776ae7",
             "label": "Описание",
             "name": "description",
             "type": "wysiwyg",
@@ -49,7 +49,7 @@
             "media_upload": 1
         },
         {
-            "key": "field_63c2a23cf6008",
+            "key": "field_63c2b3b776b20",
             "label": "Отзывы",
             "name": "reviews",
             "type": "post_object",
@@ -76,7 +76,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "technics"
+                "value": "accessories"
             }
         ]
     ],
@@ -89,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1673704434
+    "modified": 1673704427
 }

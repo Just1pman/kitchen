@@ -12,10 +12,7 @@
 
 class GlobalPagination {
   /** @param {string} url */
-  constructor({
-    action
-  }) {
-    this.action = action;
+  constructor() {
     this.paginationButtonClass = 'page-numbers'
     this.wrapper = document.querySelector('.catalog-filter-wrapper-results');
     this.container = this.wrapper && this.wrapper.querySelector('.catalog-ajax-container');
@@ -32,7 +29,9 @@ class GlobalPagination {
   getUrl() {
     const params = this.getParams();
 
-    return `/wp-admin/admin-ajax.php?&action=${this.action}&${params}`;
+    const {action} = this.wrapper.dataset
+
+    return `/wp-admin/admin-ajax.php?&action=${action}&${params}`;
   }
 
   getParams () {
@@ -97,15 +96,10 @@ class GlobalPagination {
   stopLoader() {
     stopLoader('.catalog-filter-wrapper-results .loader-container')
   }
-
-
-
 }
 
 
-new GlobalPagination({
-  action: 'get_technics'
-})
+new GlobalPagination()
 
 //
 //

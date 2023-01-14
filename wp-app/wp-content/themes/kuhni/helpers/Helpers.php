@@ -24,6 +24,10 @@ class Helpers
                 $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Техника</a>';
             }
 
+            if ($postType === 'accessories') {
+                $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Комплектующие</a>';
+            }
+
             if (is_single()) {
                 $result .= ($totalPage ?? '') . $separator . get_the_title();
             } elseif (is_page()) {
