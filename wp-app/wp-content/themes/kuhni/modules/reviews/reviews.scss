@@ -261,6 +261,9 @@
   gap: 15px;
 
   .reviews__more {
+    a {
+      color: inherit;
+    }
     font-size: 18px;
   }
 }

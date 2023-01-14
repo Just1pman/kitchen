@@ -8,6 +8,7 @@ $gallery = get_field('images');
 $materials = get_the_terms($post, 'kitchen-material');
 $price = get_field('price');
 $subPrice = get_field('sub_price');
+$accessories = get_field('accessories');
 $reviews = get_field('reviews');
 $garanty = get_field('garanty');
 $delivery = get_field('delivery');
@@ -183,11 +184,13 @@ get_header();
                         </div>
                     </div>
 
-                    <div class="swiper-slide ">
-                        <div class="info-module__tab" data-tab="tab-2">
-                            Аксессуары
+                    <?php if(!empty($accessories)) : ?>
+                        <div class="swiper-slide ">
+                            <div class="info-module__tab" data-tab="tab-2">
+                                Аксессуары
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
                     <?php if (!empty($garanty)) : ?>
                         <div class="swiper-slide ">
@@ -232,7 +235,22 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="info-module__tab-content tab-2">Аксессуары</div>
+
+            <?php if(!empty($accessories)) : ?>
+                <div class="info-module__tab-content tab-2">
+                    <ul class="product__reviews">
+                        <?php foreach ($accessories as $accessory) : ?>
+                            <?php
+                                $name = $accessory->post_title;
+                                $link = get_post_permalink($accessory);
+                            ?>
+                        <li class="reviews__more">
+                            <a href="<?= $link ?>" target="_blank"><?= $name ?></a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
             <?php if (!empty($garanty)) : ?>
                 <div class="info-module__tab-content tab-3">
                     <div class="info-module__description-block">

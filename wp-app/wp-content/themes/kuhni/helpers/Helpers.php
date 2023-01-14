@@ -17,7 +17,7 @@ class Helpers
             }
 
             if ($postType === 'kitchens') {
-                $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Каталог</a>';
+                $totalPage = '<a href="' . get_home_url() . "/catalog" . '">Каталог</a>';
             }
 
             if ($postType === 'technics') {
