@@ -11,13 +11,17 @@ class Helpers
 
         if (!is_front_page()) {
             $result .= '<a href="' . get_home_url() . '">Главная</a>' . $separator;
-
-            if (get_post_type() === 'articles') {
-                $totalPage = '<a href="' . get_home_url() . '/blog' . '">Блог</a>';
+            $postType = get_post_type();
+            if ($postType === 'articles') {
+                $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Блог</a>';
             }
 
-            if (get_post_type() === 'kitchens') {
-                $totalPage = '<a href="' . get_home_url() . '/categories' . '">Каталог</a>';
+            if ($postType === 'kitchens') {
+                $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Каталог</a>';
+            }
+
+            if ($postType === 'technics') {
+                $totalPage = '<a href="' . get_home_url() . "/$postType" . '">Техника</a>';
             }
 
             if (is_single()) {

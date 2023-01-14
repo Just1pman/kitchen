@@ -255,7 +255,15 @@
   }
 }
 
+.product__reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 
+  .reviews__more {
+    font-size: 18px;
+  }
+}
 
 
 

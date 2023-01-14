@@ -1,12 +1,15 @@
 <?php
 
+use helpers\Helpers;
+
 $title = $post->post_title ?? null;
 $description = get_field('description');
 $gallery = get_field('images');
 $materials = get_the_terms($post, 'kitchen-material');
 $price = get_field('price');
 $subPrice = get_field('sub_price');
-
+$reviews = get_field('reviews');
+$garanty = get_field('garanty');
 $delivery = get_field('delivery');
 $pickup = get_field('pickup');
 $delay = get_field('delay');
@@ -186,17 +189,21 @@ get_header();
                         </div>
                     </div>
 
-                    <div class="swiper-slide ">
-                        <div class="info-module__tab" data-tab="tab-3">
-                            Гарантия
+                    <?php if (!empty($garanty)) : ?>
+                        <div class="swiper-slide ">
+                            <div class="info-module__tab" data-tab="tab-3">
+                                Гарантия
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
-                    <div class="swiper-slide ">
-                        <div class="info-module__tab" data-tab="tab-4">
-                            Отзывы
+                    <?php if (!empty($reviews)) : ?>
+                        <div class="swiper-slide ">
+                            <div class="info-module__tab" data-tab="tab-4">
+                                Отзывы
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
 
                 </div>
             </div>
@@ -226,8 +233,58 @@ get_header();
                 </div>
             </div>
             <div class="info-module__tab-content tab-2">Аксессуары</div>
-            <div class="info-module__tab-content tab-3">Гарантия</div>
-            <div class="info-module__tab-content tab-4">Отзывы</div>
+            <?php if (!empty($garanty)) : ?>
+                <div class="info-module__tab-content tab-3">
+                    <div class="info-module__description-block">
+                        <?= $garanty ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($reviews)) : ?>
+                <div class="info-module__tab-content tab-4">
+                <ul class="product__reviews">
+                    <?php foreach ($reviews as $review) : ?>
+                        <?php
+                        $author = $review->post_title;
+                        $created_at = get_the_date('j F Y', $review);
+                        $text = get_field('text', $review);
+                        $img = get_field('photo', $review);
+                        $imageLink = $img['url'] ?? null;
+
+
+                        $link = get_field('video', $review);
+                        $preview = htmlspecialchars('<b>'.$author.'</b>' .':</br>' . strip_tags($text));
+                        $isVideo = get_field('is_video', $review);
+
+
+                        if ($isVideo) {
+                            $youtubeVideoId = Helpers::get_youtube_id_from_url($link);
+                            $imageLink = sprintf('https://img.youtube.com/vi/%s/0.jpg', $youtubeVideoId);
+                        }
+                        ?>
+                        <li>
+                        <<?= $isVideo ? 'a' : 'div'?>
+                        class="reviews__more"
+
+                        <?php if (!$isVideo) : ?>
+                            data-fancybox="demo" data-src="<?= $imageLink ?? '' ?>" data-caption="<?= $preview  ?>"
+                        <? endif; ?>
+                        <?php if ($isVideo) : ?>
+                            href="<?= $link ?>"
+                            target="_blank"
+                        <?php endif; ?>
+                        >
+                        <?= $author ?>
+                        </<?= $isVideo ? 'a' : 'div'?>
+                        >
+                        </li>
+
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php endif; ?>
+
         </div>
         <?php
         $headline = 'Смотрите такжже';

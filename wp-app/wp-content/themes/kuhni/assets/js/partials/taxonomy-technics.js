@@ -17,8 +17,8 @@ class GlobalPagination {
   }) {
     this.action = action;
     this.paginationButtonClass = 'page-numbers'
-    this.wrapper = document.querySelector('.catalog-filter-wrapper-results')
-    this.container = this.wrapper.querySelector('.catalog-ajax-container')
+    this.wrapper = document.querySelector('.catalog-filter-wrapper-results');
+    this.container = this.wrapper?.querySelector('.catalog-ajax-container');
 
     this.onPage = 1;
 

@@ -296,6 +296,47 @@
             "append": ""
         },
         {
+            "key": "field_63c2a67408394",
+            "label": "Отзывы",
+            "name": "reviews",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "reviews"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_63c2a72681829",
+            "label": "Гарантии",
+            "name": "garanty",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "delay": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
             "key": "field_639f0c6628a8f",
             "label": "Доставка",
             "name": "",
@@ -395,5 +436,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1673465242
+    "modified": 1673701747
 }
