@@ -9,9 +9,14 @@ $paged = 1;
 $ajax = new Ajax();
 
 $term_id = $current_tax->term_id;
-$title_page = $current_tax->taxonomy === 'articles-category' ? $current_tax->name : 'Категории статей';
+$title_page = $titlePage ?? ($current_tax->taxonomy === 'articles-category' ? $current_tax->name : 'Категории статей');
 
-$dataArticles = $ajax->get_articles($term_id);
+$dataArticles = $ajax->get_articles(
+    $term_id,
+    $params ?? []
+);
+$isDiscount = $params['discount'] ?? null;
+
 $articles = $dataArticles['articles'];
 $paged = $dataArticles['paged'];
 $max_page = $dataArticles['max_page'];
@@ -31,7 +36,7 @@ $categoryData = array_map(function (WP_Term $term) {
     ];
 }, $categories);
 ?>
-    <section class="articles-category">
+    <section class="articles-category" data-is-discount="<?= $isDiscount ?? '' ?>">
         <div class="container">
             <h1 class="articles-category__main-title"><?= $title_page ?></h1>
 

@@ -49,6 +49,12 @@ class TaxonomyArticlesCategory {
     if (!!this.termId) {
       params += `&term_id=${this.termId}`;
     }
+    const articleSection = document.querySelector('.articles-category');
+
+    const { isDiscount } = articleSection.dataset
+    if (!!isDiscount) {
+      params += `&discount=1`;
+    }
 
     console.log(params)
     const url = '/wp-admin/admin-ajax.php' + params + `&action=article_categories`;

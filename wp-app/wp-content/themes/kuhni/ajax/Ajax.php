@@ -394,11 +394,15 @@ class Ajax
 
     public function get_articles(
         ?string $term_id = '',
+        array $params = []
     ): array
     {
         $paged = $_GET['np'] ?? 1;
         $term_id = $_GET['term_id'] ?? $term_id;
         $sorting = 6;
+        $isDiscount = $params['discount'] ?? $_GET['discount'] ?? false;
+
+
         if ($term_id) {
             $current_tax = [
                 'taxonomy' => 'articles-category',
@@ -407,19 +411,31 @@ class Ajax
             ];
         }
 
+
         $tax_query = [
             'relation' => 'AND',
             $current_tax ?? '',
         ];
+
         $args = [
             'post_type' => 'articles',
             'posts_per_page' => -1,
             'post_status' => 'publish',
-
             'tax_query' => [
                 $tax_query
             ],
         ];
+
+        if (!empty($isDiscount)) {
+            $filter = [
+                'meta_key' => 'is_discount',
+                'meta_value' => $isDiscount,
+                'compare' => '=',
+            ];
+
+            $args = array_merge($args, $filter);
+        }
+
 
         $articles = get_posts($args);
         $count_articles = count($articles);
