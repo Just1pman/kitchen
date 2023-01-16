@@ -71,7 +71,8 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">Телефон</p>
-                            <a href="tel:+<?= $phones[0]['phone'] ?? '' ?>" class="info-text"> <?= $phones[0]['phone'] ?? '' ?> </a>
+                            <a href="tel:+<?= $phones[0]['phone'] ?? '' ?>"
+                               class="info-text"> <?= $phones[0]['phone'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item email">
@@ -93,7 +94,8 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">E-mail</p>
-                            <a href="mailto:<?= $emailInfo['email'] ?? '' ?>" class="info-text"> <?= $emailInfo['email'] ?? '' ?> </a>
+                            <a href="mailto:<?= $emailInfo['email'] ?? '' ?>"
+                               class="info-text"> <?= $emailInfo['email'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item work-time">
@@ -137,10 +139,10 @@ $emailInfo = get_field('emailInfo', 'option');
                     <div style="position:relative;overflow:hidden; height: 100%; width: 100%"><a
                                 href="https://yandex.by/maps/213/moscow/?utm_medium=mapframe&utm_source=maps"
                                 style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a
-                                href="https://yandex.by/maps/213/moscow/house/presnenskaya_naberezhnaya_10s2/Z04YcwRlSUIGQFtvfXt1dnphZg==/?indoorLevel=1&ll=37.535071%2C55.747622&utm_medium=mapframe&utm_source=maps&z=17.05"
-                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Пресненская набережная,
-                            10с2 — ЯндексКарты</a>
-                        <iframe src="https://yandex.by/map-widget/v1/?indoorLevel=1&ll=37.535071%2C55.747622&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozMTA3Njg4NTkxEk7QoNC%2B0YHRgdC40Y8sINCc0L7RgdC60LLQsCwg0J%2FRgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LHQtdGA0LXQttC90LDRjywgMTDRgTIiCg3pIxZCFZH9XkI%3D&z=17.05"
+                                href="https://yandex.by/maps/213/moscow/house/presnenskaya_naberezhnaya_10/Z04YcwRnSk0HQFtvfXt1d3lqZw==/?indoorLevel=1&ll=37.537380%2C55.746593&utm_medium=mapframe&utm_source=maps&z=17.05"
+                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Пресненская набережная, 10
+                            — Яндекс Карты</a>
+                        <iframe src="https://yandex.by/map-widget/v1/?indoorLevel=1&ll=37.537380%2C55.746593&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTkyNjc1MjMzEkvQoNC%2B0YHRgdC40Y8sINCc0L7RgdC60LLQsCwg0J%2FRgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LHQtdGA0LXQttC90LDRjywgMTAiCg1GJhZCFYP8XkI%3D&z=17.05"
                                 width="100%" height="100%" frameborder="1" allowfullscreen="true"
                                 style="position:relative;"></iframe>
                     </div>
