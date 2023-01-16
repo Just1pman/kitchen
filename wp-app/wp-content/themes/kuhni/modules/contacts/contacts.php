@@ -71,8 +71,7 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">Телефон</p>
-                            <a href="tel:+<?= $phones[0]['phone'] ?? '' ?>"
-                               class="info-text"> <?= $phones[0]['phone'] ?? '' ?> </a>
+                            <a href="tel:+<?= $phones[0]['phone'] ?? '' ?>" class="info-text"> <?= $phones[0]['phone'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item email">
@@ -94,8 +93,7 @@ $emailInfo = get_field('emailInfo', 'option');
                         </div>
                         <div class="wrapper-top-left-item-info">
                             <p class="info-title">E-mail</p>
-                            <a href="mailto:<?= $emailInfo['email'] ?? '' ?>"
-                               class="info-text"> <?= $emailInfo['email'] ?? '' ?> </a>
+                            <a href="mailto:<?= $emailInfo['email'] ?? '' ?>" class="info-text"> <?= $emailInfo['email'] ?? '' ?> </a>
                         </div>
                     </div>
                     <div class="wrapper-top-left-item work-time">
@@ -136,7 +134,7 @@ $emailInfo = get_field('emailInfo', 'option');
                 </div>
 
                 <div class="wrapper-top-right">
-                    <div style="position:relative;overflow:hidden;"><a
+                    <div style="position:relative;overflow:hidden; height: 100%; width: 100%"><a
                                 href="https://yandex.by/maps/213/moscow/?utm_medium=mapframe&utm_source=maps"
                                 style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a
                                 href="https://yandex.by/maps/213/moscow/house/presnenskaya_naberezhnaya_10s2/Z04YcwRlSUIGQFtvfXt1dnphZg==/?indoorLevel=1&ll=37.535071%2C55.747622&utm_medium=mapframe&utm_source=maps&z=17.05"
