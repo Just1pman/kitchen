@@ -1,5 +1,6 @@
 <?php
 $titlePage = 'Акции';
+$withCategories = false;
 $params = [
     'discount' => true
 ];
