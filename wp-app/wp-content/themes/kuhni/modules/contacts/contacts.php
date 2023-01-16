@@ -141,7 +141,7 @@ $emailInfo = get_field('emailInfo', 'option');
                                 style="color:#eee;font-size:12px;position:absolute;top:14px;">Пресненская набережная,
                             10с2 — ЯндексКарты</a>
                         <iframe src="https://yandex.by/map-widget/v1/?indoorLevel=1&ll=37.535071%2C55.747622&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozMTA3Njg4NTkxEk7QoNC%2B0YHRgdC40Y8sINCc0L7RgdC60LLQsCwg0J%2FRgNC10YHQvdC10L3RgdC60LDRjyDQvdCw0LHQtdGA0LXQttC90LDRjywgMTDRgTIiCg3pIxZCFZH9XkI%3D&z=17.05"
-                                width="560" height="400" frameborder="1" allowfullscreen="true"
+                                width="100%" height="100%" frameborder="1" allowfullscreen="true"
                                 style="position:relative;"></iframe>
                     </div>
                 </div>
