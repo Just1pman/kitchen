@@ -34,4 +34,6 @@
             <div class="page-numbers paged"> <?= $max_page ?> </div>
         <?php endif; ?>
     </div>
+<?php else : ?>
+    Ничего не найдено
 <?php endif; ?>
