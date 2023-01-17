@@ -18,7 +18,7 @@ foreach($articles as $article) : ?>
     <?php endif; ?>
 
     <?php if ($paged - 3 <= $max_page && $paged > 3) : ?>
-        <div class="page-numbers dots"> ...</div>
+        <div class="dots"> ...</div>
     <?php endif; ?>
 
     <?php if ($paged - 1 <= $max_page && $paged != 1) : ?>
@@ -32,7 +32,7 @@ foreach($articles as $article) : ?>
     <?php endif; ?>
 
     <?php if ($paged + 3 <= $max_page) : ?>
-        <div class="page-numbers dots"> ...</div>
+        <div class="dots"> ...</div>
     <?php endif; ?>
 
     <?php if ($paged < $max_page) : ?>
