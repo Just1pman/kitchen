@@ -58,7 +58,8 @@ class GlobalPagination {
       const clickedTarget = e.target;
 
       if (
-        !clickedTarget.classList.contains(this.paginationButtonClass)
+        (!clickedTarget.classList.contains(this.paginationButtonClass)
+        && !clickedTarget.classList.contains('.dots'))
         || clickedTarget.classList.contains('current')
       ) {
         return;
