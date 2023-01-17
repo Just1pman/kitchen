@@ -75,7 +75,7 @@ $categoryData = array_map(function (WP_Term $term) {
             <?php endif; ?>
 
 
-            <div class="articles-category--articles-container">
+            <div class="articles-category--articles-container" <?php if ($isDiscount) : ?> style="padding-top: 0" <?php endif;?>>
                 <div class="loader-container" style="display: none">
                     <div class="loader"></div>
                     <div class="loader-bg"></div>
