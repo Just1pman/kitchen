@@ -38,7 +38,7 @@ class Ajax
     public function example_kitchens()
     {
         $format = $_POST['format'];
-        $kitchens = $this->get_example_kitchens($format);
+        $entities = $this->get_example_kitchens($format);
 
         include $this->ajax_blocks_path . 'example-kitchens-ajax.php';
         wp_die();

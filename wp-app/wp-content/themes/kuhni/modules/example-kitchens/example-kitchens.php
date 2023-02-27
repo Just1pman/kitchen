@@ -9,7 +9,7 @@ $headline = $headline ?? get_field('headline');
 $button = get_field('link');
 $filter_on = get_field('filter_on');
 $ajax = new Ajax();
-$kitchens = $ajax->get_example_kitchens('new');
+$entities = $ajax->get_example_kitchens('new');
 ?>
 
 <?php if (!is_admin()) : ?>
