@@ -20,7 +20,7 @@ $entities = $ajax->get_example_kitchens('new');
                 <?php if ($filter_on) : ?>
                     <div class="top-right">
                         <button class="button button-active" data-format="new">Новинки</button>
-                        <button class="button" data-format="popular">поплярные</button>
+                        <button class="button" data-format="popular">популярные</button>
                         <button class="button" data-format="discount">скидки</button>
                     </div>
                 <?php endif; ?>
