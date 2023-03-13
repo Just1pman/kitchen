@@ -81,7 +81,7 @@ $step_5_items = $quiz['step_5'] ?? '';
                             <div class="step-2-bottom">
                                 <div><span>2.5</span><span>м</span></div>
                                 <picture>
-                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>" alt="">
+                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>" alt="image">
                                 </picture>
                             </div>
                         </div>

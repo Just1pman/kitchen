@@ -47,7 +47,8 @@ document.querySelector('#pick-up').style.display = "none";
 
 const next = document.querySelector('.swiper-pick-up .next');
 const prev = document.querySelector('.swiper-pick-up .prev');
-const step1Checkboxes = document.querySelectorAll('.step-items .checkbox')
+const stepCheckboxes = document.querySelectorAll('.step-items .checkbox')
+const step2img = document.querySelector('.step-2-bottom img')
 
 next && next.addEventListener('click', setNumberSlide)
 prev && prev.addEventListener('click', setNumberSlide)
@@ -56,16 +57,22 @@ function setNumberSlide() {
   const activeSlide = document.querySelector('.swiper-pick-up .swiper-slide-active');
   const numberSlide = activeSlide.getAttribute('data-number');
   const currentSlide = document.querySelector('.current-slide');
+  const step1Data = document.querySelector('[data-number="1"] .js-active ')
 
   if (numberSlide == 6) {
     document.querySelector('.swiper-pick-up h5').style.display = "none";
     document.querySelector('.swiper-pick-up .navigation').style.display = "none";
   }
 
+  if (numberSlide == 2 && step1Data) {
+    const image = step1Data.parentElement.querySelector('img')
+    step2img.src = image.src
+  }
+
   currentSlide.textContent = numberSlide;
 }
 
-step1Checkboxes && step1Checkboxes.forEach((checkbox) => {
+stepCheckboxes && stepCheckboxes.forEach((checkbox) => {
   checkbox && checkbox.addEventListener('click', () => {
     checkbox.classList.toggle('js-active');
   })
