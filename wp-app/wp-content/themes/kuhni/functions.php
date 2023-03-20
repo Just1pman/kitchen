@@ -39,9 +39,9 @@ function my_register_blocks()
                 'supports_align_text' => 'SupportsAlignText',
                 'supports_align_content' => 'SupportsAlignContent',
                 'supports_multiple' => 'SupportsMultiple',
-                'enqueue_style'     => 'EnqueueStyle',
-                'enqueue_script'    => 'EnqueueScript',
-                'enqueue_assets'    => 'EnqueueAssets',
+                'enqueue_style' => 'EnqueueStyle',
+                'enqueue_script' => 'EnqueueScript',
+                'enqueue_assets' => 'EnqueueAssets',
             ]);
 
             acf_register_block_type(array(
@@ -61,4 +61,27 @@ function my_acf_block_render_callback($block)
     if (file_exists(get_theme_file_path("modules/" . $slug . '/' . $slug . ".php"))) {
         include(get_theme_file_path("modules/" . $slug . '/' . $slug . ".php"));
     }
+}
+
+add_action('wp_footer', 'yandexMetrik');
+
+function yandexMetrik()
+{
+    ?>
+    <script type="text/javascript">
+      document.addEventListener('wpcf7mailsent', function (event) {
+        if (event.detail.contactFormId == '147') {
+          yaCounter92848644.reachGoal('form3');
+        }
+
+        if (event.detail.contactFormId == '159') {
+          yaCounter92848644.reachGoal('form2');
+        }
+
+        if (event.detail.contactFormId == '315') {
+          yaCounter92848644.reachGoal('form2');
+        }
+      }, false);
+    </script>
+    <?php
 }
