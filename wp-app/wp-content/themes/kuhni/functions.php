@@ -72,14 +72,17 @@ function yandexMetrik()
       document.addEventListener('wpcf7mailsent', function (event) {
         if (event.detail.contactFormId == '147') {
           yaCounter92848644.reachGoal('form3');
+          console.log('form3')
         }
 
         if (event.detail.contactFormId == '159') {
           yaCounter92848644.reachGoal('form2');
+          console.log('form2')
         }
 
         if (event.detail.contactFormId == '315') {
-          yaCounter92848644.reachGoal('form2');
+          yaCounter92848644.reachGoal('form1');
+          console.log('form1')
         }
       }, false);
     </script>
