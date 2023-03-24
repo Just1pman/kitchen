@@ -42,7 +42,7 @@ class Helpers
         return $result;
     }
 
-    public static function getMaxPrice() : int
+    public static function getMaxPrice() : int|string
     {
         $kitchens = get_posts([
             'post_type' => 'kitchens',
