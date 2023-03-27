@@ -275,21 +275,21 @@ $step_5_items = $quiz['step_5'] ?? '';
                 </div>
 
                 <div class="footer-section">
-                    <?php foreach ($addressInfos as $addressInfo) : ?>
-                        <?php if (!empty($addressInfo['address']) && !empty($addressInfo['department'])) : ?>
-                            <div class="footer-section__link">
-                                <b class="footer__title">Адрес</b>
+                    <?php if (!empty($addressInfos)) : ?>
+                        <div class="footer-section__link">
+                            <b class="footer__title">Адрес</b>
+                            <?php foreach ($addressInfos as $addressInfo) : ?>
                                 <p class="footer-section__description">
-                                <span class="footer-section__important">
-                                    <?= $addressInfo['address'] ?>
-                                </span>
+                                    <span class="footer-section__important">
+                                        <?= $addressInfo['address'] ?>
+                                    </span>
                                     <i class="footer-section__signature">
                                         <?= $addressInfo['department'] ?>
                                     </i>
                                 </p>
-                            </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <?php if (!empty($workingMode['workingTime']) && !empty($workingMode['days'])) : ?>
                         <div class="footer-section__link">
                             <b class="footer__title">Режим работы</b>
