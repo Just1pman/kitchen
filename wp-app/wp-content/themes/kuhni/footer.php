@@ -4,7 +4,7 @@ $logo = get_field('logo', 'option');
 $socials = get_field('socials', 'option');
 $phones = get_field('phones', 'option');
 $emailInfo = get_field('emailInfo', 'option');
-$addressInfo = get_field('addressInfo', 'option');
+$addressInfos = get_field('addressInfo', 'option');
 $workingMode = get_field('workingMode', 'option');
 $back_call_form = get_field('back_call', 'option');
 $checkout_form = get_field('checkout', 'option');
@@ -81,7 +81,8 @@ $step_5_items = $quiz['step_5'] ?? '';
                             <div class="step-2-bottom">
                                 <div><span>2.5</span><span>м</span></div>
                                 <picture>
-                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>" alt="image">
+                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>"
+                                         alt="image">
                                 </picture>
                             </div>
                         </div>
@@ -274,19 +275,21 @@ $step_5_items = $quiz['step_5'] ?? '';
                 </div>
 
                 <div class="footer-section">
-                    <?php if (!empty($addressInfo['address']) && !empty($addressInfo['department'])) : ?>
-                        <div class="footer-section__link">
-                            <b class="footer__title">Адрес</b>
-                            <p class="footer-section__description">
+                    <?php foreach ($addressInfos as $addressInfo) : ?>
+                        <?php if (!empty($addressInfo['address']) && !empty($addressInfo['department'])) : ?>
+                            <div class="footer-section__link">
+                                <b class="footer__title">Адрес</b>
+                                <p class="footer-section__description">
                                 <span class="footer-section__important">
                                     <?= $addressInfo['address'] ?>
                                 </span>
-                                <i class="footer-section__signature">
-                                    <?= $addressInfo['department'] ?>
-                                </i>
-                            </p>
-                        </div>
-                    <?php endif; ?>
+                                    <i class="footer-section__signature">
+                                        <?= $addressInfo['department'] ?>
+                                    </i>
+                                </p>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                     <?php if (!empty($workingMode['workingTime']) && !empty($workingMode['days'])) : ?>
                         <div class="footer-section__link">
                             <b class="footer__title">Режим работы</b>
