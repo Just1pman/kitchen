@@ -340,6 +340,54 @@
             ]
         },
         {
+            "key": "field_6421e448b9d2f",
+            "label": "Политика конфиденциальности",
+            "name": "privacy",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6421e481b9d30",
+            "label": "Обработка персональных данных",
+            "name": "personaldata",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6421e49fb9d31",
+            "label": "Студия разработчик",
+            "name": "developerstudio",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_6396358a6353e",
             "label": "Формы",
             "name": "",
@@ -726,5 +774,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679942149
+    "modified": 1679942868
 }

@@ -10,6 +10,10 @@ $back_call_form = get_field('back_call', 'option');
 $checkout_form = get_field('checkout', 'option');
 $pick_up = get_field('pick_up', 'option');
 
+$privacy = get_field('privacy', 'option');
+$personalData = get_field('personaldata', 'option');
+$developerStudio = get_field('developerstudio', 'option');
+
 $quiz = get_field('quiz', 'option');
 
 $step_1_items = $quiz['step_1'] ?? '';
@@ -357,12 +361,12 @@ $step_5_items = $quiz['step_5'] ?? '';
             </div>
             <div class="footer-additional">
                 <div class="footer-additional__left">
-                    <a href="">Политика конфиденциальности</a>
-                    <a href="">Согласие на обработку персональных данных</a>
+                    <a href="<?= $privacy['url'] ?? '' ?>"><?= $privacy['title'] ?? ''?></a>
+                    <a href="<?= $personalData['url'] ?? '' ?>"><?= $personalData['title'] ?? '' ?></a>
                 </div>
 
                 <div class="footer-additional__right">
-                    <a href="">Разработка сайта — Digital-студия «Акцепт»</a>
+                    <a href="<?= $developerStudio['url'] ?? ''?>"><?= $developerStudio['title'] ?? ''?></a>
                 </div>
 
             </div>
