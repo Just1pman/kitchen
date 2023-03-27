@@ -343,7 +343,7 @@
             "key": "field_6421e448b9d2f",
             "label": "Политика конфиденциальности",
             "name": "privacy",
-            "type": "url",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -352,14 +352,13 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_6421e481b9d30",
             "label": "Обработка персональных данных",
             "name": "personaldata",
-            "type": "url",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -368,14 +367,13 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_6421e49fb9d31",
             "label": "Студия разработчик",
             "name": "developerstudio",
-            "type": "url",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -384,8 +382,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "return_format": "array"
         },
         {
             "key": "field_6396358a6353e",
@@ -774,5 +771,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679942868
+    "modified": 1679943159
 }
