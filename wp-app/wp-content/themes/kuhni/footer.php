@@ -366,7 +366,7 @@ $step_5_items = $quiz['step_5'] ?? '';
                 </div>
 
                 <div class="footer-additional__right">
-                    <a href="<?= $developerStudio['url'] ?? ''?>"><?= $developerStudio['title'] ?? ''?></a>
+                    <a href="<?= $developerStudio['url'] ?? ''?>" rel="nofollow"><?= $developerStudio['title'] ?? ''?></a>
                 </div>
 
             </div>
