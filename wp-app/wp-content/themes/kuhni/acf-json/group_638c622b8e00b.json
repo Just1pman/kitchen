@@ -43,6 +43,69 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_638c7657426f7",
+            "label": "Местонахождение",
+            "name": "addressInfo",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Добавить",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_638c7679426f8",
+                    "label": "Адрес",
+                    "name": "address",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_638c7657426f7"
+                },
+                {
+                    "key": "field_6421e0d529bb8",
+                    "label": "Отдел",
+                    "name": "department",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_638c7657426f7"
+                }
+            ]
+        },
+        {
             "key": "field_638c76eff7d3e",
             "label": "Режим работы",
             "name": "workingMode",
@@ -80,61 +143,6 @@
                     "key": "field_638c7747665c9",
                     "label": "По каким дням",
                     "name": "days",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                }
-            ]
-        },
-        {
-            "key": "field_638c7657426f7",
-            "label": "Местонахождение",
-            "name": "addressInfo",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_638c7679426f8",
-                    "label": "Адрес",
-                    "name": "address",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_638c76b2426f9",
-                    "label": "Отдел",
-                    "name": "department",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -354,6 +362,51 @@
                     "parent_repeater": "field_638c780e7775a"
                 }
             ]
+        },
+        {
+            "key": "field_6421e448b9d2f",
+            "label": "Политика конфиденциальности",
+            "name": "privacy",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_6421e481b9d30",
+            "label": "Обработка персональных данных",
+            "name": "personaldata",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_6421e49fb9d31",
+            "label": "Студия разработчик",
+            "name": "developerstudio",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_6396358a6353e",
@@ -742,5 +795,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682161003
+    "modified": 1679943159
 }

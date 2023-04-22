@@ -5,11 +5,15 @@ $logosFooter = get_field('logos_footer', 'option');
 $socials = get_field('socials', 'option');
 $phones = get_field('phones', 'option');
 $emailInfo = get_field('emailInfo', 'option');
-$addressInfo = get_field('addressInfo', 'option');
+$addressInfos = get_field('addressInfo', 'option');
 $workingMode = get_field('workingMode', 'option');
 $back_call_form = get_field('back_call', 'option');
 $checkout_form = get_field('checkout', 'option');
 $pick_up = get_field('pick_up', 'option');
+
+$privacy = get_field('privacy', 'option');
+$personalData = get_field('personaldata', 'option');
+$developerStudio = get_field('developerstudio', 'option');
 
 $quiz = get_field('quiz', 'option');
 
@@ -82,7 +86,8 @@ $step_5_items = $quiz['step_5'] ?? '';
                             <div class="step-2-bottom">
                                 <div><span>2.5</span><span>м</span></div>
                                 <picture>
-                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>" alt="image">
+                                    <img src="<?= home_url() . '/wp-content/uploads/2022/12/угловая.png' ?>"
+                                         alt="image">
                                 </picture>
                             </div>
                         </div>
@@ -275,17 +280,19 @@ $step_5_items = $quiz['step_5'] ?? '';
                 </div>
 
                 <div class="footer-section">
-                    <?php if (!empty($addressInfo['address']) && !empty($addressInfo['department'])) : ?>
+                    <?php if (!empty($addressInfos)) : ?>
                         <div class="footer-section__link">
                             <b class="footer__title">Адрес</b>
-                            <p class="footer-section__description">
-                                <span class="footer-section__important">
-                                    <?= $addressInfo['address'] ?>
-                                </span>
-                                <i class="footer-section__signature">
-                                    <?= $addressInfo['department'] ?>
-                                </i>
-                            </p>
+                            <?php foreach ($addressInfos as $addressInfo) : ?>
+                                <p class="footer-section__description">
+                                    <span class="footer-section__important">
+                                        <?= $addressInfo['address'] ?>
+                                    </span>
+                                    <i class="footer-section__signature">
+                                        <?= $addressInfo['department'] ?>
+                                    </i>
+                                </p>
+                            <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($workingMode['workingTime']) && !empty($workingMode['days'])) : ?>
@@ -360,12 +367,12 @@ $step_5_items = $quiz['step_5'] ?? '';
             </div>
             <div class="footer-additional">
                 <div class="footer-additional__left">
-                    <a href="">Политика конфиденциальности</a>
-                    <a href="">Согласие на обработку персональных данных</a>
+                    <a href="<?= $privacy['url'] ?? '' ?>"><?= $privacy['title'] ?? ''?></a>
+                    <a href="<?= $personalData['url'] ?? '' ?>"><?= $personalData['title'] ?? '' ?></a>
                 </div>
 
                 <div class="footer-additional__right">
-                    <a href="">Разработка сайта — Digital-студия «Акцепт»</a>
+                    <a href="<?= $developerStudio['url'] ?? ''?>" rel="nofollow"><?= $developerStudio['title'] ?? ''?></a>
                 </div>
             </div>
         </div>
