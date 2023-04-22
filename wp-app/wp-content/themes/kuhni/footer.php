@@ -1,6 +1,7 @@
 </main>
 <?php
 $logo = get_field('logo', 'option');
+$logosFooter = get_field('logos_footer', 'option');
 $socials = get_field('socials', 'option');
 $phones = get_field('phones', 'option');
 $emailInfo = get_field('emailInfo', 'option');
@@ -352,6 +353,11 @@ $step_5_items = $quiz['step_5'] ?? '';
                     <?php endif; ?>
                 </ul>
             </div>
+            <div class="footer__logos">
+                <picture>
+                    <img loading="lazy" src="<?= $logosFooter['url'] ?>" alt="<?= $logosFooter['title'] ?>">
+                </picture>
+            </div>
             <div class="footer-additional">
                 <div class="footer-additional__left">
                     <a href="">Политика конфиденциальности</a>
@@ -361,7 +367,6 @@ $step_5_items = $quiz['step_5'] ?? '';
                 <div class="footer-additional__right">
                     <a href="">Разработка сайта — Digital-студия «Акцепт»</a>
                 </div>
-
             </div>
         </div>
     </div>

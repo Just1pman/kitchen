@@ -267,6 +267,30 @@
             ]
         },
         {
+            "key": "field_6443bd3ffcb5a",
+            "label": "Фото логотипов в футере",
+            "name": "logos_footer",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_638c780e7775a",
             "label": "Социальные сети",
             "name": "socials",
@@ -718,5 +742,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1672338076
+    "modified": 1682161003
 }

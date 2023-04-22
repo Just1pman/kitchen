@@ -157,12 +157,12 @@
   &-additional {
     display: flex;
     justify-content: space-between;
-    margin-top: 85px;
+    margin-top: 45px;
     font-size: 14px;
     font-weight: 500;
 
     @include _480 {
-      margin-top: 50px;
+      margin-top: 25px;
       flex-direction: column;
       text-align: center;
       gap: 6px;
@@ -181,6 +181,21 @@
         flex-direction: column;
         gap: 6px;
       }
+    }
+  }
+
+  .footer__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+    img {
+      max-width: 400px;
+    }
+
+    @include _480 {
+      margin-top: 25px;
     }
   }
 }
