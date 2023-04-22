@@ -360,11 +360,13 @@ $step_5_items = $quiz['step_5'] ?? '';
                     <?php endif; ?>
                 </ul>
             </div>
-            <div class="footer__logos">
-                <picture>
-                    <img loading="lazy" src="<?= $logosFooter['url'] ?>" alt="<?= $logosFooter['title'] ?>">
-                </picture>
-            </div>
+            <?php if (!empty($logosFooter)) : ?>
+                <div class="footer__logos">
+                    <picture>
+                        <img loading="lazy" src="<?= $logosFooter['url'] ?>" alt="<?= $logosFooter['title'] ?>" width="400" height="40">
+                    </picture>
+                </div>
+            <?php endif; ?>
             <div class="footer-additional">
                 <div class="footer-additional__left">
                     <a href="<?= $privacy['url'] ?? '' ?>"><?= $privacy['title'] ?? ''?></a>
