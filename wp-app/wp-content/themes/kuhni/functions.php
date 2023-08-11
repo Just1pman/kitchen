@@ -85,3 +85,5 @@ function yandexMetrik()
     </script>
     <?php
 }
+
+add_filter( 'allow_dev_auto_core_updates', '__return_false' );
